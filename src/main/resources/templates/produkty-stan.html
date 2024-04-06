@@ -48,13 +48,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="m :${material}">
+        <tr th:each="p :${produkt}">
             <!--<th scope="row">1</th>-->
-            <td th:text="${m.idProduktu}"></td>
-            <td th:text="${m.nazwa}"></td>
-            <td th:text="${m.producent}"></td>
-            <td th:text="${m.cena}"></td>
-            <td th:text="${m.typ}"></td>
+            <td th:text="${p.idProduktu}"></td>
+            <td th:text="${p.nazwa}"></td>
+            <td th:text="${p.producent}"></td>
+            <td th:text="${p.cena}"></td>
+            <td th:text="${p.typ}"></td>
         </tr>
 
         </tbody>

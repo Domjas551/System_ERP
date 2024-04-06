@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/add-produkt.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/edytuj-produkt.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/produkty-stan.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki.html" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Pierwsze wersje stron producenta">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Produkt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/ProduktRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ProduktService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/produkty-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/produkty-stan.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,6 +40,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -48,32 +52,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.MagazynManagementApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Xelor/Desktop/System_ERP",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "configurable.group.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MagazynManagementApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xelor/Desktop/System_ERP&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
@@ -140,10 +144,23 @@
       <workItem from="1704904511032" duration="20041000" />
       <workItem from="1704990319520" duration="9835000" />
     </task>
+    <task id="LOCAL-00001" summary="Pierwsze wersje stron producenta">
+      <option name="closed" value="true" />
+      <created>1712304345798</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712304345798</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pierwsze wersje stron producenta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pierwsze wersje stron producenta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
