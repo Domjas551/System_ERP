@@ -60,7 +60,7 @@
 <!--    </div>-->
 
     <form class="col-md-4 offset-md-4" th:action="@{/registration}"
-          method="post" role="form" th:object="${klientDto}">
+          method="post" role="form" th:object="${userDto}">
         <div class="mb-3">
             <label for="imie" class="form-label">Imię</label>
             <input th:field="*{imie}" type="text" class="form-control" id="imie" name="imie" required>
@@ -69,11 +69,6 @@
         <div class="mb-3">
             <label for="nazwisko" class="form-label">Nazwisko</label>
             <input th:field="*{nazwisko}" type="text" class="form-control" id="nazwisko" name="nazwisko" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="adres" class="form-label">Adres</label>
-            <input th:field="*{adres}" type="text" class="form-control" id="adres" name="adres"  required>
         </div>
 
         <div class="mb-3">
@@ -87,13 +82,22 @@
         </div>
 
         <div class="mb-3">
-            <label for="login" class="form-label">Login</label>
-            <input th:field="*{login}" type="text" class="form-control" id="login" name="login" required>
-        </div>
-
-        <div class="mb-3">
             <label for="haslo" class="form-label">Hasło</label>
             <input th:field="*{haslo}" type="password" class="form-control" id="haslo" name="haslo" required>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input th:field="*{czyKlientDetaliczny}" type="checkbox" class="form-check-input" id="czyKlientDetaliczny" name="czyKlientDetaliczny">
+            <label class="form-check-label" for="czyKlientDetaliczny">Klient Detaliczny</label>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input th:field="*{czyKlientHurtowy}" type="checkbox" class="form-check-input" id="czyKlientHurtowy" name="czyKlientHurtowy">
+            <label class="form-check-label" for="czyKlientHurtowy">Klient Hurtowy</label>
+        </div>
+
+        <div class="row mt-2" th:if="${error != null}" style="color: red; text-align: center; margin: 0 auto; width: 40%;">
+            <p>[[${error}]]</p>
         </div>
 
         <button type="submit" class="btn btn-success">Zarejestruj się</button>

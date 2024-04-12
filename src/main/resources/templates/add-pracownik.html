@@ -63,52 +63,44 @@
           method="post" role="form" th:object="${pracownikDto}">
         <div class="mb-3">
             <label for="imie" class="form-label">Imię</label>
-            <input th:field="*{imie}" type="text" class="form-control" id="imie" name="imie" required>
+            <input th:field="*{imie}" type="text" class="form-control" id="imie" name="imie" required placeholder="imię">
         </div>
 
         <div class="mb-3">
             <label for="nazwisko" class="form-label">Nazwisko</label>
-            <input th:field="*{nazwisko}" type="text" class="form-control" id="nazwisko" name="nazwisko" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="idMagazynu" class="form-label">Id Magazynu</label>
-            <input th:field="*{idMagazynu}" type="text" class="form-control" id="idMagazynu" name="idMagazynu" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="pensja" class="form-label">Pensja</label>
-            <input th:field="*{pensja}" type="text" class="form-control" id="pensja" name="pensja" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="stanowisko" class="form-label">Stanowisko</label>
-            <input th:field="*{stanowisko}" type="text" class="form-control" id="stanowisko" name="stanowisko" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="adres" class="form-label">Adres</label>
-            <input th:field="*{adres}" type="text" class="form-control" id="adres" name="adres"  required>
+            <input th:field="*{nazwisko}" type="text" class="form-control" id="nazwisko" name="nazwisko" required placeholder="nazwisko">
         </div>
 
         <div class="mb-3">
             <label for="telefon" class="form-label">Numer telefonu</label>
-            <input th:field="*{telefon}" type="text" class="form-control" id="telefon" name="telefon"  required>
+            <input th:field="*{telefon}" type="text" class="form-control" id="telefon" name="telefon"  required placeholder="nr telefonu">
+        </div>
+
+        <div class="mb-3">
+            <label for="stanowisko" class="form-label">Stanowisko</label>
+            <select th:field="*{stanowisko}" class="form-select" name="stanowisko" id="stanowisko" required>
+                <option value="">Wybierz stanowisko</option>
+                <option value="kierownik magazynu">Kierownik magazynu</option>
+                <option value="magazynier">Magazynier</option>
+                <option value="kierowca">Kierowca</option>
+                <option value="koordynator">Koordynator</option>
+                <option value="administrator">Administrator</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="pensja" class="form-label">Pensja</label>
+            <input th:field="*{pensja}" type="number" class="form-control" id="pensja" name="pensja" required>
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">E-mail</label>
-            <input th:field="*{email}" type="email" class="form-control" id="email" name="email" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="login" class="form-label">Login</label>
-            <input th:field="*{login}" type="text" class="form-control" id="login" name="login" required>
+            <input th:field="*{email}" type="email" class="form-control" id="email" name="email" required placeholder="email">
         </div>
 
         <div class="mb-3">
             <label for="haslo" class="form-label">Hasło</label>
-            <input th:field="*{haslo}" type="password" class="form-control" id="haslo" name="haslo" required>
+            <input th:field="*{haslo}" type="password" class="form-control" id="haslo" name="haslo" required placeholder="hasło">
         </div>
 
         <button type="submit" class="btn btn-success">Dodaj pracownika</button>

@@ -68,32 +68,32 @@ public class PracownikController {
         return "redirect:/manager/pracownicy";
     }
 
-    @GetMapping("/admin")
+    /*@GetMapping("/admin")
     public String admin(Model model, Principal principal){
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("admin", userDetails);
         return "admin-main";
-    }
+    }*/
 
-    @GetMapping("/manager")
+    /*@GetMapping("/manager")
     public String manager(Model model, Principal principal){
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("manager", userDetails);
         return "manager-main";
-    }
+    }*/
 
-    @GetMapping("/pracownik")
+    /*@GetMapping("/pracownik")
     public String pracownik(Model model, Principal principal) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("pracownik", userDetails);
         return "pracownik-main";
-    }
+    }*/
 
-    @GetMapping("/admin/add-pracownik")
+    /*@GetMapping("/admin/add-pracownik")
     public String addPracownikPage(Model model){
         model.addAttribute("pracownikDto", new PracownikDto());
         return "add-pracownik";
-    }
+    }*/
 
     @GetMapping("/pracownik/wyszukaj-sektor")
     public String wyszukajSektor(Model model){
@@ -150,13 +150,13 @@ public class PracownikController {
         return "redirect:/manager/zmien-sektor/"+idMagazynu;
     }
 
-    @PostMapping("/admin/add-pracownik")
+    /*@PostMapping("/admin/add-pracownik")
     public String savePracownik(@ModelAttribute("pracownikDto") PracownikDto pracownikDto, Model model){
         Pracownik savedPracownik = pracownikService.save(pracownikDto);
         kontoService.save(pracownikDto, savedPracownik);
         model.addAttribute("message", "Pracownik dodany");
         return "add-pracownik";
-    }
+    }*/
 
     @GetMapping("manager/add-pracownik")
     public String addPracownikManagerPage(Model model){
@@ -164,11 +164,11 @@ public class PracownikController {
         return "add-pracownikByManager";
     }
 
-    @PostMapping("/manager/add-pracownik")
+    /*@PostMapping("/manager/add-pracownik")
     public String addPracownik(@ModelAttribute("pracownikDto") PracownikDto pracownikDto, Model model){
         Pracownik savedPracownik = pracownikService.save(pracownikDto);
         kontoService.save(pracownikDto, savedPracownik);
         model.addAttribute("message", "Pracownik dodany");
         return "add-pracownikByManager";
-    }
+    }*/
 }

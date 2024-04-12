@@ -5,13 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Pierwsze wersje stron producenta">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Produkt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/ProduktRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ProduktService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KierowcaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoordynatorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynierController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/UzytkownikCotroller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Uzytkownik.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/produkty-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/produkty-stan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/magazynmanagement.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KlientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KlientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KontoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KontoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/PracownikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/PracownikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZamowienieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZamowienieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/KlientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/KlientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/PracownikDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/PracownikDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/CustomSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/CustomSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KlientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KlientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KontoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KontoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/PracownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/PracownikService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-pracownik.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-pracownik.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pracownik-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +52,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -83,7 +114,7 @@
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MagazynManagementApplication">
+  <component name="RunManager" selected="Spring Boot.MagazynManagementApplication">
     <configuration name="MagazynManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MagazynManagementApplication" />
       <module name="MagazynManagement" />
@@ -143,6 +174,9 @@
       <workItem from="1704650170064" duration="6445000" />
       <workItem from="1704904511032" duration="20041000" />
       <workItem from="1704990319520" duration="9835000" />
+      <workItem from="1712856845049" duration="9230000" />
+      <workItem from="1712866126239" duration="25000" />
+      <workItem from="1712927114661" duration="4725000" />
     </task>
     <task id="LOCAL-00001" summary="Pierwsze wersje stron producenta">
       <option name="closed" value="true" />

@@ -1,6 +1,6 @@
 package com.MagazynManagement.dto;
 
-public class PracownikDto {
+public class UserDto {
 
 
     private String email;
@@ -13,30 +13,30 @@ public class PracownikDto {
 
     private String telefon;
 
-    private String stanowisko;
+    private boolean czyKlientDetaliczny;
 
-    private Float pensja;
+    private boolean czyKlientHurtowy;
 
-
-    public PracownikDto() {
+    public UserDto() {
         super();
     }
 
-    public PracownikDto(String email,
-                        String imie,
-                        String nazwisko,
-                        String haslo,
-                        String telefon,
-                        String stanowisko,
-                        Float pensja) {
+    public UserDto(String email,
+                   String imie,
+                   String nazwisko,
+                   String haslo,
+                   String telefon,
+                   boolean czyKlientDetaliczny,
+                   boolean czyKlientHurtowy) {
         this.email = email;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.haslo = haslo;
         this.telefon = telefon;
-        this.stanowisko = stanowisko;
-        this.pensja = pensja;
+        this.czyKlientDetaliczny = czyKlientDetaliczny;
+        this.czyKlientHurtowy = czyKlientHurtowy;
     }
+
 
     public String getEmail() {
         return email;
@@ -78,19 +78,19 @@ public class PracownikDto {
         this.telefon = telefon;
     }
 
-    public String getStanowisko() {
-        return stanowisko;
+    public boolean isCzyKlientDetaliczny() {
+        return czyKlientDetaliczny;
     }
 
-    public void setStanowisko(String stanowisko) {
-        this.stanowisko = stanowisko;
+    public void setCzyKlientDetaliczny(boolean czyKlientDetaliczny) {
+        this.czyKlientDetaliczny = czyKlientDetaliczny;
     }
 
-    public Float getPensja() {
-        return pensja;
+    public boolean isCzyKlientHurtowy() {
+        return czyKlientHurtowy;
     }
 
-    public void setPensja(Float pensja) {
-        this.pensja = pensja;
+    public void setCzyKlientHurtowy(boolean czyKlientHurtowy) {
+        this.czyKlientHurtowy = czyKlientHurtowy;
     }
 }

@@ -36,7 +36,7 @@ public class KontoService {
 //    }
 
 
-    @Transactional
+    /*@Transactional
     public Konto save(KlientDto klientDto, Klient savedKlient){
         Konto konto = new Konto(klientDto.getLogin(),
                 passwordEncoder.encode(klientDto.getHaslo()),
@@ -44,9 +44,9 @@ public class KontoService {
                 null,
                 rola);
         return kontoRepository.save(konto);
-    }
+    }*/
 
-    @Transactional
+    /*@Transactional
     public Konto save(PracownikDto pracownikDto, Pracownik savedPracownik){
         Konto konto = new Konto(pracownikDto.getLogin(),
                 passwordEncoder.encode(pracownikDto.getHaslo()),
@@ -54,5 +54,5 @@ public class KontoService {
                 savedPracownik,
                 pracownikDto.utworzRole());
         return kontoRepository.save(konto);
-    }
+    }*/
 }

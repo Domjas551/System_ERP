@@ -12,10 +12,10 @@ public class KontoController {
 
     private final KontoService kontoService;
 
-    @GetMapping("/login")
+    /*@GetMapping("/login")
     public String login(){
         return "login";
-    }
+    }*/
 
 //    @GetMapping("/konta")
 //    public String getKonta(Model model){

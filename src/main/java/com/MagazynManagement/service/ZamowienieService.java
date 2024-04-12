@@ -28,7 +28,7 @@ public class ZamowienieService {
 
     private final StanMagazynuRepository stanMagazynuRepository;
 
-    public void zlozNoweZamowienie(float kwota, List<PozycjaKoszyka> koszyk, AdresDostawy adresDostawy){
+    /*public void zlozNoweZamowienie(float kwota, List<PozycjaKoszyka> koszyk, AdresDostawy adresDostawy){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
         Klient klient = userDetails.getKonto().getKlient();
@@ -66,12 +66,12 @@ public class ZamowienieService {
                     zamowienie,
                     material,
                     ilosc);
-            /*skladZamowienia.setZamowienie(zamowienie);
+            *//*skladZamowienia.setZamowienie(zamowienie);
             skladZamowienia.setMaterial(material);
-            skladZamowienia.setIlosc(ilosc);*/
+            skladZamowienia.setIlosc(ilosc);*//*
             skladZamowieniaRepository.save(skladZamowienia);
         }
-    }
+    }*/
 
     public List<Zamowienie> znajdzZamowienieKlienta(Klient klient){
         return zamowienieRepository.findByKlient(klient);

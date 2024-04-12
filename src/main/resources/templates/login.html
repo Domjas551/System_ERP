@@ -54,12 +54,12 @@
     <h4 class="text-center">Logowanie</h4>
     <form class="col-md-4 offset-md-4" th:action="@{/login}" method="post">
         <div class="mb-3">
-            <label for="username" class="form-label">Login</label>
-            <input type="text" class="form-control" id="username" name="username">
+            <label for="username" class="form-label">E-mail</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="email">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Hasło</label>
-            <input type="password" class="form-control" id="password" name="password">
+            <input type="password" class="form-control" id="password" name="password" placeholder="hasło">
         </div>
         <button type="submit" class="btn btn-primary">Zaloguj</button>
         <a class="nav-link active" aria-current="page" href="/registration">Nie masz konta? Zarejestruj się</a>

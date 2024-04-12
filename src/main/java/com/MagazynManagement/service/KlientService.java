@@ -30,7 +30,7 @@ public class KlientService{
 //        klientRepo.save(k);
 //    }
 
-    @Transactional
+    /*@Transactional
     public Klient save(KlientDto klientDto){
         Klient klient = new Klient(klientDto.getImie(),
                 klientDto.getNazwisko(),
@@ -38,7 +38,7 @@ public class KlientService{
                 klientDto.getAdres(),
                 klientDto.getTelefon());
         return klientRepo.save(klient);
-    }
+    }*/
 
 
 }

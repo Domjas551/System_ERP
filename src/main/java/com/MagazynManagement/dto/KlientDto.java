@@ -2,7 +2,7 @@ package com.MagazynManagement.dto;
 
 public class KlientDto {
 
-    private String imie;
+    /*private String imie;
 
     private String nazwisko;
 
@@ -84,5 +84,5 @@ public class KlientDto {
 
     public void setHaslo(String haslo) {
         this.haslo = haslo;
-    }
+    }*/
 }

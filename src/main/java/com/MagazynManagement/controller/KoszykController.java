@@ -68,7 +68,7 @@ public class KoszykController {
         return "koszyk";
     }
 
-    @PostMapping("/user/zloz-zamowienie")
+    /*@PostMapping("/user/zloz-zamowienie")
     public String zlozZamowienie(@ModelAttribute AdresDostawy adresDostawy,
                                  Model model,
                                  HttpSession session){
@@ -86,7 +86,7 @@ public class KoszykController {
         session.setAttribute("koszyk", koszyk);
 
         return "redirect:/user";
-    }
+    }*/
 
     private float obliczKwoteZamowienia(List<PozycjaKoszyka> koszyk){
         float kwota = 0;

@@ -27,7 +27,7 @@ public class ZamowienieController {
 
     private final SkladZamowieniaService skladZamowieniaService;
 
-    @GetMapping("/user/zamowienia")
+    /*@GetMapping("/user/zamowienia")
     public String listaZamowien(Model model, HttpSession session){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
@@ -36,7 +36,7 @@ public class ZamowienieController {
         List<Zamowienie> zamowienia = zamowienieService.znajdzZamowienieKlienta(klient);
         model.addAttribute("zamowienia", zamowienia);
         return "zamowienia-user";
-    }
+    }*/
 
     @GetMapping("/user/{id}/szczegoly")
     public String szczegolyZamowienia(@PathVariable Long id, Model model){

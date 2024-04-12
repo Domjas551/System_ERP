@@ -58,7 +58,7 @@ public class PracownikService {
             throw new EntityNotFoundException("Pracownik nie znaleziony");
     }
 
-    @Transactional
+    /*@Transactional
     public Pracownik save(PracownikDto pracownikDto) {
         Magazyn magazyn = magazynRepository.findById(pracownikDto.getIdMagazynu())
                 .orElseThrow(() -> new IllegalArgumentException("Magazyn o podanym id nie istnieje"));
@@ -72,5 +72,5 @@ public class PracownikService {
                 pracownikDto.getTelefon(),
                 pracownikDto.getEmail());
         return pracownikRepository.save(pracownik);
-    }
+    }*/
 }

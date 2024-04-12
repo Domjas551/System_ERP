@@ -36,24 +36,24 @@ public class KlientController {
 //        return "klienci";
 //    }
 
-    @GetMapping("/registration")
+    /*@GetMapping("/registration")
     public String getRegistrationPage(Model model){
         model.addAttribute("klientDto", new KlientDto());
         return "register";
-    }
+    }*/
 
-    @PostMapping("/registration")
+    /*@PostMapping("/registration")
     public String saveKlient(@ModelAttribute("klientDto")KlientDto klientDto, Model model){
         Klient savedKlient = klientService.save(klientDto);
         kontoService.save(klientDto, savedKlient);
         model.addAttribute("message", "Zostałeś zarejestrowany");
         return "register";
-    }
+    }*/
 
-    @GetMapping("/user")
+    /*@GetMapping("/user")
     public String user(Model model, Principal principal){
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("klient", userDetails);
         return "user-main";
-    }
+    }*/
 }

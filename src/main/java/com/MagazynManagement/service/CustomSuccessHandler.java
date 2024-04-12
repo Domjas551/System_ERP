@@ -25,10 +25,16 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
             response.sendRedirect("/admin");
         } else if (roles.orElse("").equals("USER")) {
             response.sendRedirect("/user");
-        } else if (roles.orElse("").equals("PRACOWNIK")) {
-            response.sendRedirect("/pracownik");
+        } else if (roles.orElse("").equals("MAGAZYNIER")) {
+            response.sendRedirect("/magazynier");
         } else if (roles.orElse("").equals("MANAGER")) {
             response.sendRedirect("/manager");
+        } else if (roles.orElse("").equals("KIEROWCA")) {
+            response.sendRedirect("/kierowca");
+        } else if (roles.orElse("").equals("KOORDYNATOR")) {
+            response.sendRedirect("/koordynator");
+        } else if (roles.orElse("").equals("PRODUCENT")) {
+            response.sendRedirect("/producent");
         }
         else response.sendRedirect("/error");
     }
