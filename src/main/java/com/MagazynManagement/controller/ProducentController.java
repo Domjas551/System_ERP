@@ -2,8 +2,10 @@ package com.MagazynManagement.controller;
 
 import com.MagazynManagement.entity.Produkt;
 import com.MagazynManagement.service.ProduktService;
+import com.MagazynManagement.service.UzytkownikService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,16 @@ public class ProducentController {
     @Autowired
     ProduktService produktService;
 
+    @Autowired
+    UzytkownikService uzytkownikService;
+
+    @Autowired
+    UserDetailsService userDetailsService;
+
     @GetMapping("/producent")
-    public String producent(){
+    public String producent(Model model, Principal principal){
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+        model.addAttribute("producent", userDetails);
         return "producent-main";
     }
 

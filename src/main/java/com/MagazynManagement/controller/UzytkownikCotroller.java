@@ -2,11 +2,13 @@ package com.MagazynManagement.controller;
 
 import com.MagazynManagement.dto.KlientDto;
 import com.MagazynManagement.dto.PracownikDto;
+import com.MagazynManagement.dto.ProducentDto;
 import com.MagazynManagement.dto.UserDto;
 import com.MagazynManagement.entity.Klient;
 import com.MagazynManagement.entity.Uzytkownik;
 import com.MagazynManagement.service.UzytkownikService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.Banner;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -68,5 +70,19 @@ public class UzytkownikCotroller {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("klient", userDetails);
         return "user-main";
+    }
+
+
+    @GetMapping("/registration-producent")
+    public String getProducentRegisterPage(Model model){
+        model.addAttribute("producentDto", new ProducentDto());
+        return "register-producent";
+    }
+
+    @PostMapping("/registration-producent")
+    public String saveProducent(@ModelAttribute("producentDto") ProducentDto producentDto, Model model){
+        Uzytkownik uzytkownik = uzytkownikService.saveProducent(producentDto);
+        model.addAttribute("message", "Zostałeś zarejestrowany");
+        return "register-producent";
     }
 }

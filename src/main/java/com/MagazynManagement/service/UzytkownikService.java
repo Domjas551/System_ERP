@@ -1,6 +1,7 @@
 package com.MagazynManagement.service;
 
 import com.MagazynManagement.dto.PracownikDto;
+import com.MagazynManagement.dto.ProducentDto;
 import com.MagazynManagement.dto.UserDto;
 import com.MagazynManagement.entity.Uzytkownik;
 import com.MagazynManagement.repository.UzytkownikRepository;
@@ -51,6 +52,24 @@ public class UzytkownikService {
                 true,
                 true,
                 false,
+                false,
+                false);
+
+        return uzytkownikRepository.save(uzytkownik);
+    }
+
+    public Uzytkownik saveProducent(ProducentDto producentDto) {
+        Uzytkownik uzytkownik = new Uzytkownik(producentDto.getEmail(),
+                null,
+                null,
+                passwordEncoder.encode(producentDto.getHaslo()),
+                producentDto.getTelefon(),
+                null,
+                producentDto.getNazwaFirmy(),
+                null,
+                true,
+                false,
+                true,
                 false,
                 false);
 
