@@ -29,6 +29,10 @@ public class CustomUserDetails implements UserDetails {
         return uzytkownik.getImie();
     }
 
+    public String getNazwaFirmy(){
+        return uzytkownik.getNazwaFirmy();
+    }
+
     /*public String getImiePracownik(){
         return konto.getPracownik().getImie();
     }*/
