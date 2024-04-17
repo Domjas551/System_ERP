@@ -61,7 +61,7 @@ public class ZamowienieService {
             Material material = pozycjaKoszyka.getMaterial();
             int ilosc = pozycjaKoszyka.getIlosc();
 
-            SkladZamowieniaId skladZamowieniaId = new SkladZamowieniaId(zamowienie.getNrZamowienia(), material.getIdProduktu());
+            SkladZamowieniaId skladZamowieniaId = new SkladZamowieniaId(zamowienie.getNrZamowienia(), material.getIdTowaru());
             SkladZamowienia skladZamowienia = new SkladZamowienia(skladZamowieniaId,
                     zamowienie,
                     material,

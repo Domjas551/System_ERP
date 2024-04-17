@@ -55,10 +55,10 @@
     <p th:if="${czyWyniki == 0}" style="text-align: center; width: 40%; margin: 0 auto; color: red;">Ten magazyn nie ma żadnych produktów</p>
     <form style="width: 40%; text-align: center; margin: 0 auto;" th:action="@{/manager/zmien-sektor/{id}(id=${idMagazynu})}" method="post" th:unless="${czyWyniki == 0}">
         <input type="hidden" style="visibility: hidden;" th:value="${idMagazynu}">
-        <span>idProduktu</span>
+        <span>idTowaru</span>
         <select required name="idMaterialu">
             
-            <option th:each="s :${stan}" th:value="${s.material.idProduktu}" th:text="${s.material.idProduktu}"></option>
+            <option th:each="s :${stan}" th:value="${s.material.idTowaru}" th:text="${s.material.idTowaru}"></option>
         </select>
         <span>idSektora</span>
         <select required name="idSektora">

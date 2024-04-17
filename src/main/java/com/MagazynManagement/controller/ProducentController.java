@@ -1,16 +1,18 @@
 package com.MagazynManagement.controller;
 
-import com.MagazynManagement.entity.Produkt;
-import com.MagazynManagement.service.ProduktService;
+import com.MagazynManagement.dto.ProducentDto;
+import com.MagazynManagement.entity.Towar;
+import com.MagazynManagement.service.TowarService;
 import com.MagazynManagement.service.UzytkownikService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -20,7 +22,7 @@ import java.util.List;
 public class ProducentController {
 
     @Autowired
-    ProduktService produktService;
+    TowarService towarService;
 
     @Autowired
     UzytkownikService uzytkownikService;
@@ -35,9 +37,22 @@ public class ProducentController {
         return "producent-main";
     }
 
-    @GetMapping("/producent/produkty-stan")
-    public ModelAndView stanProduktow(){
-        List<Produkt> list=produktService.getAllProducts();
-        return new ModelAndView("produkty-stan","produkt",list) ;
+    @GetMapping("/producent/towary-stan")
+    public ModelAndView stanProduktow(Model model, Principal principal){
+        List<Towar> list=towarService.getAllTowarByProducentId(principal.getName());
+        return new ModelAndView("towary-stan","towar",list) ;
+    }
+
+    @GetMapping("/producent/edytuj-towar")
+    public String edytujTowarForm(@RequestParam Long idTowaru, Model model){
+        Towar towar=towarService.findById(idTowaru);
+        model.addAttribute("towar",towar);
+        return"edytuj-towar";
+    }
+
+    @PostMapping("/producent/edytuj-towar")
+    public String edytujTowar(@ModelAttribute Towar towar){
+        towarService.aktualizujTowar(towar);
+        return "redirect:/producent/towary-stan";
     }
 }

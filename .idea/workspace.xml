@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodana rejestracja producenta &amp; zmiana w uprawnieniach">
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Pierwsze wersje stron producenta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/ProducentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/ProducentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Produkt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Towar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/ProduktRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ProduktService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-produkt.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edytuj-produkt.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/produkty-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/produkty.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/stan-magazynu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/stan-magazynu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zaopatrzenie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zaopatrzenie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zmien-sektor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zmien-sektor.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +91,7 @@
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MagazynManagementApplication">
+  <component name="RunManager" selected="Application.MagazynManagementApplication">
     <configuration name="MagazynManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MagazynManagementApplication" />
       <module name="MagazynManagement" />
@@ -142,7 +154,6 @@
       <workItem from="1712856845049" duration="9230000" />
       <workItem from="1712866126239" duration="25000" />
       <workItem from="1712927114661" duration="4725000" />
-      <workItem from="1713099544502" duration="2614000" />
     </task>
     <task id="LOCAL-00001" summary="Pierwsze wersje stron producenta">
       <option name="closed" value="true" />
@@ -152,15 +163,7 @@
       <option name="project" value="LOCAL" />
       <updated>1712304345798</updated>
     </task>
-    <task id="LOCAL-00002" summary="Dodana rejestracja producenta &amp; zmiana w uprawnieniach">
-      <option name="closed" value="true" />
-      <created>1713101775675</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1713101775675</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,8 +171,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pierwsze wersje stron producenta" />
-    <MESSAGE value="Dodana rejestracja producenta &amp; zmiana w uprawnieniach" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodana rejestracja producenta &amp; zmiana w uprawnieniach" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pierwsze wersje stron producenta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
