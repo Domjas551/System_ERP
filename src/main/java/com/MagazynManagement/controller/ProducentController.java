@@ -21,6 +21,8 @@ import java.util.List;
 @Controller
 public class ProducentController {
 
+    ErrorController er= new ErrorController();
+
     @Autowired
     TowarService towarService;
 
@@ -40,19 +42,39 @@ public class ProducentController {
     @GetMapping("/producent/towary-stan")
     public ModelAndView stanProduktow(Model model, Principal principal){
         List<Towar> list=towarService.getAllTowarByProducentId(principal.getName());
+
+        //wypełnienie pustego elementu w celu uniknięcia wyjątków
+        if(list.get(0)==null){
+            Towar t=new Towar(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                    "brakTowarow","k",0,0);
+            list.set(0,t);
+        }
+
         return new ModelAndView("towary-stan","towar",list) ;
     }
 
     @GetMapping("/producent/edytuj-towar")
     public String edytujTowarForm(@RequestParam Long idTowaru, Model model){
         Towar towar=towarService.findById(idTowaru);
-        model.addAttribute("towar",towar);
-        return"edytuj-towar";
+
+        if(towar==null){
+            er.error("Nie znaleziono towaru","/producent/towary-stan",model);
+        }else{
+            model.addAttribute("towar",towar);
+            return"edytuj-towar";
+        }
+        return "error";
     }
 
     @PostMapping("/producent/edytuj-towar")
-    public String edytujTowar(@ModelAttribute Towar towar){
-        towarService.aktualizujTowar(towar);
-        return "redirect:/producent/towary-stan";
+    public String edytujTowar(@ModelAttribute Towar towar, Model model){
+        String w=towarService.aktualizujTowar(towar);
+
+        if(w.equals("error")){
+            er.error("Błąd przy próbie modyfikacji","towary-stan",model);
+        }else{
+            return "redirect:/producent/towary-stan";
+        }
+        return "error";
     }
 }

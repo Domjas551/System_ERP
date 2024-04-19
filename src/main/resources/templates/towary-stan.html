@@ -37,7 +37,7 @@
 
 <div class="container my-5">
     <h4 class="text-center">Stan towarów</h4>
-    <table class="table table-stiped table-hover">
+    <table class="table table-stiped table-hover" th:if="${towar[0].nazwa != 'brakTowarow'}">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -65,6 +65,7 @@
 
         </tbody>
     </table>
+    <p style="text-align: center;" th:if="${towar[0].nazwa == 'brakTowarow'}">Brak towarów do wyświetlenia</p>
 </div>
 
 </body>

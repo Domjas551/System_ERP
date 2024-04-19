@@ -27,7 +27,7 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
                     "left join towar_magazyn on towar_magazyn.id_towaru=towar.id_towaru " +
                     "where towar.id_towaru=?1",
             nativeQuery = true)
-    Optional<Towar> findByIdS(Long idTowaru);
+    Towar findByIdS(Long idTowaru);
 
     @Modifying
     @Query(
