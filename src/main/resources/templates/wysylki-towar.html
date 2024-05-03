@@ -45,21 +45,44 @@
     <!--        </div>-->
     <!--    </div>-->
 
-    <form class="col-md-4 offset-md-4" th:action="@{/producent/add-towar}"
-          method="post" role="form" th:object="${towarDto}">
+    <table class="table table-stiped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Kategoria</th>
+            <th scope="col">Ilość</th>
+            <th scope="col">Ilość max</th>
+            <th scope="col">Wolne miejsce</th>
+            <th scope="col">Ilość do wysyłki</th>
+            <th colspan="2" style="text-align: center">Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <!--<th scope="row">1</th>-->
+            <td th:text="${towar.idTowaru}"></td>
+            <td th:text="${towar.nazwa}"></td>
+            <td th:text="${towar.kategoria}"></td>
+            <td th:text="${towar.ilosc}"></td>
+            <td th:text="${towar.max_ilosc}"></td>
+            <td th:text="${towar.max_ilosc-towar.ilosc}"></td>
+            <form class="col-md-4 offset-md-4" th:action="@{/producent/wysylki-towar}"
+                  method="post" role="form" th:object="${towarDostawaDto}">
+            <td>
+                <input type="hidden" th:value="${magazyn}" name="idMagazynu">
+                <input type="hidden" th:value="${towar.idTowaru}" name="idTowaru">
+                <input th:field="*{iloscWDostawie}" type="number" class="form-control"
+                       id="iloscWDostawie" name="iloscWDostawie" min="0" required>
+            </td>
+            <td style="text-align: center;">
+                <button type="submit" class="btn btn-success">Wyślij</button>
+            </td>
+            </form>
+        </tr>
 
-        <div class="mb-3">
-            <label for="nazwa" class="form-label">Nazwa</label>
-            <input th:field="*{nazwa}" type="text" class="form-control" id="nazwa" name="nazwa" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="kategoria" class="form-label">Kategoria</label>
-            <input th:field="*{kategoria}" type="text" class="form-control" id="kategoria" name="kategoria" required>
-        </div>
-
-        <button type="submit" class="btn btn-success">Dodaj towar</button>
-    </form>
+        </tbody>
+    </table>
     <div class="row mt-2" th:if="${message != null}" style="color: blue; text-align: center; width: 40%; margin: 0 auto;">
         <p>[[${message}]]</p>
     </div>

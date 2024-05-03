@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class ErrorController {
 
+    //funkcja do wyświetlenia strony z errorami
     public String error( String wiadomosc, String adresPowrotny, Model model){
         model.addAttribute("wiadomosc",wiadomosc);
         model.addAttribute("adres",adresPowrotny);
-        return "error";
+        return "errorPage";
     }
 }

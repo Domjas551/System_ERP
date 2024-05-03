@@ -1,14 +1,12 @@
 package com.MagazynManagement.service;
 
 import com.MagazynManagement.controller.ErrorController;
+import com.MagazynManagement.dto.TowarDto;
 import com.MagazynManagement.entity.Towar;
 import com.MagazynManagement.repository.TowarRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -39,6 +37,24 @@ public class TowarService {
         }else{
             return "error";
         }
+    }
+
+    public Long getProducentId(String email){
+        return towarRepository.findProducentId(email);
+    }
+
+    @Transactional
+    public void saveTowar(TowarDto towarDto){
+        //todo zabezpieczenie w wypadku błędu
+        towarRepository.saveT(towarRepository.findProducentId(towarDto.getEmailProducenta()),towarDto.getNazwa(),towarDto.getKategoria());
+    }
+
+    public List<Towar> getTowaryByProducentAndMagazyn(Long idProducenta, Long idMagazynu){
+        return towarRepository.findAllInMagazyn(idProducenta,idMagazynu);
+    }
+
+    public Towar findByIdInMagazyn(Long idTowaru, Long idMagazynu){
+        return towarRepository.findByIdInMagazyn(idTowaru,idMagazynu);
     }
 
 }

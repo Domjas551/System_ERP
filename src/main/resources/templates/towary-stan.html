@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active text-light" aria-current="page" href="/producent">Panel producenta</a>
                 </li>
             </ul>
             <div sec:authorize="hasAuthority('ADMIN')">
@@ -42,7 +42,6 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Nazwa</th>
-            <th scope="col">Producent</th>
             <th scope="col">Kategoria</th>
             <th scope="col">Ilość</th>
             <th scope="col">Ilość max</th>
@@ -54,7 +53,6 @@
             <!--<th scope="row">1</th>-->
             <td th:text="${t.idTowaru}"></td>
             <td th:text="${t.nazwa}"></td>
-            <td th:text="${t.idProducenta}"></td>
             <td th:text="${t.kategoria}"></td>
             <td th:text="${t.ilosc}"></td>
             <td th:text="${t.max_ilosc}"></td>

@@ -22,4 +22,9 @@ public class MagazynService {
         Optional<Magazyn> optionalMagazyn = magazynRepository.findById(id);
         return optionalMagazyn.orElse(null);
     }
+
+    //funkcja zwracająca magazyny przechowujące towary danego producenta
+    public List<String> getProducentMagazyn(Long idProducenta){
+        return magazynRepository.findProducentId(idProducenta);
+    }
 }
