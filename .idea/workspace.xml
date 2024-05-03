@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarDostawaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/TowarMagazynController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/TowarMagazyn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynProjection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/MagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/MagazynRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/MagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/MagazynService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/errorPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Towar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Towar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,36 +179,16 @@
       <option name="project" value="LOCAL" />
       <updated>1713378460391</updated>
     </task>
-    <task id="LOCAL-00003" summary="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController">
-      <option name="closed" value="true" />
-      <created>1713525838233</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1713525838233</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pierwsze wersje stron producenta" />
     <MESSAGE value="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru" />
-    <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
