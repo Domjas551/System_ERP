@@ -169,6 +169,7 @@ public class ProducentController {
                 towarService.getProducentId(principal.getName()),towarDostawaDto.getIloscWDostawie());
 
         //ustalenie wiadomosci zwrotnej
+        // 1 - poprawne wysłanie dostawy
         String message= "1";
 
         return "redirect:wysylki-towar?idTowaru="+towarDostawaDto.getIdTowaru()+
