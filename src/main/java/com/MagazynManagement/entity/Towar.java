@@ -10,6 +10,7 @@ public class Towar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long idTowaru;
     private Long idProducenta;
     private String nazwa;
