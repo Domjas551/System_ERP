@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/producent-main">Panel producenta</a>
+                    <a class="nav-link active text-light" aria-current="page" href="/producent">Panel producenta</a>
                 </li>
             </ul>
             <div sec:authorize="hasAuthority('ADMIN')">
@@ -73,7 +73,7 @@
                 <input type="hidden" th:value="${magazyn}" name="idMagazynu">
                 <input type="hidden" th:value="${towar.idTowaru}" name="idTowaru">
                 <input th:field="*{iloscWDostawie}" type="number" class="form-control"
-                       id="iloscWDostawie" name="iloscWDostawie" min="0" required>
+                       id="iloscWDostawie" name="iloscWDostawie" min="1" th:max="${towar.max_ilosc-towar.ilosc}" required>
             </td>
             <td style="text-align: center;">
                 <button type="submit" class="btn btn-success">Wyślij</button>

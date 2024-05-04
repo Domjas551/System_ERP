@@ -1,5 +1,7 @@
 package com.MagazynManagement.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import com.MagazynManagement.controller.ErrorController;
 import com.MagazynManagement.dto.TowarDto;
 import com.MagazynManagement.entity.Towar;
@@ -8,6 +10,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -55,6 +58,24 @@ public class TowarService {
 
     public Towar findByIdInMagazyn(Long idTowaru, Long idMagazynu){
         return towarRepository.findByIdInMagazyn(idTowaru,idMagazynu);
+    }
+
+    @Transactional
+    public void saveWysylka(Long idTowaru, Long idMagazynu,Long idProducenta, Long ilosc){
+//todo exception
+        LocalDateTime d = LocalDateTime.now();
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
+
+        String data = d.format(dateFormatter);
+
+        towarRepository.saveWysylka(idProducenta, idMagazynu, data);
+
+        Long idWysylki=towarRepository.getLastProducentWysylkaId(idProducenta);
+
+        towarRepository.saveWysylkaTowar(idTowaru,idWysylki,ilosc);
+
+        towarRepository.zaktualizujStanTowaruMagazynu(idTowaru, idMagazynu, ilosc);
+
     }
 
 }

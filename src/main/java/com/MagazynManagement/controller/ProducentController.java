@@ -157,11 +157,18 @@ public class ProducentController {
 
     //funkcja do odbierania post ze strony wysylki-towar
     @PostMapping("/producent/wysylki-towar")
-    public String wysylki_towarPost(@ModelAttribute("towarDostawaDto") TowarDostawaDto towarDostawaDto,Model model){
+    public String wysylki_towarPost(@ModelAttribute("towarDostawaDto") TowarDostawaDto towarDostawaDto,
+                                    Model model,Principal principal){
 
         System.out.println(towarDostawaDto.getIloscWDostawie());
         System.out.println(towarDostawaDto.getIdMagazynu());
         System.out.println(towarDostawaDto.getIdTowaru());
+        System.out.println(towarService.getProducentId(principal.getName()));
+
+        towarService.saveWysylka(towarDostawaDto.getIdTowaru(),towarDostawaDto.getIdMagazynu(),
+                towarService.getProducentId(principal.getName()),towarDostawaDto.getIloscWDostawie());
+
+        //ustalenie wiadomosci zwrotnej
         String message= "1";
 
         return "redirect:wysylki-towar?idTowaru="+towarDostawaDto.getIdTowaru()+

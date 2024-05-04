@@ -15,17 +15,19 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
     Towar findByNazwa(String nazwa);
 
     @Query(
-            value="SELECT towar.*, sum(max_ilosc) as max_ilosc FROM `towar`" +
-                    "left join uzytkownik on towar.id_producenta=uzytkownik.id_uzytkownika " +
-                    "left join towar_magazyn on towar_magazyn.id_towaru=towar.id_towaru " +
+            value="SELECT t.*,(Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) as ilosc," +
+                    " sum(max_ilosc) as max_ilosc FROM `towar` t " +
+                    "left join uzytkownik on t.id_producenta=uzytkownik.id_uzytkownika " +
+                    "left join towar_magazyn on towar_magazyn.id_towaru=t.id_towaru " +
                     "where email=?1 group by id_towaru",
             nativeQuery = true)
     List<Towar> findAllByProducentId(String email);
 
     @Query(
-            value="SELECT towar.*, sum(max_ilosc) as max_ilosc FROM `towar` " +
-                    "left join towar_magazyn on towar_magazyn.id_towaru=towar.id_towaru " +
-                    "where towar.id_towaru=?1",
+            value="SELECT t.*,(Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) as ilosc," +
+                    " sum(max_ilosc) as max_ilosc FROM `towar` t " +
+                    "left join towar_magazyn on towar_magazyn.id_towaru=t.id_towaru " +
+                    "where t.id_towaru=?1",
             nativeQuery = true)
     Towar findByIdS(Long idTowaru);
 
@@ -42,7 +44,7 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
 
     @Modifying
     @Query(
-            value="INSERT INTO `towar`( `id_producenta`, `nazwa`, `kategoria`, `ilosc`) VALUES (?1,?2,?3,'0')",
+            value="INSERT INTO `towar`( `id_producenta`, `nazwa`, `kategoria`) VALUES (?1,?2,?3)",
             nativeQuery = true)
     void saveT(Long idProducenta, String nazwa, String kategoria);
 
@@ -61,4 +63,31 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
                     "where towar.id_towaru=?1 and id_magazynu=?2",
             nativeQuery = true)
     Towar findByIdInMagazyn(Long idTowaru, Long idMagazynu);
+
+    @Modifying
+    @Query(
+            value="INSERT INTO dostawa(id_producenta,id_magazynu,data) VALUES(?1,?2,?3)",
+            nativeQuery = true)
+    void saveWysylka(Long idProducenta, Long idMagazynu, String data);
+
+    @Query(
+            value="SELECT id_dostawy FROM `dostawa` where id_producenta=?1 ORDER BY `id_dostawy` DESC LIMIT 1",
+            nativeQuery = true)
+    Long getLastProducentWysylkaId(Long idProducenta);
+
+    @Modifying
+    @Query(
+            value="INSERT INTO dostawa_towar VALUES(?1,?2,?3) ",
+            nativeQuery = true)
+    void saveWysylkaTowar(Long idTowaru, Long idDostawy, Long ilosc);
+
+    @Modifying
+    @Query(
+            value="Update towar_magazyn set ilosc=" +
+                    "(select ilosc from towar_magazyn where id_towaru=?1 and id_magazynu=?2)+?3 " +
+                    "where id_towaru=?1 and id_magazynu=?2",
+            nativeQuery = true)
+    void zaktualizujStanTowaruMagazynu(Long idTowaru, Long idMagazynu, Long ilosc);
+
+
 }
