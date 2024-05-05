@@ -64,7 +64,7 @@
         </tr>
         </thead>
         <tbody>
-            <tr th:each="r :${rozpiska}" th:if="${r.wykonane == 0 and r.idpracownika == null}">
+            <tr th:each="r :${zadanie}" th:if="${r.wykonane == 0 and r.idpracownika == null}">
                 <td th:text="${r.idRozpiski}"></td>
                 <td th:text="${r.adres}"></td>
                 <td th:text="${r.data}"></td>
