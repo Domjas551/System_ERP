@@ -3,16 +3,9 @@ package com.MagazynManagement.service;
 import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +17,7 @@ public class ZamowienieService {
 
     private final SkladZamowieniaRepository skladZamowieniaRepository;
 
-    private final RozpiskaRepozytory rozpiskaRepozytory;
+    private final ZadanieRepozytory zadanieRepozytory;
 
     private final TowarMagazynRepository towarMagazynRepository;
 

@@ -1,6 +1,5 @@
 package com.MagazynManagement.service;
 
-import com.MagazynManagement.dto.PracownikDto;
 import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.*;
 import jakarta.persistence.EntityNotFoundException;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +20,7 @@ public class PracownikService {
 
     private final KontoRepository kontoRepository;
 
-    private final RozpiskaRepozytory rozpiskaRepozytory;
+    private final ZadanieRepozytory zadanieRepozytory;
 
     private final DostawaRepository dostawaRepository;
 
