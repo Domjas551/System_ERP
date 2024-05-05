@@ -2,25 +2,25 @@ package com.MagazynManagement.entity;
 
 public class PozycjaKoszyka {
 
-    private Material material;
+    private Towar towar;
 
     private Integer ilosc;
 
-    public PozycjaKoszyka(Material material, int ilosc) {
-        this.material = material;
+    public PozycjaKoszyka(Towar towar, int ilosc) {
+        this.towar = towar;
         this.ilosc = ilosc;
     }
 
-    public Material getMaterial() {
-        return material;
+    public Towar getTowar() {
+        return towar;
+    }
+
+    public void setTowar(Towar towar) {
+        this.towar = towar;
     }
 
     public Integer getIlosc() {
         return ilosc;
-    }
-
-    public void setMaterial(Material material) {
-        this.material = material;
     }
 
     public void setIlosc(Integer ilosc) {

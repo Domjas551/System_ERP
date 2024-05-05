@@ -80,4 +80,16 @@ public class Towar {
     public void setMax_ilosc(int max_ilosc) {
         this.max_ilosc = max_ilosc;
     }
+
+    @Override
+    public String toString() {
+        return "Towar{" +
+                "idTowaru=" + idTowaru +
+                ", idProducenta=" + idProducenta +
+                ", nazwa='" + nazwa + '\'' +
+                ", kategoria='" + kategoria + '\'' +
+                ", ilosc=" + ilosc +
+                ", max_ilosc=" + max_ilosc +
+                '}';
+    }
 }

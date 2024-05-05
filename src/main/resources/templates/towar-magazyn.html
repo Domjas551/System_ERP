@@ -67,10 +67,11 @@
       <td th:text="${tm.nazwa}"></td>
       <td th:text="${tm.producent}"></td>
       <td th:text="${tm.kategoria}"></td>
-      <td th:text="${tm.ilosc}"></td>
+      <td th:text="${(stany.stany[tm.idMagazynu-1].size()==0)? tm.ilosc : tm.ilosc-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}"></td>
       <td>
         <form th:action="@{/user/dodaj-do-koszyka}" method="post">
           <input type="hidden" name="idTowaru" th:value="${tm.idTowaru}" />
+          <input type="hidden" name="idMagazynu" th:value="${tm.idMagazynu}" />
           <input type="number" name="ilosc" value="1" min="1" th:max="${tm.ilosc}" required />
           <button type="submit">Dodaj do koszyka</button>
         </form>

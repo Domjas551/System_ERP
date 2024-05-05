@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarDostawaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Wstęp do funkcjonalności transakcji. Możliwośc przeglądania zawartości poszczególnych magazynów z punktu widzenia klienta.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/StanMagazynowSesja.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/MagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/MagazynRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/MagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/MagazynService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/errorPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/TowarMagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/TowarMagazynController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/PozycjaKoszyka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/PozycjaKoszyka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Towar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Towar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/TowarMagazyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/TowarMagazyn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynProjection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,13 +184,12 @@
       <option name="project" value="LOCAL" />
       <updated>1713378460391</updated>
     </task>
-    <task id="LOCAL-00003" summary="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController">
-      <option name="closed" value="true" />
-      <created>1713525838233</created>
+    <task id="LOCAL-00003" summary="Wstęp do funkcjonalności transakcji. Możliwośc przeglądania zawartości poszczególnych magazynów z punktu widzenia klienta.">
+      <created>1714766991514</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1713525838233</updated>
+      <updated>1714766991514</updated>
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
@@ -202,11 +198,48 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -215,8 +248,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pierwsze wersje stron producenta" />
     <MESSAGE value="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru" />
-    <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
+    <MESSAGE value="Wstęp do funkcjonalności transakcji. Możliwośc przeglądania zawartości poszczególnych magazynów z punktu widzenia klienta." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wstęp do funkcjonalności transakcji. Możliwośc przeglądania zawartości poszczególnych magazynów z punktu widzenia klienta." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

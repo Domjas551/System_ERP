@@ -19,7 +19,7 @@ public interface TowarMagazynRepository extends JpaRepository<TowarMagazyn, Long
                     "left join uzytkownik on towar.id_producenta=uzytkownik.id_uzytkownika " +
                     "left join towar_magazyn on towar_magazyn.id_towaru=towar.id_towaru " +
                     "where towar_magazyn.id_magazynu=?1", nativeQuery = true)
-    List<TowarMagazynProjection> findByMagazyn_IdMagazynu(Long idMagazynu);
+    List<Object[]> findByMagazyn_IdMagazynu(Long idMagazynu);
 
     @Modifying
     @Transactional

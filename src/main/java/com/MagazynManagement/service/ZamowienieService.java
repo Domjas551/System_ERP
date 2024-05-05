@@ -26,7 +26,7 @@ public class ZamowienieService {
 
     private final RozpiskaRepozytory rozpiskaRepozytory;
 
-    private final StanMagazynuRepository stanMagazynuRepository;
+    private final TowarMagazynRepository towarMagazynRepository;
 
     /*public void zlozNoweZamowienie(float kwota, List<PozycjaKoszyka> koszyk, AdresDostawy adresDostawy){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -88,10 +88,10 @@ public class ZamowienieService {
 
     public void odejmijMaterialyZeStanuMagazynowego(List<PozycjaKoszyka> koszyk){
         for(PozycjaKoszyka pozycja : koszyk){
-            Material material = pozycja.getMaterial();
+            Towar towar = pozycja.getTowar();
             int iloscDoOdjecia = pozycja.getIlosc();
 
-            stanMagazynuRepository.odejmijMaterial(material.getIdProduktu(), iloscDoOdjecia);
+            towarMagazynRepository.odejmijTowar(towar.getIdTowaru(), iloscDoOdjecia);
         }
     }
 }

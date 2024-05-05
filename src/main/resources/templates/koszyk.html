@@ -59,21 +59,15 @@
         <thead>
         <tr>
             <th scope="col">Nazwa</th>
-            <th scope="col">Producent</th>
-            <th scope="col">Cena</th>
-            <th scope="col">Typ</th>
+            <th scope="col">Kategoria</th>
             <th scope="col">Ilość</th>
-            <th scope="col">Wartość</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="pozycja : ${koszyk}">
-            <td th:text="${pozycja.material.nazwa}"></td>
-            <td th:text="${pozycja.material.producent}"></td>
-            <td th:text="${pozycja.material.cena}"></td>
-            <td th:text="${pozycja.material.typ}"></td>
+            <td th:text="${pozycja.towar.nazwa}"></td>
+            <td th:text="${pozycja.towar.kategoria}"></td>
             <td th:text="${pozycja.ilosc}"></td>
-            <td th:text="${pozycja.material.cena * pozycja.ilosc}"></td>
         </tbody>
     </table>
 

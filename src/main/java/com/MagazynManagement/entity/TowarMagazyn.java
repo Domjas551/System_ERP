@@ -9,14 +9,14 @@ public class TowarMagazyn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private long idMagazynu;
-    private long idTowaru;
+    private Long idMagazynu;
+    private Long idTowaru;
     private String nazwa;
     private String producent;
     private String kategoria;
     private int ilosc;
 
-    public TowarMagazyn(long idTowaru, long idMagazynu, String nazwa, String producent, String kategoria, int ilosc) {
+    public TowarMagazyn(Long idTowaru, Long idMagazynu, String nazwa, String producent, String kategoria, int ilosc) {
         this.idMagazynu=idMagazynu;
         this.idTowaru=idTowaru;
         this.nazwa=nazwa;
@@ -28,20 +28,20 @@ public class TowarMagazyn {
     public TowarMagazyn()
     {super();}
 
-    public long getIdMagazynu() {
-        return idMagazynu;
-    }
-
-    public void setIdMagazynu(long idMagazynu) {
+    public void setIdMagazynu(Long idMagazynu) {
         this.idMagazynu = idMagazynu;
     }
 
-    public long getIdTowaru() {
-        return idTowaru;
+    public void setIdTowaru(Long idTowaru) {
+        this.idTowaru = idTowaru;
     }
 
-    public void setIdTowaru(long idTowaru) {
-        this.idTowaru = idTowaru;
+    public Long getIdMagazynu() {
+        return idMagazynu;
+    }
+
+    public Long getIdTowaru() {
+        return idTowaru;
     }
 
     public String getNazwa() {

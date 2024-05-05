@@ -1,10 +1,11 @@
 package com.MagazynManagement.controller;
 
-import com.MagazynManagement.entity.AdresDostawy;
-import com.MagazynManagement.entity.Material;
-import com.MagazynManagement.entity.PozycjaKoszyka;
+import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.MaterialRepozytory;
+import com.MagazynManagement.repository.TowarRepository;
+import com.MagazynManagement.service.TowarService;
 import com.MagazynManagement.service.ZamowienieService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,34 +22,43 @@ import java.util.List;
 @RequiredArgsConstructor
 public class KoszykController {
 
-    private final MaterialRepozytory materialRepozytory;
+    private final TowarRepository towarRepository;
+    private final TowarService towarService;
 
     private final ZamowienieService zamowienieService;
 
     @PostMapping("/user/dodaj-do-koszyka")
-    public String dodajDoKoszyka(@RequestParam Long idMaterialu, @RequestParam int ilosc, HttpSession session){
+    public String dodajDoKoszyka(@RequestParam Long idTowaru, @RequestParam Long idMagazynu, @RequestParam int ilosc, HttpSession session, HttpServletRequest request, Model model){
         List<PozycjaKoszyka> koszyk = (List<PozycjaKoszyka>) session.getAttribute("koszyk");
+        StanMagazynowSesja stany = (StanMagazynowSesja) session.getAttribute("stany");
         if(koszyk == null){
             koszyk = new ArrayList<>();
             session.setAttribute("koszyk", koszyk);
         }
 
-        Material material = materialRepozytory.findById(idMaterialu).orElse(null);
-        if(material != null){
-            PozycjaKoszyka istniejacaPozycja = znajdzPozycjeWKoszyku(material, koszyk);
+        Towar towar = towarService.findById(idTowaru);
+
+        if(towar != null){
+            PozycjaKoszyka istniejacaPozycja = znajdzPozycjeWKoszyku(towar, koszyk);
             if(istniejacaPozycja != null){
                 istniejacaPozycja.setIlosc(istniejacaPozycja.getIlosc() + ilosc);
             } else {
-                PozycjaKoszyka nowaPozycja = new PozycjaKoszyka(material, ilosc);
+                PozycjaKoszyka nowaPozycja = new PozycjaKoszyka(towar, ilosc);
                 koszyk.add(nowaPozycja);
             }
         }
-        return "redirect:/user/koszyk";
+
+        stany.getStany().get(idMagazynu.intValue()-1).set(idTowaru.intValue()-1,stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1)+ilosc);
+        System.out.println(stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1));
+        session.setAttribute("stany", stany);
+        model.addAttribute("stany", stany);
+
+        return "redirect:"+request.getHeader("Referer");
     }
 
-    private PozycjaKoszyka znajdzPozycjeWKoszyku(Material material, List<PozycjaKoszyka> koszyk){
+    private PozycjaKoszyka znajdzPozycjeWKoszyku(Towar towar, List<PozycjaKoszyka> koszyk){
         for(PozycjaKoszyka pozycja : koszyk){
-            if(pozycja.getMaterial().equals(material)){
+            if(pozycja.getTowar().getIdTowaru()==towar.getIdTowaru()){
                 return pozycja;
             }
         }
@@ -88,6 +98,7 @@ public class KoszykController {
         return "redirect:/user";
     }*/
 
+    /*
     private float obliczKwoteZamowienia(List<PozycjaKoszyka> koszyk){
         float kwota = 0;
         for(PozycjaKoszyka pozycja : koszyk){
@@ -95,4 +106,5 @@ public class KoszykController {
         }
         return kwota;
     }
+    */
 }
