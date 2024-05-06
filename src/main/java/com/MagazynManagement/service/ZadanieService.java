@@ -27,12 +27,24 @@ public class ZadanieService {
     @Autowired
     private DostawaRepository dostawaRepository;
 
-    public List<Uzytkownik> getPracownik(){
-        return uzytkownikRepository.findByPracownik();
+    public List<Uzytkownik> getMagazynier(){
+        return uzytkownikRepository.findMagazynier();
     }
 
     public List<Zadanie> getZadanie(){
         return zadanieRepository.findByIdPracownika(null);
+    }
+
+    public List<Zadanie> getZadanieByManager(Long id){
+        return zadanieRepository.findByKierownik(id);
+    }
+
+    public void anulujZadanie(Long id){
+        zadanieRepository.anulujZadanie(id);
+    }
+
+    public void zapiszZadanie(Zadanie zadanie){
+        zadanieRepository.save(zadanie);
     }
 
     public void updateZadanie(Zadanie zadanie){

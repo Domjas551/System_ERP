@@ -14,4 +14,10 @@ public interface ZadanieRepozytory extends JpaRepository<Zadanie, Long>{
             value="SELECT * from zadanie where id_pracownika=?1 and status = 'oczekujace'",
             nativeQuery = true)
     List<Zadanie> findByIdPracownika(Long id_pracownika);
+
+    @Query(value = "SELECT * from zadanie where id_kierownika=?1 and status = 'oczekujace'", nativeQuery = true)
+    List<Zadanie> findByKierownik(Long id_kierownika);
+
+    @Query(value = "UPDATE zadanie SET status='anulowane' where id_zadania=?1", nativeQuery = true)
+    void anulujZadanie(Long id);
 }
