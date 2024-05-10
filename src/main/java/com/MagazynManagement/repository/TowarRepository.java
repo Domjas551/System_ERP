@@ -66,7 +66,7 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
 
     @Modifying
     @Query(
-            value="INSERT INTO dostawa(id_producenta,id_magazynu,data) VALUES(?1,?2,?3)",
+            value="INSERT INTO dostawa(id_producenta,id_magazynu,data,staus) VALUES(?1,?2,?3,'oczekujaca')",
             nativeQuery = true)
     void saveWysylka(Long idProducenta, Long idMagazynu, String data);
 
