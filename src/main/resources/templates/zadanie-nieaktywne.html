@@ -37,7 +37,7 @@
 
 <div class="container my-5">
     <h4 class="text-center">Zadanie</h4>
-    <div th:if="${zadanie.typ != 'brakWartosci' && zadanie.typ != 'bladPob'}">
+    <div th:if="${zadanie.typ != 'brakWartosci' && zadanie.typ != 'bladPob'}" style="text-align: center">
         <div class="mb-3">
             Id zadania: [[${zadanie.idDostawy}]]
         </div>
@@ -49,6 +49,9 @@
         </div>
         <div class="mb-3">
             Status: [[${zadanie.status}]]
+        </div>
+        <div class="mb-3">
+            <a href="/kierowca/zadania-nieaktywne"><button style="background-color:lightblue;">Powrót</button></a>
         </div>
     </div>
 

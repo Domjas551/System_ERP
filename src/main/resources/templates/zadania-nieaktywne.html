@@ -37,30 +37,32 @@
 
 <div class="container my-5">
     <h4 class="text-center">Zadania</h4>
-    <table class="table table-stiped table-hover" th:if="${towar[0].nazwa != 'brakTowarow'}">
+    <table class="table table-stiped table-hover" th:if="${zadania[0].typ != 'brakWartosci' && zadania[0].typ != 'bladPob'}">
         <thead>
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Typ</th>
             <th scope="col">Adres</th>
+            <th scope="col">Status</th>
             <th colspan="2" style="text-align: center">Akcje</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="t :${towar}">
+        <tr th:each="z :${zadania}">
             <!--<th scope="row">1</th>-->
-            <td th:text="${t.idTowaru}"></td>
-            <td th:text="${t.nazwa}"></td>
-            <td th:text="${t.kategoria}"></td>
-            <td th:text="${t.ilosc}"></td>
-            <td th:text="${t.max_ilosc}"></td>
+            <td th:text="${z.idDostawy}"></td>
+            <td th:text="${z.typ}"></td>
+            <td th:text="${z.adres}"></td>
+            <td th:text="${z.status}"></td>
             <td style="text-align: center;">
-                <a class="nav-link " style="color: blue" th:href="@{/kierowca/zadanie-nieaktywne(id=${})}">Szczegóły</a>
+                <a class="nav-link " style="color: blue" th:href="@{/kierowca/zadanie-nieaktywne(idDostawy=${z.idDostawy},typ=${z.typ})}">Szczegóły</a>
             </td>
         </tr>
+
         </tbody>
     </table>
-    <p style="text-align: center;" th:if="${towar[0].nazwa == 'brakTowarow'}">Brak towarów do wyświetlenia</p>
+    <p style="text-align: center;" th:if="${zadania[0].typ == 'brakWartosci'}">Brak nieaktywnych zadań do wyświetlenia</p>
+    <p style="text-align: center;" th:if="${zadania[0].typ == 'bladPob'}">Błąd przy próbie pobrania danych</p>
 </div>
 
 </body>

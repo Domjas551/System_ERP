@@ -74,6 +74,39 @@ public class KierowcaController {
         return new ModelAndView("zadania-aktywne","zadania",list) ;
     }
 
+    //funkcja do ładowania strony zadania-aktywne
+    @GetMapping("/kierowca/zadania-nieaktywne")
+    public ModelAndView zadania_nieaktywneGet(Model model, Principal principal){
+
+        List<Dostawa> list=new ArrayList<>();
+
+        try{
+            list=dostawaService.findAllNotActiveDostawaByKierowcaId(dostawaService.getKierowcaId(principal.getName()));
+
+            //wypełnienie pustego elementu w celu uniknięcia wyjątków
+            if(list.size() == 0){
+                Dostawa t=new Dostawa(Integer.toUnsignedLong(1),"brakWartosci","","");
+                list.add(t);
+            }else if(list.get(0)==null){
+                Dostawa t=new Dostawa(Integer.toUnsignedLong(1),"brakWartosci","","");
+                list.set(0,t);
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            //wypełnienie pustego elementu w celu uniknięcia wyjątków
+            if(list.size() == 0){
+                Dostawa t=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
+                list.add(t);
+            }else if(list.get(0)==null){
+                Dostawa t=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
+                list.set(0,t);
+            }
+        }
+
+        return new ModelAndView("zadania-nieaktywne","zadania",list) ;
+    }
+
     //funkcja do ładowania strony zadanie-aktywne
     @GetMapping("/kierowca/zadanie-aktywne")
     public String zadanie_aktywneGet(@RequestParam Long idDostawy, @RequestParam String typ,
@@ -94,6 +127,7 @@ public class KierowcaController {
 
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
+                model.addAttribute("zadanie",d);
             }
 
         }else if(typ.equals("dostawa")){
@@ -109,6 +143,7 @@ public class KierowcaController {
 
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
+                model.addAttribute("zadanie",d);
             }
         }
         return "zadanie-aktywne";
@@ -118,16 +153,10 @@ public class KierowcaController {
     @PostMapping("/kierowca/zadanie-aktywne")
     public String edytujTowar(@ModelAttribute Dostawa zadanie, Model model){
 
-        System.out.println(zadanie.getIdDostawy());
-        System.out.println(zadanie.getTyp());
-        System.out.println(zadanie.getStatus());
-
         try{
             if(zadanie.getTyp().equals("wysylka")){
-                System.out.println("wa");
                 dostawaService.aktualizujStatusWysylka(zadanie.getIdDostawy(), zadanie.getStatus());
             }else if(zadanie.getTyp().equals("dostawa")){
-                System.out.println("da");
                 dostawaService.aktualizujStatusDostawy(zadanie.getIdDostawy(), zadanie.getStatus());
             }
 
@@ -146,7 +175,7 @@ public class KierowcaController {
 
         if(typ.equals("wysylka")){
             try{
-                Dostawa d=dostawaService.findWysylkaById(idDostawy);
+                Dostawa d=dostawaService.findNieaktywnaWysylkaById(idDostawy);
 
                 if(d==null){
                     d=new Dostawa(Integer.toUnsignedLong(1),"brakWartosci","","");
@@ -157,11 +186,12 @@ public class KierowcaController {
 
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
+                model.addAttribute("zadanie",d);
             }
 
         }else if(typ.equals("dostawa")){
             try{
-                Dostawa d=dostawaService.findDostawaById(idDostawy);
+                Dostawa d=dostawaService.findNieaktywnaDostawaById(idDostawy);
 
                 if(d==null){
                     d=new Dostawa(Integer.toUnsignedLong(1),"brakWartosci","","");
@@ -172,6 +202,7 @@ public class KierowcaController {
 
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
+                model.addAttribute("zadanie",d);
             }
         }
         return "zadanie-nieaktywne";

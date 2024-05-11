@@ -24,12 +24,24 @@ public class DostawaService {
             return dostawaRepository.findAllActiveByKierowcaId(idKierowcy);
     }
 
+    public List<Dostawa> findAllNotActiveDostawaByKierowcaId(Long idKierowcy) throws Exception {
+        return dostawaRepository.findAllNotActiveByKierowcaId(idKierowcy);
+    }
+
     public Dostawa findWysylkaById(Long id) throws Exception{
         return dostawaRepository.findWysylkaById(id);
     }
 
     public Dostawa findDostawaById(Long id) throws Exception{
         return dostawaRepository.findDostawaById(id);
+    }
+
+    public Dostawa findNieaktywnaWysylkaById(Long id) throws Exception{
+        return dostawaRepository.findNieaktywnaWysylkaById(id);
+    }
+
+    public Dostawa findNieaktywnaDostawaById(Long id) throws Exception{
+        return dostawaRepository.findNieaktywnaDostawaById(id);
     }
 
     @Transactional

@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-aktywne.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie-aktywne.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KierowcaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KierowcaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Dostawa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Dostawa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/DostawaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/DostawaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713525838233</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL">
+      <option name="closed" value="true" />
+      <created>1715345803613</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715345803613</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +213,8 @@
     <MESSAGE value="Pierwsze wersje stron producenta" />
     <MESSAGE value="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru" />
     <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
+    <MESSAGE value="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

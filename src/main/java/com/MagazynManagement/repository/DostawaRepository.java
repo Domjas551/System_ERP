@@ -27,10 +27,11 @@ public interface DostawaRepository extends JpaRepository<Dostawa, Long> {
     List<Dostawa> findAllActiveByKierowcaId(Long idKierowcy);
 
     @Query(
-            value="(SELECT id_dostawy , 'dostawa' as typ, adres, status FROM `dostawa` " +
-                    "where (status='zrealizowana' or status='niezrealizowana') and id_kierowcy=?1 " +
-                    "union select id_wysylki as id, 'wysylka' as typ, adres, status from wysylka " +
-                    "where (status='zrealizowana' or status='niezrealizowana') and id_kierowcy=?1) t;",
+            value="Select row_number() over (order by t.id_dostawy) as id, t.* from " +
+            "(SELECT id_dostawy , 'dostawa' as typ, adres, status FROM `dostawa` " +
+            "where (status='zrealizowana' or status='niezrealizowana') and id_kierowcy=?1 " +
+            "union select id_wysylki as id, 'wysylka' as typ, adres, status from wysylka " +
+            "where (status='zrealizowana' or status='niezrealizowana') and id_kierowcy=?1) t;",
             nativeQuery = true)
     List<Dostawa> findAllNotActiveByKierowcaId(Long idKierowcy);
 
@@ -45,6 +46,18 @@ public interface DostawaRepository extends JpaRepository<Dostawa, Long> {
                     "adres, status from dostawa where status='oczekujaca' and id_dostawy=?1",
             nativeQuery = true)
     Dostawa findDostawaById(Long id);
+
+    @Query(
+            value="select id_wysylki as id, id_wysylki as id_dostawy, 'wysylka' as typ, " +
+                    "adres, status from wysylka where (status='zrealizowana' or status='niezrealizowana') and id_wysylki=?1",
+            nativeQuery = true)
+    Dostawa findNieaktywnaWysylkaById(Long id);
+
+    @Query(
+            value="select id_dostawy as id, id_dostawy, 'dostawa' as typ, " +
+                    "adres, status from dostawa where (status='zrealizowana' or status='niezrealizowana') and id_dostawy=?1",
+            nativeQuery = true)
+    Dostawa findNieaktywnaDostawaById(Long id);
 
     @Modifying
     @Query(
