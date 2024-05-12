@@ -3,11 +3,14 @@ package com.MagazynManagement.controller;
 import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.MaterialRepozytory;
 import com.MagazynManagement.repository.TowarRepository;
-import com.MagazynManagement.service.TowarService;
-import com.MagazynManagement.service.ZamowienieService;
+import com.MagazynManagement.repository.UzytkownikRepository;
+import com.MagazynManagement.service.*;
+//import com.MagazynManagement.service.ZamowienieService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +18,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class KoszykController {
 
-    private final TowarRepository towarRepository;
     private final TowarService towarService;
-
-    private final ZamowienieService zamowienieService;
+    private final WysylkaService wysylkaService;
+    private final UzytkownikRepository uzytkownikRepository;
+    private final TowarWysylkaService towarWysylkaService;
 
     @PostMapping("/user/dodaj-do-koszyka")
     public String dodajDoKoszyka(@RequestParam Long idTowaru, @RequestParam Long idMagazynu, @RequestParam int ilosc, HttpSession session, HttpServletRequest request, Model model){
@@ -49,7 +55,7 @@ public class KoszykController {
         }
 
         stany.getStany().get(idMagazynu.intValue()-1).set(idTowaru.intValue()-1,stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1)+ilosc);
-        System.out.println(stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1));
+        //System.out.println(stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1));
         session.setAttribute("stany", stany);
         model.addAttribute("stany", stany);
 
@@ -74,29 +80,48 @@ public class KoszykController {
         }
 
         model.addAttribute("koszyk", koszyk);
-        model.addAttribute("adresDostawy", new AdresDostawy());
+        //model.addAttribute("adresWysylki", "");
         return "koszyk";
     }
 
-    /*@PostMapping("/user/zloz-zamowienie")
-    public String zlozZamowienie(@ModelAttribute AdresDostawy adresDostawy,
+    @PostMapping("/user/zloz-zamowienie")
+    public String zlozZamowienie(@RequestParam String adresWysylki,
                                  Model model,
-                                 HttpSession session){
+                                 HttpSession session,
+                                 Principal principal){
         List<PozycjaKoszyka> koszyk = (List<PozycjaKoszyka>) session.getAttribute("koszyk");
+        StanMagazynowSesja stany = (StanMagazynowSesja) session.getAttribute("stany");
+
         if (koszyk == null || koszyk.isEmpty()){
             return "redirect:/user/koszyk";
         }
 
-        float kwota = obliczKwoteZamowienia(koszyk);
-        zamowienieService.zlozNoweZamowienie(kwota, koszyk, adresDostawy);
+        wysylkaService.odejmijTowaryZeStanuMagazynowego(stany);
 
-        zamowienieService.odejmijMaterialyZeStanuMagazynowego(koszyk);
+        Uzytkownik uzytkownik = uzytkownikRepository.findUserByEmail(principal.getName());
+        Date data = new Date();
+        String dataform = formatDate(data);
+
+        if(uzytkownik.isCzyKlientHurtowy())
+        {
+            Wysylka wysylka=new Wysylka(null, uzytkownik.getIdUzytkownika(), null,null,"niezatwierdzona",0,dataform,adresWysylki);
+            wysylkaService.dodajWysylke(wysylka);
+        } else if (uzytkownik.isCzyKlientDetaliczny()) {
+            Wysylka wysylka=new Wysylka(null,null, uzytkownik.getIdUzytkownika(), null,"niezatwierdzona",0,dataform,adresWysylki);
+            wysylkaService.dodajWysylke(wysylka);
+        }
+
+        towarWysylkaService.dodajTowarWysylki(koszyk,wysylkaService.findPrzesylkeUzytkownika(uzytkownik.getIdUzytkownika(),dataform));
+
+
+
 
         koszyk.clear();
+        stany.clear();
         session.setAttribute("koszyk", koszyk);
-
-        return "redirect:/user";
-    }*/
+        session.setAttribute("stany", stany);
+        return "redirect:/user/koszyk";
+    }
 
     /*
     private float obliczKwoteZamowienia(List<PozycjaKoszyka> koszyk){
@@ -107,4 +132,9 @@ public class KoszykController {
         return kwota;
     }
     */
+
+    public static String formatDate(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+        return dateFormat.format(date);
+    }
 }

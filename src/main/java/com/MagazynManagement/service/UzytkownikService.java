@@ -75,4 +75,8 @@ public class UzytkownikService {
 
         return uzytkownikRepository.save(uzytkownik);
     }
+
+    public Uzytkownik findUserByEmail(String email){
+        return uzytkownikRepository.findUserByEmail(email);
+    }
 }

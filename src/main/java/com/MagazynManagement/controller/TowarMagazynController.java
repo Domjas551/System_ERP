@@ -33,7 +33,7 @@ public class TowarMagazynController {
             stany.inicjujMagazyn(id.intValue()-1, TowarMagazynList.size());
             session.setAttribute("stany", stany);
         }
-        System.out.println(stany);
+        //System.out.println(stany);
         model.addAttribute("stany", stany);
         return "towar-magazyn";
     }

@@ -84,7 +84,7 @@ public class ZamowienieService {
             Towar towar = pozycja.getTowar();
             int iloscDoOdjecia = pozycja.getIlosc();
 
-            towarMagazynRepository.odejmijTowar(towar.getIdTowaru(), iloscDoOdjecia);
+            //towarMagazynRepository.odejmijTowar(towar.getIdTowaru(), iloscDoOdjecia);
         }
     }
 }

@@ -209,4 +209,24 @@ public class Uzytkownik {
     public void setCzyKlientHurtowy(boolean czyKlientHurtowy) {
         this.czyKlientHurtowy = czyKlientHurtowy;
     }
+
+    @Override
+    public String toString() {
+        return "Uzytkownik{" +
+                "idUzytkownika=" + idUzytkownika +
+                ", email='" + email + '\'' +
+                ", imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", haslo='" + haslo + '\'' +
+                ", telefon='" + telefon + '\'' +
+                ", stanowisko='" + stanowisko + '\'' +
+                ", nazwaFirmy='" + nazwaFirmy + '\'' +
+                ", pensja=" + pensja +
+                ", czyAktywny=" + czyAktywny +
+                ", czyPracownik=" + czyPracownik +
+                ", czyProducent=" + czyProducent +
+                ", czyKlientDetaliczny=" + czyKlientDetaliczny +
+                ", czyKlientHurtowy=" + czyKlientHurtowy +
+                '}';
+    }
 }

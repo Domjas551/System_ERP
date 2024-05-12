@@ -15,6 +15,16 @@ public class StanMagazynowSesja
         }
     }
 
+    public void clear()
+    {
+        for(int i=0;i<stany.size();i++)
+        {
+            for(int j=0;j<stany.get(i).size();j++) {
+                stany.get(i).set(j,0);
+            }
+        }
+    }
+
     public ArrayList<ArrayList<Integer>> getStany() {
         return stany;
     }
