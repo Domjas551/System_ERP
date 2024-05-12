@@ -1,5 +1,7 @@
 package com.MagazynManagement.service;
 
+import com.MagazynManagement.entity.PozycjaKoszyka;
+import com.MagazynManagement.entity.StanMagazynowSesja;
 import com.MagazynManagement.entity.TowarMagazyn;
 import com.MagazynManagement.repository.TowarMagazynRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +31,20 @@ public class TowarMagazynService {
         return towarMagazynList;
     }
 
-    public void saveStanMagazynu(TowarMagazyn towarMagazyn){towarMagazynRepository.save(towarMagazyn);
+    public boolean sprawdzDostepnosc(StanMagazynowSesja stany, List<PozycjaKoszyka> koszyk)
+    {
+        Long idTowaru;
+        for(int i=0; i<koszyk.size();i++)
+        {
+            idTowaru=koszyk.get(i).getTowar().getIdTowaru();
+            for(int j=0; j<stany.getStany().size(); j++)
+            {
+                if(towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j+1),idTowaru)<stany.getStany().get(j).get((int)(long)(idTowaru-1)))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

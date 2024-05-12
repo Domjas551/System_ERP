@@ -76,6 +76,9 @@
         <input type="text" id="adresWysylki" name="adresWysylki" required>
         <button type="submit" class="btn btn-primary">Złóż zamówienie</button>
     </form>
+    <form th:action="@{/user/oproznij-koszyk}" method="post">
+        <button type="submit" class="btn btn-primary">Opróżnij koszyk</button>
+    </form>
 </div>
 
 </body>

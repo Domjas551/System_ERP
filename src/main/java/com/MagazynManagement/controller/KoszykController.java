@@ -32,9 +32,14 @@ public class KoszykController {
     private final WysylkaService wysylkaService;
     private final UzytkownikRepository uzytkownikRepository;
     private final TowarWysylkaService towarWysylkaService;
+    private final TowarMagazynService towarMagazynService;
 
     @PostMapping("/user/dodaj-do-koszyka")
     public String dodajDoKoszyka(@RequestParam Long idTowaru, @RequestParam Long idMagazynu, @RequestParam int ilosc, HttpSession session, HttpServletRequest request, Model model){
+        if(ilosc==0)
+        {
+            return "redirect:"+request.getHeader("Referer");
+        }
         List<PozycjaKoszyka> koszyk = (List<PozycjaKoszyka>) session.getAttribute("koszyk");
         StanMagazynowSesja stany = (StanMagazynowSesja) session.getAttribute("stany");
         if(koszyk == null){
@@ -96,6 +101,15 @@ public class KoszykController {
             return "redirect:/user/koszyk";
         }
 
+        if(!towarMagazynService.sprawdzDostepnosc(stany, koszyk))
+        {
+            koszyk.clear();
+            stany.clear();
+            session.setAttribute("koszyk", koszyk);
+            session.setAttribute("stany", stany);
+            return "redirect:/user/koszyk";
+        }
+
         wysylkaService.odejmijTowaryZeStanuMagazynowego(stany);
 
         Uzytkownik uzytkownik = uzytkownikRepository.findUserByEmail(principal.getName());
@@ -113,8 +127,18 @@ public class KoszykController {
 
         towarWysylkaService.dodajTowarWysylki(koszyk,wysylkaService.findPrzesylkeUzytkownika(uzytkownik.getIdUzytkownika(),dataform));
 
+        koszyk.clear();
+        stany.clear();
+        session.setAttribute("koszyk", koszyk);
+        session.setAttribute("stany", stany);
+        return "redirect:/user/koszyk";
+    }
 
-
+    @PostMapping("/user/oproznij-koszyk")
+    public String oproznijKoszyk(HttpSession session)
+    {
+        List<PozycjaKoszyka> koszyk = (List<PozycjaKoszyka>) session.getAttribute("koszyk");
+        StanMagazynowSesja stany = (StanMagazynowSesja) session.getAttribute("stany");
 
         koszyk.clear();
         stany.clear();
