@@ -3,6 +3,7 @@ package com.MagazynManagement.controller;
 import com.MagazynManagement.entity.*;
 import com.MagazynManagement.service.ZadanieService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class ZadanieController {
     private final UserDetailsService userDetailsService;
 
     private int dodano = 0;
-    private int anulowano = 0;
+    private int edytowano = 0;
 
     @GetMapping("/manager/zadanie")
     public String getZadanie(Model model, Principal principal){
@@ -47,27 +48,26 @@ public class ZadanieController {
     public String wyswietlZadania(Model model, @PathVariable("id") Long id){
         List<Zadanie> listZ = zadanieService.getZadanieByManager(id);
         model.addAttribute("zadania", listZ);
-        model.addAttribute("anulowano", anulowano);
         model.addAttribute("manager", id);
-        anulowano=0;
+        model.addAttribute("edytowano", edytowano);
+        edytowano = 0;
         return "zadania";
     }
 
-    @PostMapping("/manager/anulujZadanie/{id}")
-    public String anulujZadanie(@ModelAttribute Zadanie zadanie, @PathVariable("id") Long id){
-        System.out.println(zadanie.getId_zadania());
-        zadanie.setId_kierownika(id);
-        zadanieService.zapiszZadanie(zadanie);
-        anulowano++;
-        return "redirect:/manager/zadania";
+    @GetMapping("/manager/zadanieDetails/{id}")
+    public String zadanieDetails(Model model, @PathVariable("id") Long id){
+        model.addAttribute("zadanie", zadanieService.getZadanieById(id));
+        model.addAttribute("pracownicy", zadanieService.getMagazynier());
+        return "zadanieDetails";
     }
 
-    /*
-    @PostMapping("/pracownik/harmonogram/wykonane/{id}")
-    public String wykonajZadanie(@ModelAttribute Zadanie zadanie, @PathVariable("id") Long idpracownika){
-        zadanieService.wykonajZadanie(zadanie.getId_zadania(), zadanie.getStatus());
-        return "redirect:/pracownik/harmonogram/"+idpracownika;
-    }*/
+    @PostMapping("/manager/edytujZadanie")
+    public String edytujZadanie(@ModelAttribute Zadanie zadanie){
+        System.out.println(zadanie.getId_zadania());
+        zadanieService.zapiszZadanie(zadanie);
+        edytowano++;
+        return "redirect:/manager/zadania/"+zadanie.getId_kierownika();
+    }
 
     @GetMapping("/pracownik/harmonogram/{id}")
     public String pokazStanMagazynu(@PathVariable("id") Long id, Model model){

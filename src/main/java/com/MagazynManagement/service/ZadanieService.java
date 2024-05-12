@@ -35,6 +35,8 @@ public class ZadanieService {
         return zadanieRepository.findByIdPracownika(null);
     }
 
+    public Zadanie getZadanieById(Long id){return zadanieRepository.getReferenceById(id);}
+
     public List<Zadanie> getZadanieByManager(Long id){
         return zadanieRepository.findByKierownik(id);
     }
