@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Zakończenie podstaw funkcjonalnośći prostej transakcji.">
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/TowarMagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/TowarMagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715536377941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów.">
+      <created>1715550802578</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715550802578</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +226,8 @@
     <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
     <MESSAGE value="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL" />
     <MESSAGE value="Zakończenie podstaw funkcjonalnośći prostej transakcji." />
-    <option name="LAST_COMMIT_MESSAGE" value="Zakończenie podstaw funkcjonalnośći prostej transakcji." />
+    <MESSAGE value="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów." />
+    <option name="LAST_COMMIT_MESSAGE" value="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

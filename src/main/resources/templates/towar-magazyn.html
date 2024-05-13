@@ -74,7 +74,7 @@
         <form th:action="@{/user/dodaj-do-koszyka}" method="post">
           <input type="hidden" name="idTowaru" th:value="${tm.idTowaru}" />
           <input type="hidden" name="idMagazynu" th:value="${tm.idMagazynu}" />
-          <input type="number" name="ilosc" value="1" min="${-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" th:max="${(stany.stany[tm.idMagazynu-1].size()==0)? tm.ilosc : tm.ilosc-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" required />
+          <input type="number" name="ilosc" value="1" th:min="${-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" th:max="${(stany.stany[tm.idMagazynu-1].size()==0)? tm.ilosc : tm.ilosc-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" required />
           <button type="submit">Włóż do koszyka/Wyjmij z koszyka</button>
         </form>
       </td>

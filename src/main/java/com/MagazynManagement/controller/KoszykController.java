@@ -1,20 +1,14 @@
 package com.MagazynManagement.controller;
 
 import com.MagazynManagement.entity.*;
-import com.MagazynManagement.repository.MaterialRepozytory;
-import com.MagazynManagement.repository.TowarRepository;
 import com.MagazynManagement.repository.UzytkownikRepository;
 import com.MagazynManagement.service.*;
-//import com.MagazynManagement.service.ZamowienieService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,6 +27,7 @@ public class KoszykController {
     private final UzytkownikRepository uzytkownikRepository;
     private final TowarWysylkaService towarWysylkaService;
     private final TowarMagazynService towarMagazynService;
+    private final ZadanieService zadanieService;
 
     @PostMapping("/user/dodaj-do-koszyka")
     public String dodajDoKoszyka(@RequestParam Long idTowaru, @RequestParam Long idMagazynu, @RequestParam int ilosc, HttpSession session, HttpServletRequest request, Model model){
@@ -126,6 +121,38 @@ public class KoszykController {
         }
 
         towarWysylkaService.dodajTowarWysylki(koszyk,wysylkaService.findPrzesylkeUzytkownika(uzytkownik.getIdUzytkownika(),dataform));
+
+        String opis="";
+        boolean s=false;
+        for(int i=0; i<stany.getStany().size(); i++)
+        {
+            for(int j=0; j<stany.getStany().get(i).size();j++)
+            {
+                if(stany.getStany().get(i).get(j)!=0)
+                {
+                    s=true;
+                    break;
+                }
+            }
+            if(s)
+            {
+                opis=opis+("Magazyn "+(i+1)+": Przygotuj towary do wysylki o id "+wysylkaService.findPrzesylkeUzytkownika(uzytkownik.getIdUzytkownika(),dataform)+".\n" +
+                        "Towary do wysylki:");
+
+                for(int j=0; j<stany.getStany().get(i).size();j++)
+                {
+                    if(stany.getStany().get(i).get(j)!=0)
+                    {
+                        opis=opis+("\n - id towaru: "+(j+1)+", ilosc: "+stany.getStany().get(i).get(j)+" ton.");
+                    }
+                }
+                System.out.println(opis);
+                Zadanie zadanie=new Zadanie(null,null,null,opis,"do przydzialu");
+                zadanieService.zapiszZadanie(zadanie);
+                opis="";
+                s=false;
+            }
+        }
 
         koszyk.clear();
         stany.clear();
