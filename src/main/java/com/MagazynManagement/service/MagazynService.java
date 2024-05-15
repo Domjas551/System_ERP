@@ -24,7 +24,7 @@ public class MagazynService {
     }
 
     //funkcja zwracająca magazyny przechowujące towary danego producenta
-    public List<String> getProducentMagazyn(Long idProducenta){
-        return magazynRepository.findProducentId(idProducenta);
+    public List<String> getProducentMagazyn(Long idProducenta) throws Exception{
+        return magazynRepository.findByProducentId(idProducenta);
     }
 }

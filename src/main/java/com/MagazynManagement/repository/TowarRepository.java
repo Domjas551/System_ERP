@@ -15,17 +15,30 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
     Towar findByNazwa(String nazwa);
 
     @Query(
-            value="SELECT t.*,(Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) as ilosc," +
-                    " sum(max_ilosc) as max_ilosc FROM `towar` t " +
+            value="SELECT t.*, CASE " +
+                    "when (Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) is null then 0 " +
+                    "else (Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) " +
+                    "end as ilosc, " +
+                    "case " +
+                    "when sum(max_ilosc) is null then 0 " +
+                    "else sum(max_ilosc) " +
+                    "end as max_ilosc FROM `towar` t " +
                     "left join uzytkownik on t.id_producenta=uzytkownik.id_uzytkownika " +
                     "left join towar_magazyn on towar_magazyn.id_towaru=t.id_towaru " +
-                    "where email=?1 group by id_towaru",
+                    "where email=?1 group by id_towaru;",
             nativeQuery = true)
     List<Towar> findAllByProducentId(String email);
 
     @Query(
-            value="SELECT t.*,(Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) as ilosc," +
-                    " sum(max_ilosc) as max_ilosc FROM `towar` t " +
+            value="SELECT t.*, CASE " +
+                    "when (Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) is null then 0 " +
+                    "else (Select sum(ilosc) from towar_magazyn where id_towaru=t.id_towaru) " +
+                    "end as ilosc, " +
+                    "case " +
+                    "when sum(max_ilosc) is null then 0 " +
+                    "else sum(max_ilosc) " +
+                    "end as max_ilosc FROM `towar` t " +
+                    "left join uzytkownik on t.id_producenta=uzytkownik.id_uzytkownika " +
                     "left join towar_magazyn on towar_magazyn.id_towaru=t.id_towaru " +
                     "where t.id_towaru=?1",
             nativeQuery = true)
@@ -66,9 +79,9 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
 
     @Modifying
     @Query(
-            value="INSERT INTO dostawa(id_producenta,id_magazynu,data,staus) VALUES(?1,?2,?3,'oczekujaca')",
+            value="INSERT INTO dostawa(id_producenta,id_magazynu,data,status,adres) VALUES(?1,?2,?3,'oczekujaca',?4)",
             nativeQuery = true)
-    void saveWysylka(Long idProducenta, Long idMagazynu, String data);
+    void saveWysylka(Long idProducenta, Long idMagazynu, String data, String adres);
 
     @Query(
             value="SELECT id_dostawy FROM `dostawa` where id_producenta=?1 ORDER BY `id_dostawy` DESC LIMIT 1",

@@ -12,7 +12,7 @@ import java.util.List;
 public interface MagazynRepository extends JpaRepository<Magazyn, Long> {
 
     @Query(
-            value="SELECT distinct(id_magazynu) FROM `towar_magazyn` NATURAL join towar where id_producenta=?1 ",
+            value="SELECT distinct(id_magazynu) FROM `towar_magazyn` NATURAL join towar where id_producenta=?1 order by id_magazynu asc",
             nativeQuery = true)
-    List<String> findProducentId(Long idProducenta);
+    List<String> findByProducentId(Long idProducenta);
 }

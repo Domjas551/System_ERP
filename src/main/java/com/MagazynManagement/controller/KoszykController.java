@@ -36,7 +36,15 @@ public class KoszykController {
             session.setAttribute("koszyk", koszyk);
         }
 
-        Towar towar = towarService.findById(idTowaru);
+        Towar towar=new Towar();
+
+        try{
+            //todo zmiana w koszyku
+            towar = towarService.findById(idTowaru);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
 
         if(towar != null){
             PozycjaKoszyka istniejacaPozycja = znajdzPozycjeWKoszyku(towar, koszyk);

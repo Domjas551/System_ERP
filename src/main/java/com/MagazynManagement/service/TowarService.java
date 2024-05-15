@@ -22,23 +22,22 @@ public class TowarService {
     TowarRepository towarRepository;
 
     public List<Towar> getAllTowar(){return towarRepository.findAll();}
-    public List<Towar> getAllTowarByProducentId(String email){
+    public List<Towar> getAllTowarByProducentId(String email) throws Exception{
         return towarRepository.findAllByProducentId(email);
     }
 
-    public Towar findById(Long idTowaru){
+    public Towar findById(Long idTowaru) throws Exception {
         return towarRepository.findByIdS(idTowaru);
     }
 
     @Transactional
-    public String aktualizujTowar(Towar towar){
+    public void aktualizujTowar(Towar towar) throws Exception{
         Long idTowaru=towar.getIdTowaru();
 
         if(towarRepository.existsById(idTowaru)){
             towarRepository.saveS(towar.getIdTowaru(),towar.getNazwa(),towar.getKategoria());
-            return "OK";
         }else{
-            return "error";
+            throw new Exception("Nie znaleziono towaru");
         }
     }
 
@@ -47,28 +46,27 @@ public class TowarService {
     }
 
     @Transactional
-    public void saveTowar(TowarDto towarDto){
-        //todo zabezpieczenie w wypadku błędu
+    public void saveTowar(TowarDto towarDto) throws Exception{
         towarRepository.saveT(towarRepository.findProducentId(towarDto.getEmailProducenta()),towarDto.getNazwa(),towarDto.getKategoria());
     }
 
-    public List<Towar> getTowaryByProducentAndMagazyn(Long idProducenta, Long idMagazynu){
+    public List<Towar> getTowaryByProducentAndMagazyn(Long idProducenta, Long idMagazynu) throws Exception{
         return towarRepository.findAllInMagazyn(idProducenta,idMagazynu);
     }
 
-    public Towar findByIdInMagazyn(Long idTowaru, Long idMagazynu){
+    public Towar findByIdInMagazyn(Long idTowaru, Long idMagazynu) throws Exception{
         return towarRepository.findByIdInMagazyn(idTowaru,idMagazynu);
     }
 
     @Transactional
-    public void saveWysylka(Long idTowaru, Long idMagazynu,Long idProducenta, Long ilosc){
-//todo exception
+    public void saveWysylka(Long idTowaru, Long idMagazynu,Long idProducenta,String adres, Long ilosc) throws Exception{
+
         LocalDateTime d = LocalDateTime.now();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
 
         String data = d.format(dateFormatter);
 
-        towarRepository.saveWysylka(idProducenta, idMagazynu, data);
+        towarRepository.saveWysylka(idProducenta, idMagazynu, data, adres);
 
         Long idWysylki=towarRepository.getLastProducentWysylkaId(idProducenta);
 

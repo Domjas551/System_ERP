@@ -38,16 +38,13 @@
 <div class="container my-5">
     <h4 class="text-center">Utwórz nowy transport</h4>
 
-    <!--    <div class="row mt-2">-->
-    <!--        <div th:if="$param.success">-->
-    <!--            Registration successfull.-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-
-    <div class="mb-3" th:each="m :${magazyn}" style="text-align:center">
-        <a th:href="@{/producent/wysylki-towary(magazyn=${m})}">Magazyn nr: [[${m}]]</a>
+    <div th:if="${magazyn[0] != 'brakTowarow' && magazyn[0] != 'bladPob'}">
+        <div class="mb-3" th:each="m :${magazyn}" style="text-align:center">
+            <a th:href="@{/producent/wysylki-towary(magazyn=${m})}">Magazyn nr: [[${m}]]</a>
+        </div>
     </div>
+    <p style="text-align: center;" th:if="${magazyn[0] == 'brakTowarow'}">Brak towarów w magazynach</p>
+    <p style="text-align: center;" th:if="${magazyn[0] == 'bladPob'}">Błąd przy próbie pobrania danych</p>
 
 </div>
 

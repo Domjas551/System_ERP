@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/producent-main">Panel producenta</a>
+                    <a class="nav-link active text-light" aria-current="page" href="/producent">Panel producenta</a>
                 </li>
             </ul>
             <div sec:authorize="hasAuthority('ADMIN')">
@@ -45,7 +45,7 @@
     <!--    </div>-->
 
     <form class="col-md-4 offset-md-4" th:action="@{/producent/edytuj-towar}"
-          method="post" role="form" th:object="${towar}">
+          method="post" role="form" th:object="${towar}" th:if="${towar.nazwa != 'brakTowaru' && towar.nazwa != 'bladPob'}">
         <div>
             <input type="hidden" th:field="*{idTowaru}">
         </div>
@@ -61,6 +61,8 @@
 
         <button type="submit" class="btn btn-success">Zapisz zmiany</button>
     </form>
+    <p style="text-align: center;" th:if="${towar.nazwa == 'brakTowaru'}">Nie znaleziono towaru</p>
+    <p style="text-align: center;" th:if="${towar.nazwa == 'bladPob'}">Błąd przy próbie pobrania danych</p>
     <div class="row mt-2" th:if="${message != null}" style="color: red; text-align: center; width: 40%; margin: 0 auto;">
         <p>[[${message}]]</p>
     </div>

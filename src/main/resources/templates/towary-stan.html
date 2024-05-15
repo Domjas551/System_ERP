@@ -37,7 +37,7 @@
 
 <div class="container my-5">
     <h4 class="text-center">Stan towarów</h4>
-    <table class="table table-stiped table-hover" th:if="${towar[0].nazwa != 'brakTowarow'}">
+    <table class="table table-stiped table-hover" th:if="${towar[0].nazwa != 'brakTowarow' && towar[0].nazwa != 'bladPob'}">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -57,13 +57,14 @@
             <td th:text="${t.ilosc}"></td>
             <td th:text="${t.max_ilosc}"></td>
             <td style="text-align: center;">
-            <a class="nav-link " style="color: blue" th:href="@{/producent/edytuj-towar(idTowaru=${t.idTowaru})}">Edytuj</a>
+            <a class="nav-link " style="color: blue" th:href="@{/producent/edytuj-towar(idTowaru=${t.idTowaru},message='')}">Edytuj</a>
             </td>
         </tr>
 
         </tbody>
     </table>
     <p style="text-align: center;" th:if="${towar[0].nazwa == 'brakTowarow'}">Brak towarów do wyświetlenia</p>
+    <p style="text-align: center;" th:if="${towar[0].nazwa == 'bladPob'}">Błąd przy próbie pobrania danych</p>
 </div>
 
 </body>
