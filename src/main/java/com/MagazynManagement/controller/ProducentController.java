@@ -140,7 +140,7 @@ public class ProducentController {
         return "add-towar";
     }
 
-    //funkcja do ładowania strony wyslki-magazyn
+    //funkcja do ładowania strony wysylki-magazyn
     @GetMapping("/producent/wysylki-magazyn")
     public ModelAndView wysylka_magazynGet(Principal principal){
         List<String> list=new ArrayList<>();

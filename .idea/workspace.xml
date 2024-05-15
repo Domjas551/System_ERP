@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KierowcaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KierowcaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/DostawaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/DostawaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" afterDir="false" />
-    </list>
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
