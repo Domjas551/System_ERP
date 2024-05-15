@@ -72,9 +72,12 @@
     </table>
 
     <form th:action="@{/user/zloz-zamowienie}" method="post">
-        <label for="adresDostawy">Adres dostawy:</label>
-        <input type="text" id="adresDostawy" name="adresDostawy" required>
+        <label for="adresWysylki">Adres wysylki:</label>
+        <input type="text" id="adresWysylki" name="adresWysylki" required>
         <button type="submit" class="btn btn-primary">Złóż zamówienie</button>
+    </form>
+    <form th:action="@{/user/oproznij-koszyk}" method="post">
+        <button type="submit" class="btn btn-primary">Opróżnij koszyk</button>
     </form>
 </div>
 

@@ -21,8 +21,14 @@ public interface TowarMagazynRepository extends JpaRepository<TowarMagazyn, Long
                     "where towar_magazyn.id_magazynu=?1", nativeQuery = true)
     List<Object[]> findByMagazyn_IdMagazynu(Long idMagazynu);
 
+    @Query(
+            value = "SELECT ilosc FROM towar_magazyn WHERE id_magazynu = :idMagazynu AND id_towaru = :idTowaru",
+            nativeQuery = true
+    )
+    int findIloscTowarMagazyn(@Param("idMagazynu") Long idMagazynu, @Param("idTowaru") Long idTowaru);
+
     @Modifying
     @Transactional
-    @Query(value = "UPDATE stanmagazynu SET ilosc = ilosc - :ilosc WHERE id_towaru = :TowarId", nativeQuery = true)
-    void odejmijTowar(@Param("TowarId") Long TowarId, @Param("ilosc") int ilosc);
+    @Query(value = "UPDATE towar_magazyn SET ilosc = ilosc - ?3 WHERE id_towaru = ?2 and id_magazynu=?1", nativeQuery = true)
+    void odejmijTowar(Long MagazynId, Long TowarId, int ilosc);
 }

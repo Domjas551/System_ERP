@@ -2,6 +2,7 @@ package com.MagazynManagement.dto;
 
 public class UserDto {
 
+    private int id;
 
     private String email;
 
@@ -21,13 +22,15 @@ public class UserDto {
         super();
     }
 
-    public UserDto(String email,
+    public UserDto(int id,
+                   String email,
                    String imie,
                    String nazwisko,
                    String haslo,
                    String telefon,
                    boolean czyKlientDetaliczny,
                    boolean czyKlientHurtowy) {
+        this.id=id;
         this.email = email;
         this.imie = imie;
         this.nazwisko = nazwisko;

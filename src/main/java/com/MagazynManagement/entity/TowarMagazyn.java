@@ -8,7 +8,6 @@ public class TowarMagazyn {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long idMagazynu;
     private Long idTowaru;
     private String nazwa;

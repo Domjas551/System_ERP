@@ -15,6 +15,11 @@ public interface UzytkownikRepository extends JpaRepository<Uzytkownik, Long> {
     Optional<Uzytkownik> findByEmail(String email);
 
     @Query(
+            value="SELECT * from uzytkownik where email=?1",
+            nativeQuery = true)
+    Uzytkownik findUserByEmail(String email);
+
+    @Query(
             value="SELECT * from uzytkownik where czy_pracownik=1 and stanowisko='magazynier'",
             nativeQuery = true)
     List<Uzytkownik> findMagazynier();

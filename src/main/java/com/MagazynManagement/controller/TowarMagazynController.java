@@ -29,11 +29,6 @@ public class TowarMagazynController {
         Magazyn magazyn = magazynService.getMagazyn(id);
         if(magazyn != null)
             model.addAttribute("adresMagazynu", magazyn.getAdres());
-        if(stany.getStany().get(id.intValue()-1).isEmpty()){
-            stany.inicjujMagazyn(id.intValue()-1, TowarMagazynList.size());
-            session.setAttribute("stany", stany);
-        }
-        System.out.println(stany);
         model.addAttribute("stany", stany);
         return "towar-magazyn";
     }
