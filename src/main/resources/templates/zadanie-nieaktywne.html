@@ -37,21 +37,23 @@
 
 <div class="container my-5">
     <h4 class="text-center">Zadanie</h4>
-    <div th:if="${zadanie.typ != 'brakWartosci' && zadanie.typ != 'bladPob'}" style="text-align: center">
-        <div class="mb-3">
+    <div th:if="${zadanie.typ != 'brakWartosci' && zadanie.typ != 'bladPob'}" style="text-align: center" class="col-md-4 offset-md-4">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
             Id zadania: [[${zadanie.idDostawy}]]
         </div>
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
             Typ: [[${zadanie.typ}]]
         </div>
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
             Adres: [[${zadanie.adres}]]
         </div>
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em;margin-bottom:0.2em">
             Status: [[${zadanie.status}]]
         </div>
         <div class="mb-3">
-            <a href="/kierowca/zadania-nieaktywne"><button style="background-color:lightblue;">Powrót</button></a>
+            <a href="/kierowca/zadania-nieaktywne">
+                <button class="btn btn-success" style="background-color:#5590ed">Powrót</button>
+            </a>
         </div>
     </div>
 

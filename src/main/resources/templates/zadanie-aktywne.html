@@ -39,29 +39,30 @@
     <h4 class="text-center">Zadanie</h4>
     <form class="col-md-4 offset-md-4" th:action="@{/kierowca/zadanie-aktywne}"
           method="post" role="form" th:object="${zadanie}" th:if="${zadanie.typ != 'brakWartosci' && zadanie.typ != 'bladPob'}">
+
         <div>
             <input type="hidden" th:field="*{idDostawy}">
             <input type="hidden" th:field="*{typ}">
         </div>
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
             Id zadania: [[${zadanie.idDostawy}]]
         </div>
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
             Typ: [[${zadanie.typ}]]
         </div>
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
             Adres: [[${zadanie.adres}]]
         </div>
 
-        <div class="mb-3">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em;margin-bottom:0.2em">
             Status:
-            <select th:field="*{status}">
+            <select th:field="*{status}" style="background-color:#bde5f2">
                 <option value="zrealizowana">Zrealizowana</option>
                 <option value="niezrealizowana">Niezrealizowana</option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-success">Zapisz zmiany</button>
+        <button type="submit" class="btn btn-success" style="inline-block;margin-left:33%">Zapisz zmiany</button>
     </form>
     <p style="text-align: center;" th:if="${zadanie.typ == 'brakWartosci'}">Nie znaleziono takiego zadania</p>
     <p style="text-align: center;" th:if="${zadanie.typ == 'bladPob'}">Błąd przy próbie pobrania danych</p>

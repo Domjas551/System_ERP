@@ -53,12 +53,18 @@
 
 
 <div style="text-align: center; margin-top: 5vh;">
-    <div>
-        <a class="nav-link text-dark" th:href="@{/kierowca/zadania-aktywne}">Sprawdź aktywne zadania</a>
+    <div class="mb-3">
+        <a class="nav-link text-dark" th:href="@{/kierowca/zadania-aktywne}"
+           style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+           onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+        >Sprawdź aktywne zadania</a>
     </div>
 
-    <div>
-        <a class="nav-link text-dark" th:href="@{/kierowca/zadania-nieaktywne}">Sprawdź nieaktywne zadania</a>
+    <div class="mb-3">
+        <a class="nav-link text-dark" th:href="@{/kierowca/zadania-nieaktywne}"
+           style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+           onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+        >Sprawdź nieaktywne zadania</a>
     </div>
 </div>
 

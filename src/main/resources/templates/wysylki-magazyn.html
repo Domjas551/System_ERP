@@ -40,7 +40,10 @@
 
     <div th:if="${magazyn[0] != 'brakTowarow' && magazyn[0] != 'bladPob'}">
         <div class="mb-3" th:each="m :${magazyn}" style="text-align:center">
-            <a th:href="@{/producent/wysylki-towary(magazyn=${m})}">Magazyn nr: [[${m}]]</a>
+            <a class="nav-link text-dark"
+               style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+               onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+               th:href="@{/producent/wysylki-towary(magazyn=${m})}">Magazyn nr: [[${m}]]</a>
         </div>
     </div>
     <p style="text-align: center;" th:if="${magazyn[0] == 'brakTowarow'}">Brak towarów w magazynach</p>

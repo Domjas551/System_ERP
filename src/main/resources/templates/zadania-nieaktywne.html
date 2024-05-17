@@ -55,7 +55,9 @@
             <td th:text="${z.adres}"></td>
             <td th:text="${z.status}"></td>
             <td style="text-align: center;">
-                <a class="nav-link " style="color: blue" th:href="@{/kierowca/zadanie-nieaktywne(idDostawy=${z.idDostawy},typ=${z.typ})}">Szczegóły</a>
+                <a class="nav-link " style="color: blue" th:href="@{/kierowca/zadanie-nieaktywne(idDostawy=${z.idDostawy},typ=${z.typ})}">
+                    <button style="background-color:lightblue;border:2px solid darkblue">Szczegóły</button>
+                </a>
             </td>
         </tr>
 

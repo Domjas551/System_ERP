@@ -59,7 +59,7 @@
             <input th:field="*{kategoria}" type="text" class="form-control" id="kategoria" name="kategoria">
         </div>
 
-        <button type="submit" class="btn btn-success">Zapisz zmiany</button>
+        <button type="submit" class="btn btn-success" style="inline-block;margin-left:35%">Zapisz zmiany</button>
     </form>
     <p style="text-align: center;" th:if="${towar.nazwa == 'brakTowaru'}">Nie znaleziono towaru</p>
     <p style="text-align: center;" th:if="${towar.nazwa == 'bladPob'}">Błąd przy próbie pobrania danych</p>

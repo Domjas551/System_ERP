@@ -39,12 +39,6 @@
 <div class="container my-5">
     <h4 class="text-center">Dodaj nowy produkt</h4>
 
-    <!--    <div class="row mt-2">-->
-    <!--        <div th:if="$param.success">-->
-    <!--            Registration successfull.-->
-    <!--        </div>-->
-    <!--    </div>-->
-
     <form class="col-md-4 offset-md-4" th:action="@{/producent/add-towar}"
           method="post" role="form" th:object="${towarDto}">
 
@@ -58,7 +52,7 @@
             <input th:field="*{kategoria}" type="text" class="form-control" id="kategoria" name="kategoria" required>
         </div>
 
-        <button type="submit" class="btn btn-success">Dodaj towar</button>
+        <button type="submit" class="btn btn-success" style="inline-block;margin-left:35%">Dodaj towar</button>
     </form>
     <div class="row mt-2" th:if="${message != null}" style="color: blue; text-align: center; width: 40%; margin: 0 auto;">
         <p>[[${message}]]</p>

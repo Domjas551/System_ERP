@@ -57,7 +57,9 @@
             <td th:text="${t.ilosc}"></td>
             <td th:text="${t.max_ilosc}"></td>
             <td style="text-align: center;">
-                <a class="nav-link " style="color: blue" th:href="@{/producent/wysylki-towar(idTowaru=${t.idTowaru},idMagazynu=${magazyn},message='')}">Utwórz wysyłke</a>
+                <a class="nav-link " style="color: blue" th:href="@{/producent/wysylki-towar(idTowaru=${t.idTowaru},idMagazynu=${magazyn},message='')}">
+                    <button style="background-color:lightblue;border:2px solid darkblue">Utwórz wysyłke</button>
+                </a>
             </td>
         </tr>
 

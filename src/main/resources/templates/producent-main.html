@@ -13,9 +13,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand text-light" href="/">MagazynManagement</a>
-        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -39,16 +36,25 @@
 <h2>[[${producent.getNazwaFirmy()}]]</h2>
 
 <div style="text-align: center; margin-top: 5vh;">
-    <div>
-        <a class="nav-link text-dark" th:href="@{/producent/add-towar}">Zarejestruj nowy towar</a>
+    <div class="mb-3">
+        <a class="nav-link text-dark" th:href="@{/producent/add-towar}"
+           style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+           onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+        >Zarejestruj nowy towar</a>
     </div>
 
-    <div>
-        <a class="nav-link text-dark" th:href="@{/producent/towary-stan}">Sprawdź stan swoich towarów</a>
+    <div class="mb-3">
+        <a class="nav-link text-dark" th:href="@{/producent/towary-stan}"
+           style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+           onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+        >Sprawdź stan swoich towarów</a>
     </div>
 
-    <div>
-        <a class="nav-link text-dark" th:href="@{/producent/wysylki-magazyn}">Wyślij gotową partie towarów</a>
+    <div class="mb-3">
+        <a class="nav-link text-dark" th:href="@{/producent/wysylki-magazyn}"
+           style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+           onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+        >Wyślij gotową partie towarów</a>
     </div>
 </div>
 
