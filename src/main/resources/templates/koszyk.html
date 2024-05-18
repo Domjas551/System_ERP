@@ -25,7 +25,7 @@
                     <a class="nav-link active text-light" aria-current="page" href="/placowki">Nasze placówki</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/produkty">Produkty</a>
+                    <a class="nav-link active text-light" aria-current="page" href="/oferta">Oferta</a>
                 </li>
             </ul>
             <div sec:authorize="hasAuthority('USER')">
@@ -79,6 +79,12 @@
     <form th:action="@{/user/oproznij-koszyk}" method="post">
         <button type="submit" class="btn btn-primary">Opróżnij koszyk</button>
     </form>
+</div>
+<div class="row mt-2" th:if="${messageTra != null}" style="color: green; text-align: center; margin: 0 auto; width: 40%;">
+    <p>[[${messageTra}]]</p>
+</div>
+<div class="row mt-2" th:if="${errorBrak != null}" style="color: red; text-align: center; margin: 0 auto; width: 40%;">
+    <p>[[${errorBrak}]]</p>
 </div>
 
 </body>

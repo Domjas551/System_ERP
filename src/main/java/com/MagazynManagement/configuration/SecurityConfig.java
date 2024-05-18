@@ -47,6 +47,7 @@ public class SecurityConfig {
                         .requestMatchers("/registration-producent").permitAll()
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/placowki").permitAll()
+                        .requestMatchers("/oferta").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")
                         .successHandler(customSuccessHandler).permitAll())

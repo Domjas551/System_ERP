@@ -4,8 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodano stylowanie do stron producenta i kierowcy">
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/OfertaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/PozycjaOferty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/PozycjaOfertyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/PozycjaOfertyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/oferta.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-material.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-material.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-pracownik.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-pracownik.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-pracownikByManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-pracownikByManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edytuj-pracownikaByManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/edytuj-pracownikaByManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/harmonogram.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/harmonogram.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pracownicy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pracownicy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-producent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-producent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rozpiska.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rozpiska.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/stan-magazynu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/stan-magazynu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/szczegoly-zamowienia-manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/szczegoly-zamowienia-manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/szczegoly-zamowienia-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/szczegoly-zamowienia-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wyszukaj-sektor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wyszukaj-sektor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanieDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanieDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zamowienia-manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zamowienia-manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zamowienia-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zamowienia-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zaopatrzenie-pracownik.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zaopatrzenie-pracownik.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zaopatrzenie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zaopatrzenie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zmien-sektor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zmien-sektor.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +53,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -49,7 +87,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -88,7 +126,6 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Xelor\Desktop\System_ERP\src\main\resources\static" />
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
     </key>
   </component>
@@ -188,21 +225,19 @@
       <option name="project" value="LOCAL" />
       <updated>1715345803613</updated>
     </task>
-    <task id="LOCAL-00005" summary="Poprawa literówek">
-      <option name="closed" value="true" />
-      <created>1715763894062</created>
+    <task id="LOCAL-00005" summary="Zakończenie podstaw funkcjonalnośći prostej transakcji.">
+      <created>1715536377941</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1715763894062</updated>
+      <updated>1715536377941</updated>
     </task>
-    <task id="LOCAL-00006" summary="Dodano stylowanie do stron producenta i kierowcy">
-      <option name="closed" value="true" />
-      <created>1715939247744</created>
+    <task id="LOCAL-00006" summary="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów.">
+      <created>1715550802578</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1715939247744</updated>
+      <updated>1715550802578</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -226,9 +261,10 @@
     <MESSAGE value="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru" />
     <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
     <MESSAGE value="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL" />
-    <MESSAGE value="Poprawa literówek" />
-    <MESSAGE value="Dodano stylowanie do stron producenta i kierowcy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano stylowanie do stron producenta i kierowcy" />
+    <MESSAGE value="Zakończenie podstaw funkcjonalnośći prostej transakcji." />
+    <MESSAGE value="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów." />
+    <MESSAGE value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
+    <option name="LAST_COMMIT_MESSAGE" value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

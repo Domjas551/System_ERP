@@ -45,7 +45,6 @@ public class KoszykController {
         Towar towar=new Towar();
 
         try{
-            //todo zmiana w koszyku
             towar = towarService.findById(idTowaru);
         }catch(Exception e){
             e.printStackTrace();
@@ -88,6 +87,10 @@ public class KoszykController {
         }
 
         model.addAttribute("koszyk", koszyk);
+        model.addAttribute("messageTra",session.getAttribute("messageTra"));
+        model.addAttribute("errorBrak",session.getAttribute("errorBrak"));
+        session.setAttribute("messageTra",null);
+        session.setAttribute("errorBrak",null);
         //model.addAttribute("adresWysylki", "");
         return "koszyk";
     }
@@ -110,6 +113,7 @@ public class KoszykController {
             stany.clear();
             session.setAttribute("koszyk", koszyk);
             session.setAttribute("stany", stany);
+            session.setAttribute("errorBrak","Transakcja nie powiodła się! Wybrane produkty nie są już dostępne!");
             return "redirect:/user/koszyk";
         }
 
@@ -154,7 +158,7 @@ public class KoszykController {
                         opis=opis+("\n - id towaru: "+(j+1)+", ilosc: "+stany.getStany().get(i).get(j)+" ton.");
                     }
                 }
-                System.out.println(opis);
+                //System.out.println(opis);
                 Zadanie zadanie=new Zadanie(null,null,null,opis,"do przydzialu");
                 zadanieService.zapiszZadanie(zadanie);
                 opis="";
@@ -166,6 +170,7 @@ public class KoszykController {
         stany.clear();
         session.setAttribute("koszyk", koszyk);
         session.setAttribute("stany", stany);
+        session.setAttribute("messageTra", "Transakcja się powiodła. Dziekujemy za zakupy!");
         return "redirect:/user/koszyk";
     }
 
@@ -196,4 +201,5 @@ public class KoszykController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
         return dateFormat.format(date);
     }
+
 }
