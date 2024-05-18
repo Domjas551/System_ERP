@@ -60,6 +60,8 @@ public class KierowcaController {
                 list.set(0,t);
             }
 
+
+            //obsługa błędu bazy danych
         }catch(Exception e){
             //wypełnienie pustego elementu w celu uniknięcia wyjątków
             if(list.size() == 0){
@@ -92,6 +94,8 @@ public class KierowcaController {
                 list.set(0,t);
             }
 
+
+            //obsługa błędu bazy danych
         }catch(Exception e){
             e.printStackTrace();
             //wypełnienie pustego elementu w celu uniknięcia wyjątków
@@ -125,6 +129,8 @@ public class KierowcaController {
                     model.addAttribute("zadanie",d);
                 }
 
+
+                //obsługa błędu bazy danych
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
                 model.addAttribute("zadanie",d);
@@ -141,6 +147,8 @@ public class KierowcaController {
                     model.addAttribute("zadanie",d);
                 }
 
+
+                //obsługa błędu bazy danych
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
                 model.addAttribute("zadanie",d);
@@ -160,6 +168,8 @@ public class KierowcaController {
                 dostawaService.aktualizujStatusDostawy(zadanie.getIdDostawy(), zadanie.getStatus());
             }
 
+
+            //obsługa błędu bazy danych
         }catch(Exception e){
             return "redirect:zadanie-aktywne?idDostawy="+zadanie.getIdDostawy()+"&typ="
                     +zadanie.getTyp()+"&message='Error: aktualizacja statusu nieudana'";
@@ -184,6 +194,7 @@ public class KierowcaController {
                     model.addAttribute("zadanie",d);
                 }
 
+                //obsługa błędu bazy danych
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
                 model.addAttribute("zadanie",d);
@@ -200,6 +211,8 @@ public class KierowcaController {
                     model.addAttribute("zadanie",d);
                 }
 
+
+                //obsługa błędu bazy danych
             }catch (Exception e){
                 Dostawa d=new Dostawa(Integer.toUnsignedLong(1),"bladPob","","");
                 model.addAttribute("zadanie",d);
@@ -207,8 +220,5 @@ public class KierowcaController {
         }
         return "zadanie-nieaktywne";
     }
-
-
-
 
 }

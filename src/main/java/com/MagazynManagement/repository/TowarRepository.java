@@ -4,10 +4,8 @@ import com.MagazynManagement.entity.Towar;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 import java.util.List;
 
 @Repository
@@ -44,6 +42,7 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
             nativeQuery = true)
     Towar findByIdS(Long idTowaru);
 
+    //funkcja do zmiany danych danego towaru
     @Modifying
     @Query(
             value="UPDATE towar SET nazwa=?2, kategoria=?3 WHERE `towar`.`id_towaru` =?1",
@@ -55,6 +54,7 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
             nativeQuery = true)
     Long findProducentId(String email);
 
+    //funkcja do zapisywania nowgo towaru
     @Modifying
     @Query(
             value="INSERT INTO `towar`( `id_producenta`, `nazwa`, `kategoria`) VALUES (?1,?2,?3)",
@@ -83,6 +83,7 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
             nativeQuery = true)
     void saveWysylka(Long idProducenta, Long idMagazynu, String data, String adres);
 
+    //funkcja zwracająca id najnowszej dostawy danego producenta
     @Query(
             value="SELECT id_dostawy FROM `dostawa` where id_producenta=?1 ORDER BY `id_dostawy` DESC LIMIT 1",
             nativeQuery = true)

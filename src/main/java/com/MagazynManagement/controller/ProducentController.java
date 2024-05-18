@@ -67,6 +67,7 @@ public class ProducentController {
                 list.set(0,t);
             }
 
+            //obsługa błędu bazy danych
         }catch (Exception e){
             Towar t=new Towar(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
                     "bladPob","k",0,0);
@@ -93,6 +94,7 @@ public class ProducentController {
             }else{
                 model.addAttribute("towar",towar);
             }
+            //obsługa błędu bazy danych
         }catch (Exception e){
             Towar t=new Towar(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
                     "bladPob","k",0,0);
@@ -133,6 +135,8 @@ public class ProducentController {
         try{
             towarService.saveTowar(towarDto);
             model.addAttribute("message", "Towar dodany");
+
+            //obsługa błędu bazy danych
         }catch (Exception e){
             model.addAttribute("message2", "Error: dodanie danych nieudane");
         }
@@ -155,6 +159,7 @@ public class ProducentController {
                 list.set(0,"brakTowarow");
             }
 
+            //obsługa błędu bazy danych
         }catch (Exception e){
             list.add("bladPob");
         }
@@ -182,6 +187,7 @@ public class ProducentController {
                 list.set(0,t);
             }
 
+            //obsługa błędu bazy danych
         }catch (Exception e){
             Towar t=new Towar(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
                     "bladPob","k",0,0);
@@ -216,6 +222,8 @@ public class ProducentController {
             }else{
                 model.addAttribute("towar",towar);
             }
+
+            //obsługa błędu bazy danych
         }catch(Exception e){
             Towar t=new Towar(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
                     "bladPob","k",0,0);
@@ -240,6 +248,8 @@ public class ProducentController {
             // 1 - poprawne wysłanie dostawy
             message= "1";
 
+
+            //obsługa błędu bazy danych
         }catch(Exception e){
             // 2 - błąd przy próbie wysłania dostawy
             message= "2";

@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Poprawa literówek">
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodano stylowanie do stron producenta i kierowcy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania-aktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-aktywne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanie-aktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie-aktywne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie-nieaktywne.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715763894062</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Dodano stylowanie do stron producenta i kierowcy">
+      <option name="closed" value="true" />
+      <created>1715939247744</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715939247744</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +227,8 @@
     <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
     <MESSAGE value="Połowa funkcjinalności kierowcy: wyświetlanie aktywnych zadań, zmiana statusu aktywnego zadania, zabezpieczenia na wypadek błędów SQL" />
     <MESSAGE value="Poprawa literówek" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawa literówek" />
+    <MESSAGE value="Dodano stylowanie do stron producenta i kierowcy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodano stylowanie do stron producenta i kierowcy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
