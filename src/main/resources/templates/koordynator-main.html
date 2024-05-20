@@ -25,7 +25,7 @@
                     <a class="nav-link active text-light" aria-current="page" href="/placowki">Nasze placówki</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href=""/oferta">Oferta</a>
+                    <a class="nav-link active text-light" aria-current="page" href="/oferta">Oferta</a>
                 </li>
             </ul>
             <div sec:authorize="hasAuthority('ADMIN')">
@@ -39,6 +39,9 @@
             </div>
             <div sec:authorize="hasAuthority('PRACOWNIK')">
                 <a class="nav-link text-light" th:href="@{/pracownik}">Panel pracownika</a>
+            </div>
+            <div sec:authorize="hasAuthority('KOORDYNATOR')">
+                <a class="nav-link text-light" th:href="@{/koordynator}">Panel koordynatora</a>
             </div>
             <div sec:authorize="isAuthenticated()">
                 <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>

@@ -40,8 +40,17 @@
             <div sec:authorize="hasAuthority('MANAGER')">
                 <a class="nav-link text-light" th:href="@{/manager}">Panel managera</a>
             </div>
-            <div sec:authorize="hasAuthority('PRACOWNIK')">
-                <a class="nav-link text-light" th:href="@{/pracownik}">Panel pracownika</a>
+            <div sec:authorize="hasAuthority('MAGAZYNIER')">
+                <a class="nav-link text-light" th:href="@{/magazynier}">Panel pracownika</a>
+            </div>
+            <div sec:authorize="hasAuthority('KIEROWCA')">
+                <a class="nav-link text-light" th:href="@{/kierowca}">Panel kierowcy</a>
+            </div>
+            <div sec:authorize="hasAuthority('KOORDYNATOR')">
+                <a class="nav-link text-light" th:href="@{/koordynator}">Panel koordynatora</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRODUCENT')">
+                <a class="nav-link text-light" th:href="@{/producent}">Panel producenta</a>
             </div>
             <div sec:authorize="isAuthenticated()">
                 <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
