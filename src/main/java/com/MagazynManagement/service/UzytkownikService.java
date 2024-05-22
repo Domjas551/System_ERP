@@ -6,9 +6,14 @@ import com.MagazynManagement.dto.UserDto;
 import com.MagazynManagement.entity.Uzytkownik;
 import com.MagazynManagement.repository.UzytkownikRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -78,5 +83,31 @@ public class UzytkownikService {
 
     public Uzytkownik findUserByEmail(String email){
         return uzytkownikRepository.findUserByEmail(email);
+    }
+
+
+    public List<Uzytkownik> getUserByRole(String role, String type, String currentAdminEmail) {
+        List<Uzytkownik> users = uzytkownikRepository.findAll();
+
+        return users.stream()
+                .filter(user -> !user.getEmail().equals(currentAdminEmail))
+                .filter(user -> {
+                    switch (role){
+                        case "client":
+                            if("detaliczny".equalsIgnoreCase(type))
+                                return user.isCzyKlientDetaliczny();
+                            else if("hurtowy".equalsIgnoreCase(type))
+                                return user.isCzyKlientHurtowy();
+                            else
+                                return false;
+                        case "employee":
+                            return user.isCzyPracownik();
+                        case "producer":
+                            return user.isCzyProducent();
+                        default:
+                            return false;
+                    }
+                })
+                .collect(Collectors.toList());
     }
 }

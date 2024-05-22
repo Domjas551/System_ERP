@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow.">
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/kierowca-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/oferta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania-aktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-aktywne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania-nieaktywne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -74,32 +65,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MagazynManagementApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xelor/Desktop/System_ERP&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MagazynManagementApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ja/Desktop/I'mAProgrammer/6semestr/Java/System_ERP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
@@ -168,7 +159,8 @@
       <workItem from="1712856845049" duration="9230000" />
       <workItem from="1712866126239" duration="25000" />
       <workItem from="1712927114661" duration="4725000" />
-      <workItem from="1716226464728" duration="1330000" />
+      <workItem from="1716226464728" duration="6675000" />
+      <workItem from="1716387107761" duration="5435000" />
     </task>
     <task id="LOCAL-00001" summary="Pierwsze wersje stron producenta">
       <option name="closed" value="true" />
@@ -216,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715550802578</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)">
+      <option name="closed" value="true" />
+      <created>1716228216628</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716228216628</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +241,8 @@
     <MESSAGE value="Zakończenie podstaw funkcjonalnośći prostej transakcji." />
     <MESSAGE value="Transakcja. Dodanie ponownej weryfikacji dostępności produktów oraz możliwości opróżniania koszya/wyjmowania zeń pojdynczych produktów." />
     <MESSAGE value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
-    <option name="LAST_COMMIT_MESSAGE" value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
+    <MESSAGE value="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

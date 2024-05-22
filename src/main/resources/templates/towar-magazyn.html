@@ -68,8 +68,8 @@
       <th scope="col">Producent</th>
       <th scope="col">Kategoria</th>
       <th scope="col">W magazynie [T]</th>
-      <th scope="col">W koszyku [T]</th>
-      <th scope="col">Akcje</th>
+      <th scope="col" sec:authorize="hasAuthority('USER')">W koszyku [T]</th>
+      <th scope="col" sec:authorize="hasAuthority('USER')">Akcje</th>
     </tr>
     </thead>
     <tbody>
@@ -78,14 +78,16 @@
       <td th:text="${tm.producent}"></td>
       <td th:text="${tm.kategoria}"></td>
       <td th:text="${(stany.stany[tm.idMagazynu-1].size()==0)? tm.ilosc : tm.ilosc-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}"></td>
-      <td th:text="${(stany.stany[tm.idMagazynu-1].size()==0)? 0 : stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}"></td>
+      <td sec:authorize="hasAuthority('USER')" th:text="${(stany.stany[tm.idMagazynu-1].size()==0)? 0 : stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}"></td>
       <td>
-        <form th:action="@{/user/dodaj-do-koszyka}" method="post">
-          <input type="hidden" name="idTowaru" th:value="${tm.idTowaru}" />
-          <input type="hidden" name="idMagazynu" th:value="${tm.idMagazynu}" />
-          <input type="number" name="ilosc" value="1" th:min="${-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" th:max="${(stany.stany[tm.idMagazynu-1].size()==0)? tm.ilosc : tm.ilosc-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" required />
-          <button type="submit">Włóż do koszyka/Wyjmij z koszyka</button>
-        </form>
+        <div sec:authorize="hasAuthority('USER')">
+          <form th:action="@{/user/dodaj-do-koszyka}" method="post">
+            <input type="hidden" name="idTowaru" th:value="${tm.idTowaru}" />
+            <input type="hidden" name="idMagazynu" th:value="${tm.idMagazynu}" />
+            <input type="number" name="ilosc" value="1" th:min="${-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" th:max="${(stany.stany[tm.idMagazynu-1].size()==0)? tm.ilosc : tm.ilosc-stany.stany[tm.idMagazynu-1][tm.idTowaru-1]}" required />
+            <button type="submit">Włóż do koszyka/Wyjmij z koszyka</button>
+          </form>
+        </div>
       </td>
     </tr>
     </tbody>
