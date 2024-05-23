@@ -47,7 +47,7 @@ public class AdministratorController {
 
     @GetMapping("/admin/klienci")
     public String showClients(@RequestParam(value = "type", required = false) String type,
-            Model model, Principal principal){
+                              Model model, Principal principal){
         if(type == null)
             type = "detaliczny";
 
@@ -73,5 +73,42 @@ public class AdministratorController {
         List<Uzytkownik> users = uzytkownikService.getUserByRole("producer", null, principal.getName());
         model.addAttribute("users", users);
         return "producers-list";
+    }
+
+    @GetMapping("/admin/accountDetails/{id}")
+    public String showAccDetails(@PathVariable Long id, Model model){
+        Uzytkownik uzytkownik = uzytkownikService.getUserById(id);
+        model.addAttribute("user", uzytkownik);
+
+        return "account-details";
+    }
+
+
+    @PostMapping("/admin/accountDetails/{id}")
+    public String updateAccount(@PathVariable("id") Long id,
+                                @ModelAttribute("user") Uzytkownik uzytkownik,
+                                @RequestParam("action") String action){
+        Uzytkownik existingUser = uzytkownikService.getUserById(id);
+
+        existingUser.setImie(uzytkownik.getImie());
+        existingUser.setNazwisko(uzytkownik.getNazwisko());
+        existingUser.setEmail(uzytkownik.getEmail());
+        existingUser.setTelefon(uzytkownik.getTelefon());
+        existingUser.setStanowisko(uzytkownik.getStanowisko());
+        existingUser.setPensja(uzytkownik.getPensja());
+        if(!uzytkownik.getHaslo().isEmpty() && uzytkownik.getHaslo() != null){
+            uzytkownikService.updatePassword(existingUser, uzytkownik.getHaslo());
+        }
+
+        if("block".equals(action)){
+            existingUser.setCzyAktywny(false);
+        }
+        else if("unblock".equals(action)){
+            existingUser.setCzyAktywny(true);
+        }
+
+        uzytkownikService.updateUser(existingUser);
+
+        return "redirect:/admin/accountDetails/" + id;
     }
 }

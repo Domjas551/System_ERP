@@ -110,4 +110,22 @@ public class UzytkownikService {
                 })
                 .collect(Collectors.toList());
     }
+
+
+    public Uzytkownik getUserById(Long id){
+        return uzytkownikRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+
+    public void updatePassword(Uzytkownik existingUser, String newPassword) {
+        if(newPassword != null && !newPassword.isEmpty()){
+            String encryptedPassword = passwordEncoder.encode(newPassword);
+            existingUser.setHaslo(encryptedPassword);
+        }
+    }
+
+    public void updateUser(Uzytkownik uzytkownik){
+        uzytkownikRepository.save(uzytkownik);
+    }
 }

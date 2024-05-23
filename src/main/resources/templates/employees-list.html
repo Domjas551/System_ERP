@@ -65,7 +65,7 @@
 <div class="container my-5">
     <h4 class="text-center">Lista pracowników</h4>
 
-    <table class="table table-stiped table-hover">
+    <table class="table table-striped table-hover">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -74,6 +74,7 @@
             <th scope="col">Email</th>
             <th scope="col">Telefon</th>
             <th scope="col">Stanowisko</th>
+            <th scope="col">Akcje</th>
         </tr>
         </thead>
         <tbody>
@@ -84,6 +85,9 @@
             <td th:text="${user.email}"></td>
             <td th:text="${user.telefon}"></td>
             <td th:text="${user.stanowisko}"></td>
+            <td>
+                <a th:href="@{/admin/accountDetails/{id}(id=${user.idUzytkownika})}" class="btn btn-info">Szczegóły</a>
+            </td>
         </tr>
         </tbody>
     </table>

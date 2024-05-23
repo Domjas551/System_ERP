@@ -194,6 +194,10 @@ public class Uzytkownik {
         this.pensja = pensja;
     }
 
+    public Float getPensja() {
+        return pensja;
+    }
+
     public boolean isCzyKlientDetaliczny() {
         return czyKlientDetaliczny;
     }

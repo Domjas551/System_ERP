@@ -10,21 +10,15 @@ import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
 
-    //private Konto konto;
-
 
     private Uzytkownik uzytkownik;
 
-    /*public CustomUserDetails(Konto konto) {
-        this.konto = konto;
-    }*/
+
     public CustomUserDetails(Uzytkownik uzytkownik){
         this.uzytkownik = uzytkownik;
     }
 
-    /*public String getImieKlient(){
-        return konto.getKlient().getImie();
-    }*/
+
     public String getImie(){
         return uzytkownik.getImie();
     }
@@ -33,45 +27,29 @@ public class CustomUserDetails implements UserDetails {
         return uzytkownik.getNazwaFirmy();
     }
 
-    /*public String getImiePracownik(){
-        return konto.getPracownik().getImie();
-    }*/
 
-//    public Long getIdPracownika(){return konto.getPracownik().getIdPracownika();}
     public Long getId(){
         return uzytkownik.getIdUzytkownika();
     }
 
-
-    /*@Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(konto.getRola()));
-    }*/
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
         return Collections.singletonList(new SimpleGrantedAuthority(uzytkownik.getRola()));
     }
 
-    /*@Override
-    public String getPassword() {
-        return konto.getHaslo();
-    }*/
 
     @Override
     public String getPassword(){
         return uzytkownik.getHaslo();
     }
 
-    /*@Override
-    public String getUsername() {
-        return konto.getLogin();
-    }*/
 
     @Override
     public String getUsername(){
         return uzytkownik.getEmail();
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
@@ -80,7 +58,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return uzytkownik.isCzyAktywny();
     }
 
     @Override
@@ -93,9 +71,7 @@ public class CustomUserDetails implements UserDetails {
         return uzytkownik.isCzyAktywny();
     }
 
-//    public Konto getKonto() {
-//        return konto;
-//    }
+
     public Uzytkownik getUzytkownik(){
         return uzytkownik;
     }

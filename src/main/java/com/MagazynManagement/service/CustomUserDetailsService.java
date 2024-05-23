@@ -18,17 +18,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UzytkownikRepository uzytkownikRepository;
 
-    /*@Autowired
-    private KontoRepository kontoRepository;*/
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Uzytkownik uzytkownik = uzytkownikRepository.findByEmail(username)
                 .orElseThrow(() -> new EntityNotFoundException("Użytkownik o podanym emailu nie istnieje."));
-        /*Konto konto = kontoRepository.findByLogin(username);
-        if (konto == null)
-            throw new UsernameNotFoundException("Taki użytkownik nie istnieje");*/
 
         return new CustomUserDetails(uzytkownik);
     }

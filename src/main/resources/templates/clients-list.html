@@ -87,7 +87,7 @@
     </div>
 
     <div th:if="${selectedType == 'detaliczny'}">
-        <table class="table table-stiped table-hover">
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -95,6 +95,7 @@
                 <th scope="col">Nazwisko</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telefon</th>
+                <th scope="col">Akcje</th>
             </tr>
             </thead>
             <tbody>
@@ -104,19 +105,23 @@
                 <td th:text="${user.nazwisko}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.telefon}"></td>
+                <td>
+                    <a th:href="@{/admin/accountDetails/{id}(id=${user.idUzytkownika})}" class="btn btn-info">Szczegóły</a>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
 
     <div th:if="${selectedType == 'hurtowy'}">
-        <table class="table table-stiped table-hover">
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nazwa firmy</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telefon</th>
+                <th scope="col">Akcje</th>
             </tr>
             </thead>
             <tbody>
@@ -125,6 +130,9 @@
                 <td th:text="${user.nazwaFirmy}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.telefon}"></td>
+                <td>
+                    <a th:href="@{/admin/accountDetails/{id}(id=${user.idUzytkownika})}" class="btn btn-info">Szczegóły</a>
+                </td>
             </tr>
             </tbody>
         </table>
