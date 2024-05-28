@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+//klasa dostawy stosowana również jako zadanie dla kierowców
 @Entity
 public class Dostawa {
 
