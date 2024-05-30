@@ -50,7 +50,7 @@
 
 <div style="text-align: center; margin: 0 auto; width: 75%; margin-top: 2%">
     <h4 class="text-center" th:text="'Zadanie ' + ${zadanie.id_zadania}" style="margin-bottom: 2%;"></h4>
-    <div style="width: 40%; text-align: center; margin: 0 auto;">
+    <div style="width: 40%; text-align: center; margin: 0 auto;" th:if="${userDetails.getId() == manager}">
         <form method="post" action="/manager/edytujZadanie">
             <b>Pracownik odpowiedzialny za zadanie</b><br>
             <select id="id_pracownika" required name="id_pracownika" style="margin: 0 auto;">
@@ -60,15 +60,17 @@
             <textarea name="opis" th:text="${zadanie.opis}"></textarea><br><br>
             <b>Status</b><br>
             <select name="status">
-                <option value="oczekujace">W trakcie</option>
-                <option value="wykonane">Wykonane</option>
-                <option value="anulowane">Anuluj</option>
+                <option value="oczekujace" th:selected="${zadanie.status == 'oczekujace'}">W trakcie</option>
+                <option value="wykonane" th:selected="${zadanie.status == 'wykonane'}">Wykonane</option>
+                <option value="anulowane" th:selected="${zadanie.status == 'anulowane'}">Anuluj</option>
             </select><br><br><br>
             <input hidden th:value="${zadanie.id_zadania}" name="id_zadania">
             <input hidden th:value="${zadanie.id_kierownika}" name="id_kierownika">
             <input type="submit" value="Aktualizuj zadanie">
         </form>
+        <p th:if=${edytowano} style="margin: 0 auto; color: green; text-align: center; margin-top: 2%;">Pomyślnie edytowano zadanie!</p>
     </div>
+    <p th:unless="${userDetails.getId() == manager}" style="font-weight: bold; font-size: 200%; margin-top: 2%;">Nie masz uprawnień aby wyświetlić tą zawartość!</p>
 </div>
 
 </body>

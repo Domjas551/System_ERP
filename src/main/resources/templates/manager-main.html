@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .przycisk{
+            background-color:whitesmoke;
+            width:25%;
+            display:inline-block;
+            color: black;
+            border:1px solid black;
+            margin-top: 1%;
+            text-decoration: none;
+            transition: 0.5s;
+            padding: 2px;
+        }
+        .przycisk:hover{
+            background-color: darkgray;
+            color: white;
+        }
+    </style>
 
     <title>Panel managera</title>
 </head>
@@ -64,10 +81,10 @@
     </div>
     -->
     <div>
-        <a class="nav-link text-dark" th:href="@{/manager/zadanie}">Dodaj nowe zadanie</a>
+        <a class="przycisk" th:href="@{/manager/zadanie}">Dodaj nowe zadanie</a>
     </div>
     <div>
-        <a class="nav-link text-dark" th:href="@{/manager/zadania/{id}(id=${manager.getId()})}">Pokaż aktywne zadania</a>
+        <a class="przycisk" th:href="@{/manager/zadania/{id}(id=${manager.getId()})}">Pokaż aktywne zadania</a>
     </div>
     <!---
     <div style="text-align: center">

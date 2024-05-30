@@ -28,7 +28,7 @@ public class ZadanieController {
 
     @GetMapping("/manager/zadanie")
     public String getZadanie(Model model, Principal principal){
-        List<Uzytkownik> listU = zadanieService.getMagazynier();
+        List<Uzytkownik> listU = zadanieService.getMagazynier(zadanieService.getMagazynByKierownik(zadanieService.getKierownikId(principal.getName())));
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("dodano", dodano);
         model.addAttribute("manager", userDetails);
@@ -45,35 +45,59 @@ public class ZadanieController {
     }
 
     @GetMapping("/manager/zadania/{id}")
-    public String wyswietlZadania(Model model, @PathVariable("id") Long id){
+    public String wyswietlZadania(Model model, @PathVariable("id") Long id, Principal principal){
         List<Zadanie> listZ = zadanieService.getZadanieByManager(id);
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("zadania", listZ);
         model.addAttribute("manager", id);
-        model.addAttribute("edytowano", edytowano);
-        edytowano = 0;
+        model.addAttribute("count", listZ.size());
+        model.addAttribute("userDetails", userDetails);
         return "zadania";
     }
 
     @GetMapping("/manager/zadanieDetails/{id}")
-    public String zadanieDetails(Model model, @PathVariable("id") Long id){
+    public String zadanieDetails(Model model, @PathVariable("id") Long id, Principal principal){
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+        model.addAttribute("edytowano", edytowano);
         model.addAttribute("zadanie", zadanieService.getZadanieById(id));
-        model.addAttribute("pracownicy", zadanieService.getMagazynier());
+        model.addAttribute("pracownicy", zadanieService.getMagazynier(zadanieService.getMagazynByKierownik(zadanieService.getZadanieById(id).getId_kierownika())));
+        model.addAttribute("manager", zadanieService.getZadanieById(id).getId_kierownika());
+        model.addAttribute("userDetails", userDetails);
+        edytowano = 0;
         return "zadanieDetails";
     }
 
     @PostMapping("/manager/edytujZadanie")
     public String edytujZadanie(@ModelAttribute Zadanie zadanie){
-        System.out.println(zadanie.getId_zadania());
         zadanieService.zapiszZadanie(zadanie);
         edytowano++;
-        return "redirect:/manager/zadania/"+zadanie.getId_kierownika();
+        return "redirect:/manager/zadanieDetails/"+zadanie.getId_zadania();
     }
 
-    @GetMapping("/pracownik/harmonogram/{id}")
-    public String pokazStanMagazynu(@PathVariable("id") Long id, Model model){
+    @GetMapping("/magazynier/harmonogram/{id}")
+    public String pokazHarmonogram(@PathVariable("id") Long id, Model model, Principal principal){
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         List<Zadanie> zadanieList = zadanieService.getZadanieByPracownikId(id);
+        model.addAttribute("userDetails", userDetails);
+        model.addAttribute("count", zadanieList.size());
         model.addAttribute("idpracownika", id);
-        model.addAttribute("harmonogram", zadanieList);
+        model.addAttribute("zadania", zadanieList);
         return "harmonogram";
+    }
+
+    @GetMapping("/magazynier/zadanieDetailsPracownik/{id}")
+    public String zadanieDetailsPracownik(Model model, @PathVariable("id") Long id, Principal principal){
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+        model.addAttribute("zadanie", zadanieService.getZadanieById(id));
+        model.addAttribute("idpracownika", zadanieService.getZadanieById(id).getId_pracownika());
+        model.addAttribute("userDetails", userDetails);
+        return "zadanieDetailsPracownik";
+    }
+
+    @PostMapping("/magazynier/wykonajZadanie")
+    public String wykonajZadanie(@ModelAttribute Zadanie zadanie){
+        zadanie.setStatus("wykonane");
+        zadanieService.zapiszZadanie(zadanie);
+        return "redirect:/magazynier/harmonogram/"+zadanie.getId_pracownika();
     }
 }

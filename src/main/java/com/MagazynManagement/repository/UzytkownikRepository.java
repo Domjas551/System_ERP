@@ -22,7 +22,17 @@ public interface UzytkownikRepository extends JpaRepository<Uzytkownik, Long> {
     Uzytkownik findUserByEmail(String email);
 
     @Query(
-            value="SELECT * from uzytkownik where czy_pracownik=1 and stanowisko='magazynier'",
+            value="SELECT * from uzytkownik inner join pracownik_magazyn on id_uzytkownika=id_pracownika where czy_pracownik=1 and stanowisko='magazynier' and id_magazynu=?1",
             nativeQuery = true)
-    List<Uzytkownik> findMagazynier();
+    List<Uzytkownik> findMagazynier(Long magazyn);
+
+    @Query(
+            value="SELECT * from magazyn where id_kierownika=?1",
+            nativeQuery = true)
+    Long findMagazynByKierownik(Long kierownik);
+
+    @Query(
+            value="SELECT id_uzytkownika from uzytkownik where email=?1 and czy_pracownik=1",
+            nativeQuery = true)
+    Long findKierownik(String email);
 }

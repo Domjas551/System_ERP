@@ -27,12 +27,20 @@ public class ZadanieService {
     @Autowired
     private DostawaRepository dostawaRepository;
 
-    public List<Uzytkownik> getMagazynier(){
-        return uzytkownikRepository.findMagazynier();
+    public List<Uzytkownik> getMagazynier(Long magazyn){
+        return uzytkownikRepository.findMagazynier(magazyn);
+    }
+
+    public Long getKierownikId(String email){
+        return uzytkownikRepository.findKierownik(email);
     }
 
     public List<Zadanie> getZadanie(){
         return zadanieRepository.findByIdPracownika(null);
+    }
+
+    public Long getMagazynByKierownik(Long id){
+        return uzytkownikRepository.findMagazynByKierownik(id);
     }
 
     public Zadanie getZadanieById(Long id){return zadanieRepository.getReferenceById(id);}

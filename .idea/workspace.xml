@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Od teraz tylko klient może dodawać produkty do koszyka">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/account-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Uzytkownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Uzytkownik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZadanieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZadanieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-pracownik.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-pracownik.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/clients-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/clients-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employees-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employees-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producers-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producers-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZadanieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZadanieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/harmonogram.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/harmonogram.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazynier-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadania.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadania.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanie.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zadanieDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zadanieDetails.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,7 @@
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MagazynManagementApplication">
+  <component name="RunManager" selected="Application.MagazynManagementApplication">
     <configuration name="MagazynManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MagazynManagementApplication" />
       <module name="MagazynManagement" />

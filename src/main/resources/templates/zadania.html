@@ -63,25 +63,30 @@
 
 <div style="text-align: center; margin: 0 auto; width: 75%; margin-top: 2%">
     <h4 class="text-center">Aktywne zadania</h4>
-    <table style="text-align: center; margin-top: 2%; width: 100%; border-collapse: collapse;">
+    <table style="text-align: center; margin-top: 2%; width: 100%; border-collapse: collapse;" th:if="${userDetails.getId() == manager}">
         <thead>
         <tr>
-            <th scope="col" style="width: 10%;">Id</th>
+            <th scope="col" style="width: 5%;">Id</th>
             <th scope="col" style="width: 25%;">Pracownik</th>
-            <th scope="col" style="width: 45%;">Opis</th>
+            <th scope="col" style="width: 40%;">Opis</th>
             <th scope="col" style="width: 10%;">Status</th>
+            <th scope="col" style="width: 10%;">Szczegóły</th>
         </tr>
         </thead>
         <tbody style="margin-top: 2%;">
-        <tr th:each="zadanie : ${zadania}">
-            <td><a th:href="@{/manager/zadanieDetails/{id}(id=${zadanie.id_zadania})}" th:text="${zadanie.id_zadania}" name="id_zadania" th:value="${zadanie.id_zadania}"></a></td>
-            <td th:text="${zadanie.id_pracownika}" name="id_pracownika" th:value="${zadanie.id_pracownika}"></td>
-            <td th:text="${zadanie.opis}" name="opis" th:value="${zadanie.opis}"></td>
-            <td th:text="${zadanie.status}" name="status" th:value="${zadanie.status}"></td>
-        </tr>
+            <tr th:each="zadanie : ${zadania}" th:if="${count>0}">
+                <td th:text="${zadanie.id_zadania}"></td>
+                <td th:text="${zadanie.id_pracownika}" name="id_pracownika" th:value="${zadanie.id_pracownika}"></td>
+                <td th:text="${zadanie.opis}" name="opis" th:value="${zadanie.opis}"></td>
+                <td th:text="${zadanie.status}" name="status" th:value="${zadanie.status}"></td>
+                <td><a th:href="@{/manager/zadanieDetails/{id}(id=${zadanie.id_zadania})}" name="id_zadania" th:value="${zadanie.id_zadania}">Szczegóły</a></td>
+            </tr>
+            <tr th:unless="${count}">
+                <td colspan="5">Brak aktywnych zadań do wyświetlenia!</td>
+            </tr>
         </tbody>
     </table>
-    <p th:if=${edytowano} style="margin: 0 auto; color: green; text-align: center; margin-top: 2%;">Pomyślnie edytowano zadanie!</p>
+    <p th:unless="${userDetails.getId() == manager}" style="font-weight: bold; font-size: 200%; margin-top: 2%;">Nie masz uprawnień aby wyświetlić tą zawartość!</p>
 </div>
 
 </body>
