@@ -1,9 +1,8 @@
 package com.MagazynManagement.service;
 
-import com.MagazynManagement.entity.PozycjaKoszyka;
-import com.MagazynManagement.entity.StanMagazynowSesja;
-import com.MagazynManagement.entity.TowarMagazyn;
+import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.TowarMagazynRepository;
+import com.MagazynManagement.repository.TowarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,7 @@ import java.util.List;
 public class TowarMagazynService {
 
     private final TowarMagazynRepository towarMagazynRepository;
+    private final TowarRepository towarRepository;
 
     public List<TowarMagazyn> pobierzTowarMagazynDlaMagazynu(Long idMagazynu){
         List<Object[]> results = towarMagazynRepository.findByMagazyn_IdMagazynu(idMagazynu);
@@ -46,5 +46,9 @@ public class TowarMagazynService {
             }
         }
         return true;
+    }
+
+    public int getMaxIlosc(Long id_m, Long id_p){
+        return towarMagazynRepository.getMaxIlosc(id_m, id_p);
     }
 }

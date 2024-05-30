@@ -103,5 +103,8 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
             nativeQuery = true)
     void zaktualizujStanTowaruMagazynu(Long idTowaru, Long idMagazynu, Long ilosc);
 
-
+    @Query(
+            value="SELECT * FROM towar where id_towaru=?1",
+            nativeQuery = true)
+    Towar getTowarById(Long id);
 }

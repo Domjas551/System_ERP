@@ -35,4 +35,9 @@ public interface UzytkownikRepository extends JpaRepository<Uzytkownik, Long> {
             value="SELECT id_uzytkownika from uzytkownik where email=?1 and czy_pracownik=1",
             nativeQuery = true)
     Long findKierownik(String email);
+
+    @Query(
+            value="SELECT * from uzytkownik where id_uzytkownika=?1",
+            nativeQuery = true)
+    Uzytkownik findUzytkownikByID(Long id);
 }

@@ -128,4 +128,8 @@ public class UzytkownikService {
     public void updateUser(Uzytkownik uzytkownik){
         uzytkownikRepository.save(uzytkownik);
     }
+
+    public Uzytkownik getUzytkownikById(Long id){
+        return uzytkownikRepository.findUzytkownikByID(id);
+    }
 }

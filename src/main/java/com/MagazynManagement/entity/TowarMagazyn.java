@@ -14,6 +14,7 @@ public class TowarMagazyn {
     private String producent;
     private String kategoria;
     private int ilosc;
+    private int max_ilosc;
 
     public TowarMagazyn(Long idTowaru, Long idMagazynu, String nazwa, String producent, String kategoria, int ilosc) {
         this.idMagazynu=idMagazynu;
@@ -78,4 +79,12 @@ public class TowarMagazyn {
     @Override
     public String toString() {
         return idMagazynu+","+idTowaru+","+nazwa+","+producent+","+kategoria+","+ilosc;}
+
+    public int getMax_ilosc() {
+        return max_ilosc;
+    }
+
+    public void setMax_ilosc(int max_ilosc) {
+        this.max_ilosc = max_ilosc;
+    }
 }

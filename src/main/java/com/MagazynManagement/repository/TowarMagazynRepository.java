@@ -31,4 +31,8 @@ public interface TowarMagazynRepository extends JpaRepository<TowarMagazyn, Long
     @Transactional
     @Query(value = "UPDATE towar_magazyn SET ilosc = ilosc - ?3 WHERE id_towaru = ?2 and id_magazynu=?1", nativeQuery = true)
     void odejmijTowar(Long MagazynId, Long TowarId, int ilosc);
+
+
+    @Query(value = "SELECT max_ilosc from towar_magazyn where id_magazynu = ?1 and id_towaru = ?2", nativeQuery = true)
+    int getMaxIlosc(Long id_m, Long id_p);
 }

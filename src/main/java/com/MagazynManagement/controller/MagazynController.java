@@ -1,18 +1,21 @@
 package com.MagazynManagement.controller;
 
-import com.MagazynManagement.entity.Magazyn;
-import com.MagazynManagement.entity.PozycjaKoszyka;
-import com.MagazynManagement.entity.StanMagazynowSesja;
-import com.MagazynManagement.entity.TowarMagazyn;
+import com.MagazynManagement.entity.*;
+import com.MagazynManagement.dto.*;
 import com.MagazynManagement.service.MagazynService;
 import com.MagazynManagement.service.TowarMagazynService;
+import com.MagazynManagement.service.UzytkownikService;
+import com.MagazynManagement.service.ZadanieService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,8 @@ public class MagazynController {
 
     private final MagazynService magazynService;
     private final TowarMagazynService towarMagazynService;
+    private final ZadanieService zadanieService;
+    private final UzytkownikService uzytkownikService;
 
     @GetMapping("/")
     public String home(){
@@ -45,5 +50,23 @@ public class MagazynController {
             session.setAttribute("stany", stany);
         }
         return new ModelAndView("placowki", "magazyn", list);
+    }
+
+    @GetMapping("/manager/towaryManager")
+    public String iloscTowarow(Model model, Principal principal){
+        List<TowarMagazynDto> listDto = new ArrayList<>();
+        List<TowarMagazyn> listTM = towarMagazynService.pobierzTowarMagazynDlaMagazynu(zadanieService.getMagazynByKierownik(zadanieService.getKierownikId(principal.getName())));
+        for (TowarMagazyn t: listTM){
+            TowarMagazynDto dto = new TowarMagazynDto();
+            dto.setId(t.getIdTowaru());
+            dto.setNazwa_firmy(t.getProducent());
+            dto.setIlosc(t.getIlosc());
+            dto.setMax_ilosc(towarMagazynService.getMaxIlosc(t.getIdMagazynu(), t.getIdTowaru()));
+            dto.setKategoria(t.getKategoria());
+            dto.setNazwa(t.getNazwa());
+            listDto.add(dto);
+        }
+        model.addAttribute("towary", listDto);
+        return "towaryManager";
     }
 }
