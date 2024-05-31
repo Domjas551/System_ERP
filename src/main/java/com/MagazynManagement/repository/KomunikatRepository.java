@@ -32,4 +32,9 @@ public interface KomunikatRepository extends JpaRepository<Komunikat, Long> {
             value="UPDATE komunikat SET czy_odczytano=1 WHERE id_komunikatu=?1",
             nativeQuery = true)
     void zmienNaPrzeczytano(Long idKomunikatu);
+
+    @Modifying
+    @Query(value="INSERT INTO Komunikat (id_nadawcy, id_odbiorcy, tresc, czy_odczytano, data) VALUES (?1, ?2, ?3, ?4, ?5);",
+            nativeQuery = true)
+    void addKomunikat(Long id_nadawcy, Long id_odbiorcy, String tresc, int czy_odczytano, String data);
 }

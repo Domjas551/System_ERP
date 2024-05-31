@@ -34,4 +34,9 @@ public class KomunikatService {
     public void zaznaczJakoPrzeczytana(Long idKomunikatu) throws Exception{
         komunikatRepository.zmienNaPrzeczytano(idKomunikatu);
     }
+
+    @Transactional
+    public void addKomunikat(Long id_nadawcy, Long id_odbiorcy, String tresc, int czy_odczytano, String data) throws Exception{
+        komunikatRepository.addKomunikat(id_nadawcy, id_odbiorcy, tresc, czy_odczytano, data);
+    }
 }

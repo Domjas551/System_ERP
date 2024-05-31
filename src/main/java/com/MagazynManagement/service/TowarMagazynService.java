@@ -6,7 +6,9 @@ import com.MagazynManagement.repository.TowarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -14,7 +16,7 @@ import java.util.List;
 public class TowarMagazynService {
 
     private final TowarMagazynRepository towarMagazynRepository;
-    private final TowarRepository towarRepository;
+    private final KomunikatService komunikatService;
 
     public List<TowarMagazyn> pobierzTowarMagazynDlaMagazynu(Long idMagazynu){
         List<Object[]> results = towarMagazynRepository.findByMagazyn_IdMagazynu(idMagazynu);
@@ -31,21 +33,26 @@ public class TowarMagazynService {
         return towarMagazynList;
     }
 
-    public boolean sprawdzDostepnosc(StanMagazynowSesja stany, List<PozycjaKoszyka> koszyk)
-    {
-        Long idTowaru;
+    public boolean sprawdzDostepnosc(StanMagazynowSesja stany, List<PozycjaKoszyka> koszyk) throws Exception {
         for(int i=0; i<koszyk.size();i++)
         {
-            idTowaru=koszyk.get(i).getTowar().getIdTowaru();
+            Towar towar=koszyk.get(i).getTowar();
             for(int j=0; j<stany.getStany().size(); j++)
             {
-                if(towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j+1),idTowaru)<stany.getStany().get(j).get((int)(long)(idTowaru-1)))
-                {
-                    return false;
+                if(towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j+1),towar.getIdTowaru())<stany.getStany().get(j).get((int)(long)(towar.getIdTowaru()-1))+20) {
+                    komunikatService.addKomunikat(null, towar.getIdProducenta(),"Zabrakło towaru "+towar.getNazwa()+" w magazynie "+(j+1)+".",0,formatDate(new Date()));
+                    if (towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j + 1), towar.getIdTowaru()) < stany.getStany().get(j).get((int) (long) (towar.getIdTowaru() - 1))) {
+                        return false;
+                    }
                 }
             }
         }
         return true;
+    }
+
+    public static String formatDate(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+        return dateFormat.format(date);
     }
 
     public int getMaxIlosc(Long id_m, Long id_p){

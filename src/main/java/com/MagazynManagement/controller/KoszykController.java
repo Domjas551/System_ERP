@@ -99,7 +99,7 @@ public class KoszykController {
     public String zlozZamowienie(@RequestParam String adresWysylki,
                                  Model model,
                                  HttpSession session,
-                                 Principal principal){
+                                 Principal principal) throws Exception {
         List<PozycjaKoszyka> koszyk = (List<PozycjaKoszyka>) session.getAttribute("koszyk");
         StanMagazynowSesja stany = (StanMagazynowSesja) session.getAttribute("stany");
 
