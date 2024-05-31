@@ -34,6 +34,11 @@ public class WysylkaService {
         return wysylkaRepository.findPrzesylkeUzytkownika(id_uzytkownika,data);
     }
 
+    public List<Wysylka> findWysylkaByIdKlienta(Long id_uzytkownika)
+    {
+        return wysylkaRepository.findWysylkaByIdKlienta(id_uzytkownika);
+    }
+
     public void odejmijTowaryZeStanuMagazynowego(StanMagazynowSesja stany){
         for(int i=0;i<stany.getStany().size();i++)
         {

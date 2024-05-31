@@ -17,8 +17,6 @@ public class CustomUserDetails implements UserDetails {
     public CustomUserDetails(Uzytkownik uzytkownik){
         this.uzytkownik = uzytkownik;
     }
-
-
     public String getImie(){
         return uzytkownik.getImie();
     }
@@ -27,10 +25,18 @@ public class CustomUserDetails implements UserDetails {
         return uzytkownik.getNazwaFirmy();
     }
 
+    public String getNazwisko(){return uzytkownik.getNazwisko();}
 
     public Long getId(){
         return uzytkownik.getIdUzytkownika();
     }
+
+    public String getTelefon(){return uzytkownik.getTelefon();}
+
+    public boolean czyHurtowy(){return uzytkownik.isCzyKlientHurtowy();}
+
+    public boolean czyDetaliczny(){return uzytkownik.isCzyKlientDetaliczny();}
+
 
 
     @Override

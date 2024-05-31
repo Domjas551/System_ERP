@@ -15,4 +15,9 @@ public interface TowarWysylkaRepository extends JpaRepository<TowarWysylka, Long
             nativeQuery = true)
     void dodajTowarWysylke(Long id_towaru, Long id_wysylki, int ilosc);
 
+    @Query(
+            value="SELECT id_towaru, id_wysylki, ilosc FROM `wysylka_towar` WHERE `id_wysylki`=?1",
+            nativeQuery = true)
+    List<Object[]> findTowarByWysylkaID(Long id_wysylki);
+
 }

@@ -15,12 +15,12 @@ public class Wysylka {
     private Long id_klienta_detalicznego;
     private Long id_kierowcy;
     private String status;
-    private int interwal;
+    private Integer interwal;
     private String data;
     private String adres;
 
 
-    public Wysylka(Long id_wysylki, Long id_klienta_hurtowego, Long id_klienta_detalicznego, Long id_kierowcy, String status, int interwal, String data, String adres)
+    public Wysylka(Long id_wysylki, Long id_klienta_hurtowego, Long id_klienta_detalicznego, Long id_kierowcy, String status, Integer interwal, String data, String adres)
     {
         this.id_wysylki=id_wysylki;
         this.id_klienta_detalicznego=id_klienta_detalicznego;
@@ -32,6 +32,9 @@ public class Wysylka {
         this.adres=adres;
 
     }
+
+    public Wysylka()
+    {super();}
 
     public Long getId_wysylki() {
         return id_wysylki;
@@ -73,11 +76,11 @@ public class Wysylka {
         this.status = status;
     }
 
-    public int getInterwal() {
+    public Integer getInterwal() {
         return interwal;
     }
 
-    public void setInterwal(int interwal) {
+    public void setInterwal(Integer interwal) {
         this.interwal = interwal;
     }
 

@@ -13,6 +13,9 @@ public class TowarWysylka {
     private Long id_towaru;
     private int ilosc;
 
+    public TowarWysylka()
+    {super();}
+
     public TowarWysylka(Long id_wysylki, Long id_towaru, int ilosc)
     {
         this.id_wysylki=id_wysylki;

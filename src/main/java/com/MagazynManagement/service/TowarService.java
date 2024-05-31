@@ -55,11 +55,6 @@ public class TowarService {
         return towarRepository.findByIdInMagazyn(idTowaru,idMagazynu);
     }
 
-    public Towar getTowarById(Long id)
-    {
-        return towarRepository.getTowarById(id);
-    }
-
     @Transactional
     public void saveWysylka(Long idTowaru, Long idMagazynu,Long idProducenta,String adres, Long ilosc) throws Exception{
 

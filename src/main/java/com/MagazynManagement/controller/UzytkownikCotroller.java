@@ -4,9 +4,12 @@ import com.MagazynManagement.dto.KlientDto;
 import com.MagazynManagement.dto.PracownikDto;
 import com.MagazynManagement.dto.ProducentDto;
 import com.MagazynManagement.dto.UserDto;
-import com.MagazynManagement.entity.Klient;
-import com.MagazynManagement.entity.Uzytkownik;
+import com.MagazynManagement.entity.*;
+import com.MagazynManagement.repository.UzytkownikRepository;
+import com.MagazynManagement.service.TowarService;
+import com.MagazynManagement.service.TowarWysylkaService;
 import com.MagazynManagement.service.UzytkownikService;
+import com.MagazynManagement.service.WysylkaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.Banner;
 import org.springframework.security.core.userdetails.User;
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,6 +33,14 @@ public class UzytkownikCotroller {
     private final UzytkownikService uzytkownikService;
 
     private final UserDetailsService userDetailsService;
+
+    private final WysylkaService wysylkaService;
+
+    private final UzytkownikRepository uzytkownikRepository;
+
+    private final TowarWysylkaService towarWysylkaService;
+
+    private final TowarService towarService;
 
 
     @GetMapping("/login")
@@ -66,9 +79,45 @@ public class UzytkownikCotroller {
     }
 
     @GetMapping("/user")
-    public String user(Model model, Principal principal){
+    public String user(Model model, Principal principal) throws Exception {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("klient", userDetails);
+
+        Uzytkownik uzytkownik = uzytkownikRepository.findUserByEmail(principal.getName());
+        List<Wysylka> WysylkaList = wysylkaService.findWysylkaByIdKlienta(uzytkownik.getIdUzytkownika());
+
+        List<String> zawartosci= new ArrayList<>();
+        List<TowarWysylka> ListTowarWysylka=new ArrayList<>();
+        Long id;
+        String pom;
+        for(int i=0; i<WysylkaList.size(); i++)
+        {
+            id=WysylkaList.get(i).getId_wysylki();
+            ListTowarWysylka=towarWysylkaService.findToWarIdByWysylkaID(id);
+            pom="";
+
+            System.out.println(ListTowarWysylka);
+
+            for(int j=0; j<ListTowarWysylka.size(); j++)
+            {
+                if(j==0)
+                {
+                    pom = "- "+towarService.findById(ListTowarWysylka.get(j).getId_towaru()).getNazwa()+" "+ListTowarWysylka.get(j).getIlosc()+" [T]";
+                }
+                else
+                {
+                    pom =pom + "<br/>- "+towarService.findById(ListTowarWysylka.get(j).getId_towaru()).getNazwa()+" "+ListTowarWysylka.get(j).getIlosc()+" [T]";
+                }
+            }
+            zawartosci.add(i,pom);
+        }
+        List<WysylkaView> wysylkaPom=new ArrayList<>();
+        for(int i=0; i<WysylkaList.size(); i++)
+        {
+            wysylkaPom.add(new WysylkaView(WysylkaList.get(i),zawartosci.get(i)));
+        }
+
+        model.addAttribute("wysylki", wysylkaPom);
         return "user-main";
     }
 

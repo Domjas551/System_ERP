@@ -23,4 +23,8 @@ public interface WysylkaRepository extends JpaRepository<Wysylka, Long>
     )
     Long findPrzesylkeUzytkownika(@Param("idUzytkownika") Long idUzytkownika, @Param("data") String data);
 
+    @Query(
+            value="SELECT * FROM wysylka where (`id_klienta_hurtowego`=:idUzytkownika or `id_klienta_detalicznego`=:idUzytkownika)", nativeQuery = true)
+    List<Wysylka> findWysylkaByIdKlienta(@Param("idUzytkownika") Long idUzytkownika);
+
 }
