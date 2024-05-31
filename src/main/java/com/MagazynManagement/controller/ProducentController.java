@@ -3,16 +3,19 @@ package com.MagazynManagement.controller;
 import com.MagazynManagement.dto.TowarDostawaDto;
 import com.MagazynManagement.dto.TowarDto;
 import com.MagazynManagement.entity.Dostawa;
+import com.MagazynManagement.entity.Komunikat;
 import com.MagazynManagement.entity.Magazyn;
 import com.MagazynManagement.entity.Towar;
+import com.MagazynManagement.service.KomunikatService;
 import com.MagazynManagement.service.MagazynService;
 import com.MagazynManagement.service.TowarService;
-import com.MagazynManagement.service.UzytkownikService;
-import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,9 +30,6 @@ import java.util.List;
 @Controller
 public class ProducentController {
 
-    //zmienna dla kontrolera errorów
-    ErrorController er= new ErrorController();
-
     @Autowired
     TowarService towarService;
 
@@ -38,6 +38,9 @@ public class ProducentController {
 
     @Autowired
     UserDetailsService userDetailsService;
+
+    @Autowired
+    KomunikatService komunikatService;
 
     //funkcja do ładowania strony producenta
     @GetMapping("/producent")
@@ -257,5 +260,129 @@ public class ProducentController {
 
         return "redirect:wysylki-towar?idTowaru="+towarDostawaDto.getIdTowaru()+
                 "&idMagazynu="+towarDostawaDto.getIdMagazynu()+"&message="+message;
+    }
+
+    //funkcja do wyświetlania strony wiadomosci
+    @GetMapping("/producent/wiadomosci")
+    public String getWiadomosci(){
+        return "wiadomosci-wybor";
+    }
+
+    //funkcja do wyświetlania strony nieprzeczytanych wiadomosci
+    @GetMapping("/producent/wiadomosci-aktywne")
+    public ModelAndView getWiadomosciAktywne(Model model, Principal principal){
+
+        List<Komunikat> list=new ArrayList<>();
+
+        try{
+            list=komunikatService.getAllUnreadKomunikat(principal.getName());
+
+            //wypełnienie pustego elementu w celu uniknięcia wyjątków
+            if(list.size() == 0){
+                Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                        Integer.toUnsignedLong(1),"brakWartosci",0,"");
+                list.add(t);
+            }else if(list.get(0)==null){
+                Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                        Integer.toUnsignedLong(1),"brakWartosci",0,"");
+                list.set(0,t);
+            }
+
+            //obsługa błędu bazy danych
+        }catch (Exception e){
+            Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                    Integer.toUnsignedLong(1),"bladPob",0,"");
+            list.add(t);
+        }
+
+        return new ModelAndView("wiadomosci","komunikaty",list) ;
+    }
+
+    //funkcja do ładowania strony wiadomosc-aktywna, nieprzeczytanej wiadomosci
+    @GetMapping("/producent/wiadomosc-aktywna")
+    public String getAktywnaWiadomosc(@RequestParam Long idKomunikatu, Model model){
+
+        try{
+            Komunikat komunikat=komunikatService.findKomunikat(idKomunikatu);
+
+            if(komunikat==null){
+                Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                        Integer.toUnsignedLong(1),"brakWartosci",0,"");
+                model.addAttribute("komunikat",komunikat);
+            }else{
+
+                //zmienienie statusu komunikatu na przeczytany
+                if(komunikat.getCzyOdczytano()==0){
+                    komunikatService.zaznaczJakoPrzeczytana(komunikat.getIdKomunikatu());
+                }
+
+                model.addAttribute("komunikat",komunikat);
+            }
+
+            //obsługa błędu bazy danych
+        }catch(Exception e){
+            e.printStackTrace();
+            Komunikat k=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                    Integer.toUnsignedLong(1),"bladPob",0,"");
+            model.addAttribute("komunikat",k);
+        }
+
+        return "wiadomosc-aktywna";
+    }
+
+    //funkcja do wyświetlania strony przeczytanych wiadomosci
+    @GetMapping("/producent/wiadomosci-nieaktywne")
+    public ModelAndView getWiadomosciNieaktywne(Model model, Principal principal){
+
+        List<Komunikat> list=new ArrayList<>();
+
+        try{
+            list=komunikatService.getAllReadKomunikat(principal.getName());
+
+            //wypełnienie pustego elementu w celu uniknięcia wyjątków
+            if(list.size() == 0){
+                Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                        Integer.toUnsignedLong(1),"brakWartosci",0,"");
+                list.add(t);
+            }else if(list.get(0)==null){
+                Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                        Integer.toUnsignedLong(1),"brakWartosci",0,"");
+                list.set(0,t);
+            }
+
+            //obsługa błędu bazy danych
+        }catch (Exception e){
+            Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                    Integer.toUnsignedLong(1),"bladPob",0,"");
+            list.add(t);
+        }
+
+        return new ModelAndView("wiadomosci","komunikaty",list) ;
+    }
+
+    //funkcja do ładowania strony wiadomosc-aktywna, nieprzeczytanej wiadomosci
+    @GetMapping("/producent/wiadomosc-nieaktywna")
+    public String getNieaktywnaWiadomosc(@RequestParam Long idKomunikatu, Model model){
+
+        try{
+            Komunikat komunikat=komunikatService.findKomunikat(idKomunikatu);
+
+            if(komunikat==null){
+                Komunikat t=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                        Integer.toUnsignedLong(1),"brakWartosci",0,"");
+                model.addAttribute("komunikat",komunikat);
+            }else{
+                model.addAttribute("komunikat",komunikat);
+            }
+
+            //obsługa błędu bazy danych
+        }catch(Exception e){
+            e.printStackTrace();
+            Komunikat k=new Komunikat(Integer.toUnsignedLong(1),Integer.toUnsignedLong(1),
+                    Integer.toUnsignedLong(1),"bladPob",0,"");
+            model.addAttribute("komunikat",k);
+        }
+
+        return "wiadomosc-nieaktywna";
     }
 }

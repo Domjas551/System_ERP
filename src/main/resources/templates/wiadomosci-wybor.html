@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
     <meta charset="utf-8">
@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Edytuj towar</title>
+    <title>Wiadomości</title>
 </head>
 <body style="background-color:lightgray">
 
@@ -34,38 +34,23 @@
         </div>
     </div>
 </nav>
-
-<div class="container my-5">
-    <h4 class="text-center">Edytuj towar</h4>
-
-    <!--    <div class="row mt-2">-->
-    <!--        <div th:if="$param.success">-->
-    <!--            Registration successfull.-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <form class="col-md-4 offset-md-4" th:action="@{/producent/edytuj-towar}"
-          method="post" role="form" th:object="${towar}" th:if="${towar.nazwa != 'brakTowaru' && towar.nazwa != 'bladPob'}">
-        <div>
-            <input type="hidden" th:field="*{idTowaru}">
-        </div>
+<div style="margin-top: 10%">
+    <div style="text-align: center; margin-top: 5vh;">
         <div class="mb-3">
-            <label for="nazwa" class="form-label">Nazwa</label>
-            <input th:field="*{nazwa}" type="text" class="form-control" id="nazwa" name="nazwa">
+            <a class="nav-link text-dark" th:href="@{/producent/wiadomosci-aktywne}"
+               style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+               onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+            >Wiadomości</a>
         </div>
 
         <div class="mb-3">
-            <label for="kategoria" class="form-label">Kategoria</label>
-            <input th:field="*{kategoria}" type="text" class="form-control" id="kategoria" name="kategoria">
+            <a class="nav-link text-dark" th:href="@{/producent/wiadomosci-nieaktywne}"
+               style="background-color:lightblue;width:25%;display:inline-block;border:1px solid black"
+               onmouseenter="this.style.backgroundColor='lightgreen'" onmouseleave="this.style.backgroundColor='lightblue'"
+            >Przeczytane wiadomości</a>
         </div>
+</div>
 
-        <button type="submit" class="btn btn-success" style="inline-block;margin-left:35%">Zapisz zmiany</button>
-    </form>
-    <p style="text-align: center;" th:if="${towar.nazwa == 'brakTowaru'}">Nie znaleziono towaru</p>
-    <p style="text-align: center;" th:if="${towar.nazwa == 'bladPob'}">Błąd przy próbie pobrania danych</p>
-    <div class="row mt-2" th:if="${message != null}" style="color: red; text-align: center; width: 40%; margin: 0 auto;">
-        <p>[[${message}]]</p>
-    </div>
 </div>
 
 </body>

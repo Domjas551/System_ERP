@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Cleanup zadań dla magazynierów">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarMagazynDto.java" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Od teraz tylko klient może dodawać produkty do koszyka">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/Komunikat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/KomunikatRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KomunikatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wiadomosc-aktywna.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wiadomosc-nieaktywna.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wiadomosci-wybor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wiadomosci.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/TowarMagazyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/entity/TowarMagazyn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ProducentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-towar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/edytuj-towar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/producent-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towary-stan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-magazyn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylki-towary.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -237,21 +244,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716392942905</updated>
     </task>
-    <task id="LOCAL-00010" summary="Cleanup zadań dla magazynierów">
-      <created>1717092405085</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1717092405085</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Cleanup zadań dla magazynierów">
-      <created>1717092424732</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1717092424732</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,8 +271,7 @@
     <MESSAGE value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
     <MESSAGE value="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)" />
     <MESSAGE value="Od teraz tylko klient może dodawać produkty do koszyka" />
-    <MESSAGE value="Cleanup zadań dla magazynierów" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup zadań dla magazynierów" />
+    <option name="LAST_COMMIT_MESSAGE" value="Od teraz tylko klient może dodawać produkty do koszyka" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

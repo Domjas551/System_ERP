@@ -2,7 +2,6 @@ package com.MagazynManagement.service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import com.MagazynManagement.controller.ErrorController;
 import com.MagazynManagement.dto.TowarDto;
 import com.MagazynManagement.entity.Towar;
 import com.MagazynManagement.repository.TowarRepository;
@@ -15,8 +14,6 @@ import java.util.List;
 
 @Service
 public class TowarService {
-
-    ErrorController er=new ErrorController();
 
     @Autowired
     TowarRepository towarRepository;
