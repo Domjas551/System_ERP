@@ -2,8 +2,13 @@ package com.MagazynManagement.controller;
 
 import com.MagazynManagement.dto.PracownikDto;
 import com.MagazynManagement.entity.Pracownik;
+import com.MagazynManagement.entity.TowarWysylka;
 import com.MagazynManagement.entity.Uzytkownik;
+import com.MagazynManagement.entity.Wysylka;
+import com.MagazynManagement.service.TowarWysylkaService;
 import com.MagazynManagement.service.UzytkownikService;
+import com.MagazynManagement.service.WysylkaService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,6 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -23,11 +32,17 @@ public class AdministratorController {
 
     private final UserDetailsService userDetailsService;
 
+    private final WysylkaService wysylkaService;
+
+    private final TowarWysylkaService towarWysylkaService;
+
 
     @GetMapping("/admin")
-    public String admin(Model model, Principal principal){
+    public String admin(Model model, HttpSession session, Principal principal){
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("admin", userDetails);
+        model.addAttribute("messageCykl",session.getAttribute("messageCykl"));
+        session.setAttribute("messageCykl",null);
         return "admin-main";
     }
 
@@ -110,5 +125,76 @@ public class AdministratorController {
         uzytkownikService.updateUser(existingUser);
 
         return "redirect:/admin/accountDetails/" + id;
+    }
+
+    @GetMapping("/admin/cykliczne")
+    public String updateCyclic(Model model, HttpSession session) throws ParseException {
+        List<Wysylka> wcl = wysylkaService.findWysylkaCykliczna();
+        List<TowarWysylka> twcl=new ArrayList<>();
+
+        int count =0;
+
+        String dataString;
+        Date data;
+        Date curData;
+        Integer odOstatniego;
+        Wysylka wysylka;
+        Long newWysylkaId;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+
+        for(int i=0; i<wcl.size(); i++)
+        {
+            curData=new Date();
+            curData.setTime(curData.getTime()+i*1000);
+            dataString = wcl.get(i).getData();
+            data=dateFormat.parse(dataString);
+            odOstatniego=(int)((curData.getTime()-data.getTime()) / (1000 * 60 * 60 * 24));
+
+            if(odOstatniego>=wcl.get(i).getInterwal())
+            {
+                if(wcl.get(i).getId_klienta_detalicznego()==null)
+                {
+                    wysylka=new Wysylka(null, wcl.get(i).getId_klienta_hurtowego(), null,null,"niezatwierdzona",wcl.get(i).getInterwal(),dateFormat.format(curData),wcl.get(i).getAdres());
+                }
+                else
+                {
+                    wysylka=new Wysylka(null,null, wcl.get(i).getId_klienta_detalicznego(), null,"niezatwierdzona",wcl.get(i).getInterwal(),dateFormat.format(curData),wcl.get(i).getAdres());
+                }
+                wysylkaService.dodajWysylke(wysylka);
+                wysylkaService.nullifyInterwal(wcl.get(i).getId_wysylki());
+
+                twcl=towarWysylkaService.findToWarIdByWysylkaID(wcl.get(i).getId_wysylki());
+
+                if(wcl.get(i).getId_klienta_detalicznego()==null)
+                {
+                    newWysylkaId =wysylkaService.findPrzesylkeUzytkownika(wcl.get(i).getId_klienta_hurtowego(),dateFormat.format(curData));
+                }
+                else
+                {
+                    newWysylkaId=wysylkaService.findPrzesylkeUzytkownika(wcl.get(i).getId_klienta_detalicznego(),dateFormat.format(curData));
+                }
+                towarWysylkaService.dodajTowarWysylkiCykl(twcl,newWysylkaId);
+
+                count++;
+            }
+        }
+
+        if(count==0)
+        {
+            session.setAttribute("messageCykl", "Żadne cykliczne zamówienie nie wymagało ponowienia.");
+        }
+        else
+        {
+            session.setAttribute("messageCykl", "Aktualizacja udana! Ponowiono "+count+" cykliczne zamówienia.");
+        }
+
+        return "redirect:/admin";
+    }
+
+
+    public static Date parseDate(String dateString) throws ParseException
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+        return dateFormat.parse(dateString);
     }
 }

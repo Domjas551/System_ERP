@@ -66,6 +66,12 @@
     <div>
         <a class="nav-link text-dark" th:href="@{/admin/producenci}">Wyświetl konta producentów</a>
     </div>
+    <div>
+        <a class="nav-link text-dark" th:href="@{/admin/cykliczne}">Aktualizuj zamówienia cykliczne</a>
+        <div class="row mt-2" th:if="${messageCykl != null}" style="color: green; text-align: center; margin: 0 auto; width: 40%;">
+            <p>[[${messageCykl}]]</p>
+        </div>
+    </div>
 
     <div>
 <!--        <a class="nav-link text-dark" th:href="@{/manager/pracownicy}">Pokaż pracowników</a>-->

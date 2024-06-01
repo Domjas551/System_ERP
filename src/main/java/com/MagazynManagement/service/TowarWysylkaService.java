@@ -28,6 +28,16 @@ public class TowarWysylkaService {
 
     }
 
+    @Transactional
+    public void dodajTowarWysylkiCykl(List<TowarWysylka> tw,Long id_wysylki)
+    {
+        for(int i=0; i<tw.size();i++)
+        {
+            towarWysylkaRepository.dodajTowarWysylke(tw.get(i).getId_towaru(),id_wysylki,tw.get(i).getIlosc());
+        }
+
+    }
+
     public List<TowarWysylka> findToWarIdByWysylkaID(Long id_wysylki)
     {
         List<Object[]> results = towarWysylkaRepository.findTowarByWysylkaID(id_wysylki);

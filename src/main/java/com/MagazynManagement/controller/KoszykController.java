@@ -90,13 +90,13 @@ public class KoszykController {
         model.addAttribute("messageTra",session.getAttribute("messageTra"));
         model.addAttribute("errorBrak",session.getAttribute("errorBrak"));
         session.setAttribute("messageTra",null);
-        session.setAttribute("errorBrak",null);
         //model.addAttribute("adresWysylki", "");
         return "koszyk";
     }
 
     @PostMapping("/user/zloz-zamowienie")
     public String zlozZamowienie(@RequestParam String adresWysylki,
+                                 @RequestParam Integer interwal,
                                  Model model,
                                  HttpSession session,
                                  Principal principal) throws Exception {
@@ -125,10 +125,10 @@ public class KoszykController {
 
         if(uzytkownik.isCzyKlientHurtowy())
         {
-            Wysylka wysylka=new Wysylka(null, uzytkownik.getIdUzytkownika(), null,null,"niezatwierdzona",0,dataform,adresWysylki);
+            Wysylka wysylka=new Wysylka(null, uzytkownik.getIdUzytkownika(), null,null,"niezatwierdzona",interwal,dataform,adresWysylki);
             wysylkaService.dodajWysylke(wysylka);
         } else if (uzytkownik.isCzyKlientDetaliczny()) {
-            Wysylka wysylka=new Wysylka(null,null, uzytkownik.getIdUzytkownika(), null,"niezatwierdzona",0,dataform,adresWysylki);
+            Wysylka wysylka=new Wysylka(null,null, uzytkownik.getIdUzytkownika(), null,"niezatwierdzona",interwal,dataform,adresWysylki);
             wysylkaService.dodajWysylke(wysylka);
         }
 

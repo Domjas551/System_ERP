@@ -138,6 +138,7 @@
             <th scope="col">Data</th>
             <th scope="col">Adres</th>
             <th scope="col">Towary</th>
+            <th scope="col">Interwał</th>
             <th scope="col">Status</th>
         </tr>
         </thead>
@@ -147,6 +148,10 @@
             <td th:text="${w.wysylka.data}"></td>
             <td th:text="${w.wysylka.adres}"></td>
             <td th:utext="${w.zawartosc}"></td>
+            <td>
+                <span th:if="${w.wysylka.interwal != null}" th:text="${w.wysylka.interwal}"></span>
+                <span th:if="${w.wysylka.interwal == null}">niecykliczna</span>
+            </td>
             <td th:text="${w.wysylka.status}"></td>
         </tr>
         </tbody>

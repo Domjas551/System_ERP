@@ -26,7 +26,22 @@ public class WysylkaService {
 
     @Transactional
     public void dodajWysylke(Wysylka wysylka){
-        wysylkaRepository.dodajWysylke(wysylka.getId_klienta_detalicznego(), wysylka.getId_klienta_hurtowego(), wysylka.getId_kierowcy(), wysylka.getData(), wysylka.getAdres(), wysylka.getStatus());
+        Integer interwal;
+        if(wysylka.getInterwal()==0)
+        {
+            interwal=null;
+        }
+        else
+        {
+            interwal =  wysylka.getInterwal();
+        }
+        wysylkaRepository.dodajWysylke(wysylka.getId_klienta_detalicznego(), wysylka.getId_klienta_hurtowego(), wysylka.getId_kierowcy(), wysylka.getData(), interwal,wysylka.getAdres(), wysylka.getStatus());
+    }
+
+    @Transactional
+    public void nullifyInterwal(Long id_wysylki)
+    {
+        wysylkaRepository.nullifyInterwal(id_wysylki);
     }
 
     public Long findPrzesylkeUzytkownika(Long id_uzytkownika,String data)
@@ -37,6 +52,11 @@ public class WysylkaService {
     public List<Wysylka> findWysylkaByIdKlienta(Long id_uzytkownika)
     {
         return wysylkaRepository.findWysylkaByIdKlienta(id_uzytkownika);
+    }
+
+    public List<Wysylka> findWysylkaCykliczna()
+    {
+        return wysylkaRepository.findWysylkaCzykliczna();
     }
 
     public void odejmijTowaryZeStanuMagazynowego(StanMagazynowSesja stany){

@@ -96,8 +96,6 @@ public class UzytkownikCotroller {
             ListTowarWysylka=towarWysylkaService.findToWarIdByWysylkaID(id);
             pom="";
 
-            System.out.println(ListTowarWysylka);
-
             for(int j=0; j<ListTowarWysylka.size(); j++)
             {
                 if(j==0)
