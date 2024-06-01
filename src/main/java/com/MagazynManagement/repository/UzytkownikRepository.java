@@ -40,4 +40,9 @@ public interface UzytkownikRepository extends JpaRepository<Uzytkownik, Long> {
             value="SELECT * from uzytkownik where id_uzytkownika=?1",
             nativeQuery = true)
     Uzytkownik findUzytkownikByID(Long id);
+
+    @Query(
+            value="SELECT * from uzytkownik where stanowisko='kierowca'",
+            nativeQuery = true)
+    List<Uzytkownik> findKierowcy();
 }

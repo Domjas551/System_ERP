@@ -3,12 +3,10 @@ package com.MagazynManagement.service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import com.MagazynManagement.dto.TowarDto;
-import com.MagazynManagement.entity.PozycjaKoszyka;
-import com.MagazynManagement.entity.StanMagazynowSesja;
-import com.MagazynManagement.entity.Towar;
-import com.MagazynManagement.entity.Wysylka;
+import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.TowarMagazynRepository;
 import com.MagazynManagement.repository.TowarWysylkaRepository;
+import com.MagazynManagement.repository.UzytkownikRepository;
 import com.MagazynManagement.repository.WysylkaRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +20,7 @@ public class WysylkaService {
 
     private final WysylkaRepository wysylkaRepository;
     private final TowarMagazynRepository towarMagazynRepository;
-
+    private final UzytkownikRepository uzytkownikRepository;
 
     @Transactional
     public void dodajWysylke(Wysylka wysylka){
@@ -69,5 +67,21 @@ public class WysylkaService {
                 }
             }
         }
+    }
+
+    public List<Wysylka> getWysylkaBezKierowcy(){
+        return wysylkaRepository.getWysylkaBezKierowcy();
+    }
+
+    public Wysylka getById(Long id){
+        return wysylkaRepository.getByWysylkaId(id);
+    }
+
+    public List<Uzytkownik> getKierowcy(){
+        return uzytkownikRepository.findKierowcy();
+    }
+
+    public void update(Wysylka w){
+        wysylkaRepository.save(w);
     }
 }

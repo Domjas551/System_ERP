@@ -37,4 +37,9 @@ public interface WysylkaRepository extends JpaRepository<Wysylka, Long>
             value="SELECT * FROM wysylka where interwal is not null", nativeQuery = true)
     List<Wysylka> findWysylkaCzykliczna();
 
+    @Query(value = "Select * from wysylka where id_kierowcy is null and status = 'niezatwierdzona'", nativeQuery = true)
+    List<Wysylka> getWysylkaBezKierowcy();
+
+    @Query(value = "Select * from wysylka where id_wysylki = ?1", nativeQuery = true)
+    Wysylka getByWysylkaId(Long id);
 }
