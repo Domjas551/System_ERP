@@ -3,6 +3,7 @@ package com.MagazynManagement.repository;
 import com.MagazynManagement.entity.Zadanie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface ZadanieRepozytory extends JpaRepository<Zadanie, Long>{
 
     @Query(value = "UPDATE zadanie SET status='anulowane' where id_zadania=?1", nativeQuery = true)
     void anulujZadanie(Long id);
+
+    @Query(value = "SELECT * from zadanie where status = 'do przydzialu'", nativeQuery = true)
+    List<Zadanie> findDoPrzydzielenia();
 }

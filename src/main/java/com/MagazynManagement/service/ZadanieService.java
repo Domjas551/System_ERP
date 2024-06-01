@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -83,5 +84,16 @@ public class ZadanieService {
 
     public List<Zadanie> getZadanieByPracownikId(Long id){
         return zadanieRepository.findByIdPracownika(id);
+    }
+
+    public List<Zadanie> getDoPrzydzielenia(Long id){
+        List<Zadanie> l = zadanieRepository.findDoPrzydzielenia();
+        List<Zadanie> lista = new ArrayList<>();
+        for (Zadanie z : l){
+            if (z.getOpis().contains("Magazyn "+id)){
+                lista.add(z);
+            }
+        }
+        return lista;
     }
 }

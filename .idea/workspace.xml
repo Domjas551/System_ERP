@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Od teraz tylko klient może dodawać produkty do koszyka">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/towaryManagerDetails.html" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Zmiana maksymalnej ilości towaru w magazynie">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/doPrzydzialu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/MagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarMagazynDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/TowarMagazynDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/TowarMagazynRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towaryManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towaryManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZadanieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZadanieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/ZadanieRepozytory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/ZadanieRepozytory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZadanieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZadanieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716392942905</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Zmiana maksymalnej ilości towaru w magazynie">
+      <created>1717248272775</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717248272775</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +268,8 @@
     <MESSAGE value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
     <MESSAGE value="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)" />
     <MESSAGE value="Od teraz tylko klient może dodawać produkty do koszyka" />
-    <option name="LAST_COMMIT_MESSAGE" value="Od teraz tylko klient może dodawać produkty do koszyka" />
+    <MESSAGE value="Zmiana maksymalnej ilości towaru w magazynie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zmiana maksymalnej ilości towaru w magazynie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

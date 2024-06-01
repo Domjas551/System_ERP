@@ -57,7 +57,7 @@
                 <option th:each="p :${pracownicy}" th:value="${p.idUzytkownika}" th:text="${p.idUzytkownika + ' - ' + p.imie + ' '+ p.nazwisko}" th:selected="(${p.idUzytkownika} == ${zadanie.id_pracownika})"></option>
             </select><br><br>
             <b>Opis zadania</b><br>
-            <textarea name="opis" th:text="${zadanie.opis}"></textarea><br><br>
+            <textarea name="opis" th:text="${zadanie.opis}" rows="10" style="width: 100%;"></textarea><br><br>
             <b>Status</b><br>
             <select name="status">
                 <option value="oczekujace" th:selected="${zadanie.status == 'oczekujace'}">W trakcie</option>

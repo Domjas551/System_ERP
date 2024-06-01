@@ -60,8 +60,8 @@ public class ZadanieController {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("edytowano", edytowano);
         model.addAttribute("zadanie", zadanieService.getZadanieById(id));
-        model.addAttribute("pracownicy", zadanieService.getMagazynier(zadanieService.getMagazynByKierownik(zadanieService.getZadanieById(id).getId_kierownika())));
-        model.addAttribute("manager", zadanieService.getZadanieById(id).getId_kierownika());
+        model.addAttribute("pracownicy", zadanieService.getMagazynier(zadanieService.getMagazynByKierownik(zadanieService.getKierownikId(principal.getName()))));
+        model.addAttribute("manager", zadanieService.getKierownikId(principal.getName()));
         model.addAttribute("userDetails", userDetails);
         edytowano = 0;
         return "zadanieDetails";
@@ -99,5 +99,13 @@ public class ZadanieController {
         zadanie.setStatus("wykonane");
         zadanieService.zapiszZadanie(zadanie);
         return "redirect:/magazynier/harmonogram/"+zadanie.getId_pracownika();
+    }
+
+    @GetMapping("/manager/doPrzydzialu")
+    public String doPrzypisania(Model model, Principal principal){
+        List<Zadanie> listZ = zadanieService.getDoPrzydzielenia(zadanieService.getMagazynByKierownik(zadanieService.getKierownikId(principal.getName())));
+        model.addAttribute("zadania", listZ);
+        model.addAttribute("count", listZ.size());
+        return "doPrzydzialu";
     }
 }
