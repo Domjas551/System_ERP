@@ -1,5 +1,6 @@
 package com.MagazynManagement.service;
 
+import com.MagazynManagement.dto.TowarMagazynDto;
 import com.MagazynManagement.entity.*;
 import com.MagazynManagement.repository.TowarMagazynRepository;
 import com.MagazynManagement.repository.TowarRepository;
@@ -57,5 +58,11 @@ public class TowarMagazynService {
 
     public int getMaxIlosc(Long id_m, Long id_p){
         return towarMagazynRepository.getMaxIlosc(id_m, id_p);
+    }
+
+    public void zmienMaxIlosc(TowarMagazynDto tm){
+        if (tm.getMax_ilosc() > 999) tm.setMax_ilosc(999);
+        if (tm.getMax_ilosc() < 0) tm.setMax_ilosc(0);
+        towarMagazynRepository.zamienMaxIlosc(tm.getId_magazynu(), tm.getId(), tm.getMax_ilosc());
     }
 }

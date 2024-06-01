@@ -69,4 +69,29 @@ public class MagazynController {
         model.addAttribute("towary", listDto);
         return "towaryManager";
     }
+
+    @GetMapping("/manager/towaryManagerDetails/{id}")
+    public String towaryManagerDetails(Model model, Principal principal, @PathVariable("id") Long id){
+        TowarMagazynDto dto = new TowarMagazynDto();
+        List<TowarMagazyn> listDto = towarMagazynService.pobierzTowarMagazynDlaMagazynu(zadanieService.getMagazynByKierownik(zadanieService.getKierownikId(principal.getName())));
+        for (TowarMagazyn t: listDto){
+            if (t.getIdTowaru().equals(id) && t.getIdMagazynu().equals(zadanieService.getMagazynByKierownik(zadanieService.getKierownikId(principal.getName())))) {
+                dto.setId(t.getIdTowaru());
+                dto.setId_magazynu(t.getIdMagazynu());
+                dto.setNazwa_firmy(t.getProducent());
+                dto.setIlosc(t.getIlosc());
+                dto.setMax_ilosc(towarMagazynService.getMaxIlosc(t.getIdMagazynu(), t.getIdTowaru()));
+                dto.setKategoria(t.getKategoria());
+                dto.setNazwa(t.getNazwa());
+            }
+        }
+        model.addAttribute("towar", dto);
+        return "towaryManagerDetails";
+    }
+
+    @PostMapping("/manager/edytujTowar")
+    public String edytujTowar(@ModelAttribute TowarMagazynDto tm){
+        towarMagazynService.zmienMaxIlosc(tm);
+        return "redirect:/manager/towaryManager";
+    }
 }

@@ -5,12 +5,14 @@ public class TowarMagazynDto {
     private String nazwa_firmy;
     private String nazwa;
     private String kategoria;
+    private Long id_magazynu;
     private int ilosc;
     private int max_ilosc;
 
     public TowarMagazynDto(){super();}
-    public TowarMagazynDto(Long id, String nazwaFirmy, String nazwa, String kategoria, int ilosc, int maxIlosc) {
+    public TowarMagazynDto(Long id, String nazwaFirmy, String nazwa, String kategoria, Long id_magazynu,int ilosc, int maxIlosc) {
         this.id = id;
+        this.id_magazynu = id_magazynu;
         nazwa_firmy = nazwaFirmy;
         this.nazwa = nazwa;
         this.kategoria = kategoria;
@@ -64,5 +66,13 @@ public class TowarMagazynDto {
 
     public void setMax_ilosc(int max_ilosc) {
         this.max_ilosc = max_ilosc;
+    }
+
+    public Long getId_magazynu() {
+        return id_magazynu;
+    }
+
+    public void setId_magazynu(Long id_magazynu) {
+        this.id_magazynu = id_magazynu;
     }
 }

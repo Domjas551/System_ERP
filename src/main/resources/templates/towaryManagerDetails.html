@@ -62,7 +62,7 @@
 </nav>
 
 <div style="text-align: center; margin: 0 auto; width: 75%; margin-top: 2%">
-    <h4 class="text-center">Lista towarów w magazynie</h4>
+    <h4 class="text-center">Edytuj towar</h4>
     <table style="text-align: center; margin-top: 2%; width: 100%; border-collapse: collapse;">
         <thead>
         <tr>
@@ -75,17 +75,21 @@
             <th scope="col" style="width: 5%;">Edytuj</th>
         </tr>
         </thead>
-        <tbody>
-            <tr th:each="t: ${towary}">
-                <td th:text="${t.id}"></td>
-                <td th:text="${t.nazwa_firmy}"></td>
-                <td th:text="${t.nazwa}"></td>
-                <td th:text="${t.kategoria}"></td>
-                <td th:text="${t.ilosc}"></td>
-                <td th:text="${t.max_ilosc}"></td>
-                <td><a th:href="@{/manager/towaryManagerDetails/{id}(id=${t.id})}">Edytuj</a></td>
-            </tr>
-        </tbody>
+        <form method="post" action="/manager/edytujTowar">
+            <tbody>
+                <tr>
+                    <td th:text="${towar.id}"></td>
+                    <td th:text="${towar.nazwa_firmy}" th:value="${towar.nazwa_firmy}" name="nazwa_firmy"></td>
+                    <td th:text="${towar.nazwa}" th:value="${towar.nazwa}" name="nazwa"></td>
+                    <td th:text="${towar.kategoria}" th:value="${towar.kategoria}" name="kategoria"></td>
+                    <td th:text="${towar.ilosc}" th:value="${towar.ilosc}" name="ilosc"></td>
+                    <td><input type="number" th:value="${towar.max_ilosc}" name="max_ilosc" min="0" max="999"></td>
+                    <td><input type="submit" value="Edytuj"></td>
+                    <input type="hidden" th:value="${towar.id_magazynu}" name="id_magazynu">
+                    <input type="hidden" th:value="${towar.id}" name="id">
+                </tr>
+            </tbody>
+        </form>
     </table>
 </div>
 
