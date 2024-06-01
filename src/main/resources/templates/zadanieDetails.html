@@ -65,7 +65,7 @@
                 <option value="anulowane" th:selected="${zadanie.status == 'anulowane'}">Anuluj</option>
             </select><br><br><br>
             <input hidden th:value="${zadanie.id_zadania}" name="id_zadania">
-            <input hidden th:value="${zadanie.id_kierownika}" name="id_kierownika">
+            <input hidden th:value="${manager}" name="id_kierownika">
             <input type="submit" value="Aktualizuj zadanie">
         </form>
         <p th:if=${edytowano} style="margin: 0 auto; color: green; text-align: center; margin-top: 2%;">Pomyślnie edytowano zadanie!</p>
