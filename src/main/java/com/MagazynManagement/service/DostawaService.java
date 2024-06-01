@@ -1,5 +1,6 @@
 package com.MagazynManagement.service;
 
+import com.MagazynManagement.dto.DostawaDto;
 import com.MagazynManagement.entity.Dostawa;
 import com.MagazynManagement.repository.DostawaRepository;
 import jakarta.transaction.Transactional;
@@ -51,6 +52,10 @@ public class DostawaService {
     @Transactional
     public void aktualizujStatusDostawy(Long idDostawy, String status) throws Exception{
         dostawaRepository.zapiszStatusDostawa(idDostawy,status);
+    }
+
+    public List<Long> findDostawaBezKierowcy(Long id){
+        return dostawaRepository.findDostawaBezKierowcy(id);
     }
 
 }
