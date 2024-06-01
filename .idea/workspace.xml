@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Dodano generację systemowych, automatycznych komunikatów o brakach w magazynach.">
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Przydzielanie nieprzypisanych zadań">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/DostawaDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/dostawaBezKierowcy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/dostawaDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/WysylkaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/WysylkaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarWysylkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarWysylkaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/WysylkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/WysylkaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZadanieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZadanieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/DostawaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/DostawaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/MagazynRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/MagazynRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/DostawaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/MagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/MagazynService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager-main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -57,43 +59,46 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2ZJzv8Cw9O0OmG5iKWygokvr9wp" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MagazynManagementApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ja/Desktop/I'mAProgrammer/6semestr/Java/System_ERP&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MagazynManagementApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ja/Desktop/I'mAProgrammer/6semestr/Java/System_ERP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
@@ -236,28 +241,35 @@
       <option name="project" value="LOCAL" />
       <updated>1716392942905</updated>
     </task>
-    <task id="LOCAL-00010" summary="Cleanup zadań dla magazynierów">
-      <created>1717092405085</created>
+    <task id="LOCAL-00010" summary="Zmiana maksymalnej ilości towaru w magazynie">
+      <created>1717248272775</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1717092405085</updated>
+      <updated>1717248272775</updated>
     </task>
-    <task id="LOCAL-00011" summary="Cleanup zadań dla magazynierów">
-      <created>1717092424732</created>
+    <task id="LOCAL-00011" summary="Przydzielanie nieprzypisanych zadań">
+      <created>1717251920791</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1717092424732</updated>
+      <updated>1717251920791</updated>
     </task>
-    <task id="LOCAL-00012" summary="Dodano generację systemowych, automatycznych komunikatów o brakach w magazynach.">
-      <created>1717169054805</created>
+    <task id="LOCAL-00012" summary="Przydzielanie nieprzypisanych zadań">
+      <created>1717252086713</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1717169054805</updated>
+      <updated>1717252086713</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Przydzielanie nieprzypisanych zadań">
+      <created>1717252176744</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717252176744</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +287,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Pierwsze wersje stron producenta" />
     <MESSAGE value="Pierwsza wersja funkcjonalności producenta - lista towarów, modyfikacja towaru" />
     <MESSAGE value="Dodano zabezpieczenia do funkcjonalności i strony towary-stan.html, edytuj-towaty.html, oraz dodano strone error i ErrorController" />
@@ -284,9 +297,9 @@
     <MESSAGE value="Transakcja. Dodanie komunikatow potwierdzających udaną transakcję, tudzież zgłaszających jej niepowodzenie. &#10;Dodanie strony &quot;oferta&quot; umożliwiającej gościowi wgląd w spis dostepnych towarow." />
     <MESSAGE value="Zostały pododawane hiperłącza do paneli użytkowników (ujednolicoy nav-bar)" />
     <MESSAGE value="Od teraz tylko klient może dodawać produkty do koszyka" />
-    <MESSAGE value="Cleanup zadań dla magazynierów" />
-    <MESSAGE value="Dodano generację systemowych, automatycznych komunikatów o brakach w magazynach." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano generację systemowych, automatycznych komunikatów o brakach w magazynach." />
+    <MESSAGE value="Zmiana maksymalnej ilości towaru w magazynie" />
+    <MESSAGE value="Przydzielanie nieprzypisanych zadań" />
+    <option name="LAST_COMMIT_MESSAGE" value="Przydzielanie nieprzypisanych zadań" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

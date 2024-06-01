@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        table, td, th{
+            border: gray 1px solid;
+        }
+        td > a{
+            display: block;
+        }
+    </style>
+
+    <title th:text="'Dostawa ' + ${dostawa.id_dostawy}"></title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">MagazynManagement</a>
+        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/placowki">Nasze placówki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/oferta">Oferta</a>
+                </li>
+            </ul>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link text-light" th:href="@{/admin}">Panel administratora</a>
+            </div>
+            <div sec:authorize="hasAuthority('USER')">
+                <a class="nav-link text-light" th:href="@{/user}">Panel klienta</a>
+            </div>
+            <div sec:authorize="hasAuthority('MANAGER')">
+                <a class="nav-link text-light" th:href="@{/manager}">Panel managera</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRACOWNIK')">
+                <a class="nav-link text-light" th:href="@{/pracownik}">Panel pracownika</a>
+            </div>
+            <div sec:authorize="hasAuthority('KIEROWCA')">
+                <a class="nav-link text-light" th:href="@{/kierowca}">Panel kierowcy</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link text-light" th:href="@{/login}">Zaloguj</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div style="text-align: center; margin: 0 auto; width: 75%; margin-top: 2%">
+    <h4 class="text-center" th:text="'Dostawa ' + ${dostawa.id_dostawy}"></h4>
+    <br><br>
+    <form action="/manager/dodajKierowce" method="post">
+        <p><b>Producent</b></p>
+        <p th:text="${dostawa.nazwa_firmy}"></p><br>
+        <p><b>Data</b></p>
+        <p th:text="${dostawa.data}"></p><br>
+        <p><b>Adres</b></p>
+        <p th:text="${dostawa.adres}"></p><br>
+        <select id="id_kierowcy" required name="id_kierowcy" style="margin: 0 auto;">
+            <option th:each="p :${pracownicy}" th:value="${p.idUzytkownika}" th:text="${p.idUzytkownika + ' - ' + p.imie + ' '+ p.nazwisko}" th:selected="(${p.idUzytkownika} == ${dostawa.id_kierowcy})"></option>
+        </select><br><br>
+        <input type="submit" value="Przypisz">
+        <input type="hidden" th:value="${dostawa.id_dostawy}" name="id_dostawy">
+    </form><br><br>
+    <p style="color: green" th:if="${przypisano}">Przypisano kierowcę do dostawy!</p>
+</div>
+
+</body>
+</html>

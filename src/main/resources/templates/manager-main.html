@@ -95,6 +95,12 @@
     <div th:unless="${nieprzydzielone > 0}">
         <a class="przycisk" th:href="@{/manager/doPrzydzialu}">Pokaż listę nieprzydzielonych zadań</a>
     </div>
+    <div th:if="${dostawy > 0}">
+        <a class="przycisk" style="border: 1px red solid" th:href="@{/manager/dostawaBezKierowcy}">Pokaż listę dostaw bez kierowców</a>
+    </div>
+    <div th:unless="${dostawy > 0}">
+        <a class="przycisk" th:href="@{/manager/dostawaBezKierowcy}">Pokaż listę dostaw bez kierowców</a>
+    </div>
     <!---
     <div style="text-align: center">
         <a class="nav-link text-dark" th:href="@{/manager/zaopatrzenie}">Zamów produkty do magazynu</a>

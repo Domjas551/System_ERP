@@ -27,4 +27,8 @@ public class MagazynService {
     public List<String> getProducentMagazyn(Long idProducenta) throws Exception{
         return magazynRepository.findByProducentId(idProducenta);
     }
+
+    public String getAdres(Long id){
+        return magazynRepository.getAdres(id);
+    }
 }
