@@ -1,7 +1,5 @@
 package com.MagazynManagement.controller;
 
-import com.MagazynManagement.dto.KlientDto;
-import com.MagazynManagement.dto.PracownikDto;
 import com.MagazynManagement.dto.ProducentDto;
 import com.MagazynManagement.dto.UserDto;
 import com.MagazynManagement.entity.*;
@@ -11,8 +9,6 @@ import com.MagazynManagement.service.TowarWysylkaService;
 import com.MagazynManagement.service.UzytkownikService;
 import com.MagazynManagement.service.WysylkaService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -84,7 +80,7 @@ public class UzytkownikCotroller {
         model.addAttribute("klient", userDetails);
 
         Uzytkownik uzytkownik = uzytkownikRepository.findUserByEmail(principal.getName());
-        List<Wysylka> WysylkaList = wysylkaService.findWysylkaByIdKlienta(uzytkownik.getIdUzytkownika());
+        List<Wysylka> WysylkaList = wysylkaService.findWysylkaByIdKlienta(uzytkownik.getIdUzytkownika()); //Pobranie z bazy wszystkich wysyłek klienta
 
         List<String> zawartosci= new ArrayList<>();
         List<TowarWysylka> ListTowarWysylka=new ArrayList<>();
@@ -93,9 +89,10 @@ public class UzytkownikCotroller {
         for(int i=0; i<WysylkaList.size(); i++)
         {
             id=WysylkaList.get(i).getId_wysylki();
-            ListTowarWysylka=towarWysylkaService.findToWarIdByWysylkaID(id);
+            ListTowarWysylka=towarWysylkaService.findTowarIdByWysylkaID(id); //Pobranie wszystkich towarów wchodzacych w skałd wysyłki
             pom="";
 
+            //Generowanie spisu towarów dla wysyłki
             for(int j=0; j<ListTowarWysylka.size(); j++)
             {
                 if(j==0)
@@ -112,7 +109,7 @@ public class UzytkownikCotroller {
         List<WysylkaView> wysylkaPom=new ArrayList<>();
         for(int i=0; i<WysylkaList.size(); i++)
         {
-            wysylkaPom.add(new WysylkaView(WysylkaList.get(i),zawartosci.get(i)));
+            wysylkaPom.add(new WysylkaView(WysylkaList.get(i),zawartosci.get(i))); //Generowanie listy wysyłek z ich zawartościami
         }
 
         model.addAttribute("wysylki", wysylkaPom);

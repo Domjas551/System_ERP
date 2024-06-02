@@ -33,7 +33,7 @@ public class KoszykController {
     public String dodajDoKoszyka(@RequestParam Long idTowaru, @RequestParam Long idMagazynu, @RequestParam int ilosc, HttpSession session, HttpServletRequest request, Model model){
         if(ilosc==0)
         {
-            return "redirect:"+request.getHeader("Referer");
+            return "redirect:"+request.getHeader("Referer"); //Jeśli dodajemy do koszyka 0 ton towaru, nie dzieje się nic
         }
         List<PozycjaKoszyka> koszyk = (List<PozycjaKoszyka>) session.getAttribute("koszyk");
         StanMagazynowSesja stany = (StanMagazynowSesja) session.getAttribute("stany");
@@ -45,7 +45,7 @@ public class KoszykController {
         Towar towar=new Towar();
 
         try{
-            towar = towarService.findById(idTowaru);
+            towar = towarService.findById(idTowaru); //Pobranie dodawanego towaru z bazy
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -54,21 +54,21 @@ public class KoszykController {
         if(towar != null){
             PozycjaKoszyka istniejacaPozycja = znajdzPozycjeWKoszyku(towar, koszyk);
             if(istniejacaPozycja != null){
-                istniejacaPozycja.setIlosc(istniejacaPozycja.getIlosc() + ilosc);
+                istniejacaPozycja.setIlosc(istniejacaPozycja.getIlosc() + ilosc); //Jeśli wybrany towar jest już w koszyku, zwiększamy jego ilość zamiast dodawać nową pozycję
             } else {
                 PozycjaKoszyka nowaPozycja = new PozycjaKoszyka(towar, ilosc);
-                koszyk.add(nowaPozycja);
+                koszyk.add(nowaPozycja); //Jeśli wybranego towaru nie ma jeszcze w koszyku, dodajemy go jako nową pozycję
             }
         }
 
-        stany.getStany().get(idMagazynu.intValue()-1).set(idTowaru.intValue()-1,stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1)+ilosc);
-        //System.out.println(stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1));
+        stany.getStany().get(idMagazynu.intValue()-1).set(idTowaru.intValue()-1,stany.getStany().get(idMagazynu.intValue()-1).get(idTowaru.intValue()-1)+ilosc); //Aktualizujemy przetrzymywane w sesji stany produktów na magazynie niezmienione w bazie do czasu wykonania zamówienia
         session.setAttribute("stany", stany);
         model.addAttribute("stany", stany);
 
         return "redirect:"+request.getHeader("Referer");
     }
 
+    //Sprawdzenie, czy dany produkt występuje już w koszyku
     private PozycjaKoszyka znajdzPozycjeWKoszyku(Towar towar, List<PozycjaKoszyka> koszyk){
         for(PozycjaKoszyka pozycja : koszyk){
             if(pozycja.getTowar().getIdTowaru()==towar.getIdTowaru()){
@@ -87,10 +87,14 @@ public class KoszykController {
         }
 
         model.addAttribute("koszyk", koszyk);
+        //Przekazanie do modelu komunikatu dotyczącego rezultatu operacji
         model.addAttribute("messageTra",session.getAttribute("messageTra"));
         model.addAttribute("errorBrak",session.getAttribute("errorBrak"));
+
+        //Usunięcie komunikatu po jednokrotnym wyświetleniu
         session.setAttribute("messageTra",null);
-        //model.addAttribute("adresWysylki", "");
+        session.setAttribute("errorBrak",null);
+
         return "koszyk";
     }
 
@@ -107,6 +111,7 @@ public class KoszykController {
             return "redirect:/user/koszyk";
         }
 
+        //Sprawdzenie, czy towary w koszyku są nadal dostępne w chwili finalizowania zamówienia
         if(!towarMagazynService.sprawdzDostepnosc(stany, koszyk))
         {
             koszyk.clear();
@@ -117,12 +122,14 @@ public class KoszykController {
             return "redirect:/user/koszyk";
         }
 
+        //Aktualizacja stanów magazynów w bazie
         wysylkaService.odejmijTowaryZeStanuMagazynowego(stany);
 
         Uzytkownik uzytkownik = uzytkownikRepository.findUserByEmail(principal.getName());
         Date data = new Date();
         String dataform = formatDate(data);
 
+        //Zapisanie transakcji w bazie
         if(uzytkownik.isCzyKlientHurtowy())
         {
             Wysylka wysylka=new Wysylka(null, uzytkownik.getIdUzytkownika(), null,null,"niezatwierdzona",interwal,dataform,adresWysylki);
@@ -132,8 +139,10 @@ public class KoszykController {
             wysylkaService.dodajWysylke(wysylka);
         }
 
+        //Zapisanie transakcji w bazie
         towarWysylkaService.dodajTowarWysylki(koszyk,wysylkaService.findPrzesylkeUzytkownika(uzytkownik.getIdUzytkownika(),dataform));
 
+        //Automatyczna generacja zadania dla magazynierów
         String opis="";
         boolean s=false;
         for(int i=0; i<stany.getStany().size(); i++)
@@ -158,7 +167,6 @@ public class KoszykController {
                         opis=opis+("\n - id towaru: "+(j+1)+", ilosc: "+stany.getStany().get(i).get(j)+" ton.");
                     }
                 }
-                //System.out.println(opis);
                 Zadanie zadanie=new Zadanie(null,null,null,opis,"do przydzialu");
                 zadanieService.zapiszZadanie(zadanie);
                 opis="";
@@ -186,16 +194,6 @@ public class KoszykController {
         session.setAttribute("stany", stany);
         return "redirect:/user/koszyk";
     }
-
-    /*
-    private float obliczKwoteZamowienia(List<PozycjaKoszyka> koszyk){
-        float kwota = 0;
-        for(PozycjaKoszyka pozycja : koszyk){
-            kwota += pozycja.getMaterial().getCena() * pozycja.getIlosc();
-        }
-        return kwota;
-    }
-    */
 
     public static String formatDate(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");

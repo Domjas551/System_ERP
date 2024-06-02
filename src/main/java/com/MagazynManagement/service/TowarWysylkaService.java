@@ -1,7 +1,6 @@
 package com.MagazynManagement.service;
 
 import com.MagazynManagement.entity.PozycjaKoszyka;
-import com.MagazynManagement.entity.TowarMagazyn;
 import com.MagazynManagement.entity.TowarWysylka;
 import com.MagazynManagement.repository.TowarWysylkaRepository;
 import jakarta.transaction.Transactional;
@@ -38,7 +37,7 @@ public class TowarWysylkaService {
 
     }
 
-    public List<TowarWysylka> findToWarIdByWysylkaID(Long id_wysylki)
+    public List<TowarWysylka> findTowarIdByWysylkaID(Long id_wysylki)
     {
         List<Object[]> results = towarWysylkaRepository.findTowarByWysylkaID(id_wysylki);
         List<TowarWysylka> towarWysylkaList = new ArrayList<>();

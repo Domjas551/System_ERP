@@ -1,7 +1,6 @@
 package com.MagazynManagement.controller;
 
 import com.MagazynManagement.dto.PracownikDto;
-import com.MagazynManagement.entity.Pracownik;
 import com.MagazynManagement.entity.TowarWysylka;
 import com.MagazynManagement.entity.Uzytkownik;
 import com.MagazynManagement.entity.Wysylka;
@@ -127,9 +126,10 @@ public class AdministratorController {
         return "redirect:/admin/accountDetails/" + id;
     }
 
+    //Wykonanie zaległych wysyłek cyklicznych
     @GetMapping("/admin/cykliczne")
     public String updateCyclic(Model model, HttpSession session) throws ParseException {
-        List<Wysylka> wcl = wysylkaService.findWysylkaCykliczna();
+        List<Wysylka> wcl = wysylkaService.findWysylkaCykliczna(); //Pobranie wszystkich wysyłek cyklicznych z bazy
         List<TowarWysylka> twcl=new ArrayList<>();
 
         int count =0;
@@ -140,7 +140,7 @@ public class AdministratorController {
         Integer odOstatniego;
         Wysylka wysylka;
         Long newWysylkaId;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy"); //Ustalony format zgodny z danymi przetrzymywanymi w bazie
 
         for(int i=0; i<wcl.size(); i++)
         {
@@ -150,7 +150,7 @@ public class AdministratorController {
             data=dateFormat.parse(dataString);
             odOstatniego=(int)((curData.getTime()-data.getTime()) / (1000 * 60 * 60 * 24));
 
-            if(odOstatniego>=wcl.get(i).getInterwal())
+            if(odOstatniego>=wcl.get(i).getInterwal()) //Sprawdzenie, czy wysyłka cykliczna  powinna zostać już ponowiona
             {
                 if(wcl.get(i).getId_klienta_detalicznego()==null)
                 {
@@ -160,10 +160,10 @@ public class AdministratorController {
                 {
                     wysylka=new Wysylka(null,null, wcl.get(i).getId_klienta_detalicznego(), null,"niezatwierdzona",wcl.get(i).getInterwal(),dateFormat.format(curData),wcl.get(i).getAdres());
                 }
-                wysylkaService.dodajWysylke(wysylka);
-                wysylkaService.nullifyInterwal(wcl.get(i).getId_wysylki());
+                wysylkaService.dodajWysylke(wysylka); //Dodanie do bazy nowej wysyłki cyklicznej stanowiącej ponowienie zaległej
+                wysylkaService.nullifyInterwal(wcl.get(i).getId_wysylki()); //Uczynienie poprzedniej instancji powtarzanej wysyłki niecykliczną
 
-                twcl=towarWysylkaService.findToWarIdByWysylkaID(wcl.get(i).getId_wysylki());
+                twcl=towarWysylkaService.findTowarIdByWysylkaID(wcl.get(i).getId_wysylki()); //Pobranie wszystkich towarów i ilości przypisanych do starej instancji powtarzanej wysyłki
 
                 if(wcl.get(i).getId_klienta_detalicznego()==null)
                 {
@@ -173,12 +173,12 @@ public class AdministratorController {
                 {
                     newWysylkaId=wysylkaService.findPrzesylkeUzytkownika(wcl.get(i).getId_klienta_detalicznego(),dateFormat.format(curData));
                 }
-                towarWysylkaService.dodajTowarWysylkiCykl(twcl,newWysylkaId);
+                towarWysylkaService.dodajTowarWysylkiCykl(twcl,newWysylkaId); //Dodanie skopiowanych z poprzedniczki towarów do nowej wysyłki
 
                 count++;
             }
         }
-
+        //Przygotowanie wiadomości o efektach aktualizacji
         if(count==0)
         {
             session.setAttribute("messageCykl", "Żadne cykliczne zamówienie nie wymagało ponowienia.");
@@ -189,12 +189,5 @@ public class AdministratorController {
         }
 
         return "redirect:/admin";
-    }
-
-
-    public static Date parseDate(String dateString) throws ParseException
-    {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
-        return dateFormat.parse(dateString);
     }
 }

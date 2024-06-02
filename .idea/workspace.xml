@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Przydzielanie nieprzypisanych dostaw">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/WysylkaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/WysylkaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylkaDetails.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wysylkiPending.html" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Przydzielanie nieprzypisanych zadań">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoordynatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoordynatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/UzytkownikRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/WysylkaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/repository/WysylkaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/WysylkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/WysylkaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koordynator-main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/UzytkownikCotroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/UzytkownikCotroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarMagazynService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarWysylkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/TowarWysylkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/koszyk.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/towar-magazyn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +57,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -268,14 +267,7 @@
       <option name="project" value="LOCAL" />
       <updated>1717252176744</updated>
     </task>
-    <task id="LOCAL-00014" summary="Przydzielanie nieprzypisanych dostaw">
-      <created>1717267082711</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1717267082711</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,8 +297,7 @@
     <MESSAGE value="Od teraz tylko klient może dodawać produkty do koszyka" />
     <MESSAGE value="Zmiana maksymalnej ilości towaru w magazynie" />
     <MESSAGE value="Przydzielanie nieprzypisanych zadań" />
-    <MESSAGE value="Przydzielanie nieprzypisanych dostaw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Przydzielanie nieprzypisanych dostaw" />
+    <option name="LAST_COMMIT_MESSAGE" value="Przydzielanie nieprzypisanych zadań" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

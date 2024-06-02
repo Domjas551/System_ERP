@@ -40,7 +40,7 @@ public class TowarMagazynService {
             Towar towar=koszyk.get(i).getTowar();
             for(int j=0; j<stany.getStany().size(); j++)
             {
-                if(towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j+1),towar.getIdTowaru())<stany.getStany().get(j).get((int)(long)(towar.getIdTowaru()-1))+20) {
+                if((towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j+1),towar.getIdTowaru())<stany.getStany().get(j).get((int)(long)(towar.getIdTowaru()-1))+20)&&(stany.getStany().get(j).get((int) (long) (towar.getIdTowaru() - 1))!=0)) {
                     komunikatService.addKomunikat(null, towar.getIdProducenta(),"Zabrakło towaru "+towar.getNazwa()+" w magazynie "+(j+1)+".",0,formatDate(new Date()));
                     if (towarMagazynRepository.findIloscTowarMagazyn(Long.valueOf(j + 1), towar.getIdTowaru()) < stany.getStany().get(j).get((int) (long) (towar.getIdTowaru() - 1))) {
                         return false;
