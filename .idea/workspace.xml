@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Patch: Przy tworzeniu nowego towaru jest on dodawany do wszystkich magazynów z początkową max ilością równą 0" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="plik do egzekucji">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -272,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717493070477</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="plik do egzekucji">
+      <created>1717509941575</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717509941575</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +313,8 @@
     <MESSAGE value="Przydzielanie nieprzypisanych zadań" />
     <MESSAGE value="Przydzielanie nieprzypisanych dostaw" />
     <MESSAGE value="Patch: Przy tworzeniu nowego towaru jest on dodawany do wszystkich magazynów z początkową max ilością równą 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch: Przy tworzeniu nowego towaru jest on dodawany do wszystkich magazynów z początkową max ilością równą 0" />
+    <MESSAGE value="plik do egzekucji" />
+    <option name="LAST_COMMIT_MESSAGE" value="plik do egzekucji" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
