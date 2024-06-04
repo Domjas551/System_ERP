@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        table, td, th{
+            border: gray 1px solid;
+        }
+        td > a{
+            display: block;
+        }
+    </style>
+
+    <title>Aktywne zadania</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">MagazynManagement</a>
+        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/placowki">Nasze placówki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/oferta">Oferta</a>
+                </li>
+            </ul>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link text-light" th:href="@{/admin}">Panel administratora</a>
+            </div>
+            <div sec:authorize="hasAuthority('USER')">
+                <a class="nav-link text-light" th:href="@{/user}">Panel klienta</a>
+            </div>
+            <div sec:authorize="hasAuthority('MANAGER')">
+                <a class="nav-link text-light" th:href="@{/manager}">Panel managera</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRACOWNIK')">
+                <a class="nav-link text-light" th:href="@{/pracownik}">Panel pracownika</a>
+            </div>
+            <div sec:authorize="hasAuthority('KIEROWCA')">
+                <a class="nav-link text-light" th:href="@{/kierowca}">Panel kierowcy</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link text-light" th:href="@{/login}">Zaloguj</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div style="text-align: center; margin: 0 auto; width: 75%; margin-top: 2%">
+    <h4 class="text-center">Aktywne zadania</h4>
+    <table style="text-align: center; margin-top: 2%; width: 100%; border-collapse: collapse;" th:if="${userDetails.getId() == manager}">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 5%;">Id</th>
+            <th scope="col" style="width: 25%;">Pracownik</th>
+            <th scope="col" style="width: 40%;">Opis</th>
+            <th scope="col" style="width: 10%;">Status</th>
+            <th scope="col" style="width: 10%;">Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody style="margin-top: 2%;">
+            <tr th:each="zadanie : ${zadania}" th:if="${count>0}">
+                <td th:text="${zadanie.id_zadania}"></td>
+                <td th:text="${zadanie.id_pracownika}" name="id_pracownika" th:value="${zadanie.id_pracownika}"></td>
+                <td th:text="${zadanie.opis}" name="opis" th:value="${zadanie.opis}"></td>
+                <td th:text="${zadanie.status}" name="status" th:value="${zadanie.status}"></td>
+                <td><a th:href="@{/manager/zadanieDetails/{id}(id=${zadanie.id_zadania})}" name="id_zadania" th:value="${zadanie.id_zadania}">Szczegóły</a></td>
+            </tr>
+            <tr th:unless="${count}">
+                <td colspan="5">Brak aktywnych zadań do wyświetlenia!</td>
+            </tr>
+        </tbody>
+    </table>
+    <p th:unless="${userDetails.getId() == manager}" style="font-weight: bold; font-size: 200%; margin-top: 2%;">Nie masz uprawnień aby wyświetlić tą zawartość!</p>
+</div>
+
+</body>
+</html>

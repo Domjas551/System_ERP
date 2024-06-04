@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Wiadomość</title>
+</head>
+<body style="background-color:lightgray">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">MagazynManagement</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link active text-light" aria-current="page" href="/producent-main">Panel producenta</a>-->
+                <!--                </li>-->
+            </ul>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link text-light" th:href="@{/admin}">Panel administratora</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRODUCENT')">
+                <a class="nav-link text-light" th:href="@{/producent}">Panel producenta</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link text-light" th:href="@{/login}">Zaloguj</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h4 class="text-center">Wiadomość</h4>
+    <div th:if="${komunikat.tresc != 'brakWartosci' && komunikat.tresc != 'bladPob'}" style="text-align: center" class="col-md-4 offset-md-4">
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
+            Id komunikatu: [[${komunikat.idKomunikatu}]]
+        </div>
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
+            Data: [[${komunikat.data}]]
+        </div>
+        <div style="background-color:lightblue;border: 1px solid black;padding:0.2em">
+            Tresc: [[${komunikat.tresc}]]
+        </div>
+        <div class="mb-3" style="margin-top:0.5em">
+            <a href="/producent/wiadomosci-aktywne">
+                <button class="btn btn-success" style="background-color:#5590ed">Powrót</button>
+            </a>
+        </div>
+    </div>
+
+    <p style="text-align: center;" th:if="${komunikat.tresc == 'brakWartosci'}">Nie znaleziono takiej wiadomości</p>
+    <p style="text-align: center;" th:if="${komunikat.tresc == 'bladPob'}">Błąd przy próbie pobrania danych</p>
+</div>
+
+</body>
+</html>

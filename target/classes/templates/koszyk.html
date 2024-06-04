@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Koszyk</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">MagazynManagement</a>
+        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/placowki">Nasze placówki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/oferta">Oferta</a>
+                </li>
+            </ul>
+            <div sec:authorize="hasAuthority('USER')">
+                <a class="nav-link text-light" th:href="@{/user/koszyk}">Koszyk</a>
+            </div>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link text-light" th:href="@{/admin}">Panel administratora</a>
+            </div>
+            <div sec:authorize="hasAuthority('USER')">
+                <a class="nav-link text-light" th:href="@{/user}">Panel klienta</a>
+            </div>
+            <div sec:authorize="hasAuthority('MANAGER')">
+                <a class="nav-link text-light" th:href="@{/manager}">Panel managera</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRACOWNIK')">
+                <a class="nav-link text-light" th:href="@{/pracownik}">Panel pracownika</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link text-light" th:href="@{/login}">Zaloguj</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h4 class="text-center">Twój koszyk</h4>
+
+    <div th:if="${#lists.isEmpty(koszyk)}">
+        <p class="text-center">Twój koszyk jest pusty.</p>
+    </div>
+
+    <div th:unless="${#lists.isEmpty(koszyk)}">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Kategoria</th>
+                <th scope="col">Ilość</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pozycja : ${koszyk}">
+                <td th:text="${pozycja.towar.nazwa}"></td>
+                <td th:text="${pozycja.towar.kategoria}"></td>
+                <td th:text="${pozycja.ilosc}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <form th:action="@{/user/zloz-zamowienie}" method="post">
+            <label for="adresWysylki">Adres wysylki: </label>
+            <input type="text" id="adresWysylki" name="adresWysylki" required>
+            <label for="interwal"> Interwał (w dniach, dla zamówień cyklicznych): </label>
+            <input type="number" id="interwal" name="interwal" value="0" th:min="0" th:max="365" required/><br/><br/>
+            <button type="submit" class="btn btn-primary">Złóż zamówienie</button><br/><br/>
+        </form>
+        <form th:action="@{/user/oproznij-koszyk}" method="post">
+            <button type="submit" class="btn btn-primary">Opróżnij koszyk</button>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-2" th:if="${messageTra != null}" style="color: green; text-align: center; margin: 0 auto; width: 40%;">
+    <p>[[${messageTra}]]</p>
+</div>
+<div class="row mt-2" th:if="${errorBrak != null}" style="color: red; text-align: center; margin: 0 auto; width: 40%;">
+    <p>[[${errorBrak}]]</p>
+</div>
+
+
+</body>
+</html>

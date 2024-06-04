@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Strona klienta</title>
+
+    <style>
+        .custom-table {
+            min-width: 400px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">MagazynManagement</a>
+        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/placowki">Nasze placówki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/oferta">Oferta</a>
+                </li>
+            </ul>
+            <div sec:authorize="hasAuthority('USER')">
+                <a class="nav-link text-light" th:href="@{/user/koszyk}">Koszyk</a>
+            </div>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link text-light" th:href="@{/admin}">Panel administratora</a>
+            </div>
+            <div sec:authorize="hasAuthority('USER')">
+                <a class="nav-link text-light" th:href="@{/user}">Panel klienta</a>
+            </div>
+            <div sec:authorize="hasAuthority('MANAGER')">
+                <a class="nav-link text-light" th:href="@{/manager}">Panel managera</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRACOWNIK')">
+                <a class="nav-link text-light" th:href="@{/pracownik}">Panel pracownika</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link text-light" th:href="@{/login}">Zaloguj</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<h1 class="text-center my-4">Panel klienta</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <th:block th:if="${klient.czyDetaliczny}">
+                <table class="table table-striped custom-table mx-auto">
+                    <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Dane klienta detalicznego</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-end">ID</td>
+                        <td>[[${klient.getId()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Imię</td>
+                        <td>[[${klient.getImie()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Nazwisko</td>
+                        <td>[[${klient.getNazwisko()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Email</td>
+                        <td>[[${klient.getUsername()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Telefon</td>
+                        <td>[[${klient.getTelefon()}]]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </th:block>
+
+            <th:block th:if="${klient.czyHurtowy}">
+                <table class="table table-striped custom-table mx-auto">
+                    <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Dane klienta hurtowego</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-end">ID</td>
+                        <td>[[${klient.getId()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Nazw firmy</td>
+                        <td>[[${klient.getNazwaFirmy()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Email</td>
+                        <td>[[${klient.getUsername()}]]</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Telefon</td>
+                        <td>[[${klient.getTelefon()}]]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </th:block>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4" th:if="${wysylki.size > 0}">
+        <div class="col-auto">
+            <table class="table table-striped custom-table mx-auto">
+                <thead>
+                <tr>
+                    <th colspan="6" class="text-center">Wysyłki użytkownika</th>
+                </tr>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Adres</th>
+                    <th scope="col">Towary</th>
+                    <th scope="col">Interwał</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="w : ${wysylki}">
+                    <td th:text="${w.wysylka.id_wysylki}"></td>
+                    <td th:text="${w.wysylka.data}"></td>
+                    <td th:text="${w.wysylka.adres}"></td>
+                    <td th:utext="${w.zawartosc}"></td>
+                    <td>
+                        <span th:if="${w.wysylka.interwal != null}" th:text="${w.wysylka.interwal}"></span>
+                        <span th:if="${w.wysylka.interwal == null}">niecykliczna</span>
+                    </td>
+                    <td th:text="${w.wysylka.status}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

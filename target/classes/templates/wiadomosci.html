@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Wiadomości</title>
+</head>
+<body style="background-color:lightgray">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">MagazynManagement</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link active text-light" aria-current="page" href="/producent-main">Panel producenta</a>-->
+                <!--                </li>-->
+            </ul>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="nav-link text-light" th:href="@{/admin}">Panel administratora</a>
+            </div>
+            <div sec:authorize="hasAuthority('PRODUCENT')">
+                <a class="nav-link text-light" th:href="@{/producent}">Panel producenta</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a class="nav-link text-light" th:href="@{/logout}">Wyloguj się</a>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link text-light" th:href="@{/login}">Zaloguj</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h4 class="text-center">Wiadomości</h4>
+    <table class="table table-stiped table-hover" th:if="${komunikaty[0].tresc != 'brakWartosci' && komunikaty[0].tresc != 'bladPob'}">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Data</th>
+            <th colspan="2" style="text-align: center">Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="k :${komunikaty}">
+            <!--<th scope="row">1</th>-->
+            <td th:text="${k.idKomunikatu}"></td>
+            <td th:text="${k.data}"></td>
+            <td style="text-align: center;" th:if="${komunikaty[0].czyOdczytano==0}">
+                <a class="nav-link " style="color: blue" th:href="@{/producent/wiadomosc-aktywna(idKomunikatu=${k.idKomunikatu})}">
+                    <button style="background-color:lightblue;border:2px solid darkblue">Przeczytaj</button>
+                </a>
+            </td>
+            <td style="text-align: center;" th:if="${komunikaty[0].czyOdczytano==1}">
+                <a class="nav-link " style="color: blue" th:href="@{/producent/wiadomosc-nieaktywna(idKomunikatu=${k.idKomunikatu})}">
+                    <button style="background-color:lightblue;border:2px solid darkblue">Przeczytaj</button>
+                </a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <p style="text-align: center;" th:if="${komunikaty[0].tresc == 'brakWartosci'}">Brak nieprzeczytanych wiadomości do wyświetlenia</p>
+    <p style="text-align: center;" th:if="${komunikaty[0].tresc == 'bladPob'}">Błąd przy próbie pobrania danych</p>
+    <div  style="margin-top:0.5em;margin-left:47.5%" class="col-md-5 offset-md-5">
+        <a href="/producent/wiadomosci">
+            <button class="btn btn-success" style="background-color:#5590ed">Powrót</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
