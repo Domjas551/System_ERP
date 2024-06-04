@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="plik do egzekucji">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register-wholesale.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2024_14_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2024_14_41__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_06_2024_16_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_06_2024_16_05__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_05__Changes_.xml" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Poprawniona rejestracja dla klienta hurtowego">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/MagazynManagement/MyTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/UzytkownikCotroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/UzytkownikCotroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/UzytkownikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZamowienieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/ZamowienieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KontoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/KontoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/PracownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/PracownikService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/service/ZamowienieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/configuration/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/UzytkownikCotroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/UzytkownikCotroller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/UzytkownikService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/UzytkownikService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -80,6 +76,15 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.MagazynManagementApplication.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.DostawaServiceTest.executor": "Run",
+    "JUnit.MyTests.executor": "Run",
+    "JUnit.MyTests.testDodajWysylke.executor": "Run",
+    "JUnit.MyTests.testFindAllActiveDostawaByKierowcaId.executor": "Run",
+    "JUnit.MyTests.testGetKierowcaId.executor": "Run",
+    "JUnit.MyTests.testGetMagazyn.executor": "Run",
+    "JUnit.MyTests.testPobierzOferte.executor": "Run",
+    "JUnit.MyTests.testPobierzTowarMagazynDlaMagazynu.executor": "Run",
+    "JUnit.MyTests.testUpdateZadanie.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -108,9 +113,8 @@
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MagazynManagementApplication">
-    <configuration name="MagazynManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MagazynManagementApplication" />
+  <component name="RunManager" selected="Spring Boot.MagazynManagementApplication">
+    <configuration name="MyTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MagazynManagement" />
       <extension name="coverage">
         <pattern>
@@ -118,6 +122,73 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.MagazynManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTests.testDodajWysylke" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MagazynManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.MagazynManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.MagazynManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
+      <option name="METHOD_NAME" value="testDodajWysylke" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTests.testPobierzOferte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MagazynManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.MagazynManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.MagazynManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
+      <option name="METHOD_NAME" value="testPobierzOferte" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTests.testPobierzTowarMagazynDlaMagazynu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MagazynManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.MagazynManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.MagazynManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
+      <option name="METHOD_NAME" value="testPobierzTowarMagazynDlaMagazynu" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTests.testUpdateZadanie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MagazynManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.MagazynManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.MagazynManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
+      <option name="METHOD_NAME" value="testUpdateZadanie" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,7 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MagazynManagementApplication" />
+        <item itemvalue="JUnit.MyTests" />
+        <item itemvalue="JUnit.MyTests.testUpdateZadanie" />
+        <item itemvalue="JUnit.MyTests.testDodajWysylke" />
+        <item itemvalue="JUnit.MyTests.testPobierzTowarMagazynDlaMagazynu" />
+        <item itemvalue="JUnit.MyTests.testPobierzOferte" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +249,7 @@
       <workItem from="1716226464728" duration="6675000" />
       <workItem from="1716387107761" duration="6066000" />
       <workItem from="1716482886604" duration="7495000" />
-      <workItem from="1717534169147" duration="1301000" />
+      <workItem from="1717534169147" duration="5688000" />
     </task>
     <task id="LOCAL-00001" summary="Pierwsze wersje stron producenta">
       <option name="closed" value="true" />
@@ -303,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717510264449</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Poprawniona rejestracja dla klienta hurtowego">
+      <option name="closed" value="true" />
+      <created>1717535537249</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717535537249</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +419,8 @@
     <MESSAGE value="Przydzielanie nieprzypisanych dostaw" />
     <MESSAGE value="Patch: Przy tworzeniu nowego towaru jest on dodawany do wszystkich magazynów z początkową max ilością równą 0" />
     <MESSAGE value="plik do egzekucji" />
-    <option name="LAST_COMMIT_MESSAGE" value="plik do egzekucji" />
+    <MESSAGE value="Poprawniona rejestracja dla klienta hurtowego" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawniona rejestracja dla klienta hurtowego" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
