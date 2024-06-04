@@ -17,6 +17,11 @@ public interface MagazynRepository extends JpaRepository<Magazyn, Long> {
             nativeQuery = true)
     List<String> findByProducentId(Long idProducenta);
 
+    @Query(
+            value="SELECT id_magazynu FROM `magazyn`",
+            nativeQuery = true)
+    List<String> findAllMagazyn();
+
 
     @Modifying
     @Query(

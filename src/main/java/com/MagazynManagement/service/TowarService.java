@@ -53,7 +53,7 @@ public class TowarService {
 
         Long idProducenta=towarRepository.findProducentId(towarDto.getEmailProducenta());
         Long idTowaru=towarRepository.findNewesTowarProducenta(idProducenta);
-        List<String> lista=magazynRepository.findByProducentId(idProducenta);
+        List<String> lista=magazynRepository.findAllMagazyn();
 
         lista.forEach((element)->{
             magazynRepository.addTowarToMagazyn(idTowaru,Long.parseLong(element));
