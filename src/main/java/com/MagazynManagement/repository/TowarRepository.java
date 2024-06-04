@@ -62,6 +62,11 @@ public interface TowarRepository extends JpaRepository<Towar, Long> {
     void saveT(Long idProducenta, String nazwa, String kategoria);
 
     @Query(
+            value="SELECT id_towaru FROM `towar` where id_producenta=?1 ORDER BY `towar`.`id_towaru` DESC limit 1",
+            nativeQuery = true)
+    Long findNewesTowarProducenta(Long idProducenta);
+
+    @Query(
             value = "SELECT towar.*,towar_magazyn.ilosc, sum(max_ilosc) as max_ilosc FROM `towar`" +
                     " left join uzytkownik on towar.id_producenta=uzytkownik.id_uzytkownika" +
                     " left join towar_magazyn on towar_magazyn.id_towaru=towar.id_towaru" +

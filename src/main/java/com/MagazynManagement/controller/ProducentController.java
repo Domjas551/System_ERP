@@ -141,6 +141,7 @@ public class ProducentController {
 
             //obsługa błędu bazy danych
         }catch (Exception e){
+            e.printStackTrace();
             model.addAttribute("message2", "Error: dodanie danych nieudane");
         }
 

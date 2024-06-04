@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import com.MagazynManagement.dto.TowarDto;
 import com.MagazynManagement.entity.Towar;
+import com.MagazynManagement.repository.MagazynRepository;
 import com.MagazynManagement.repository.TowarRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class TowarService {
 
     @Autowired
     TowarRepository towarRepository;
+
+    @Autowired
+    MagazynRepository magazynRepository;
 
     public List<Towar> getAllTowar(){return towarRepository.findAll();}
     public List<Towar> getAllTowarByProducentId(String email) throws Exception{
@@ -44,7 +48,17 @@ public class TowarService {
 
     @Transactional
     public void saveTowar(TowarDto towarDto) throws Exception{
-        towarRepository.saveT(towarRepository.findProducentId(towarDto.getEmailProducenta()),towarDto.getNazwa(),towarDto.getKategoria());
+        towarRepository.saveT(towarRepository.findProducentId(towarDto.getEmailProducenta()),
+                towarDto.getNazwa(),towarDto.getKategoria());
+
+        Long idProducenta=towarRepository.findProducentId(towarDto.getEmailProducenta());
+        Long idTowaru=towarRepository.findNewesTowarProducenta(idProducenta);
+        List<String> lista=magazynRepository.findByProducentId(idProducenta);
+
+        lista.forEach((element)->{
+            magazynRepository.addTowarToMagazyn(idTowaru,Long.parseLong(element));
+        });
+
     }
 
     public List<Towar> getTowaryByProducentAndMagazyn(Long idProducenta, Long idMagazynu) throws Exception{
