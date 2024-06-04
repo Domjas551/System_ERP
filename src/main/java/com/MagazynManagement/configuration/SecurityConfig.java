@@ -45,6 +45,7 @@ public class SecurityConfig {
                         .requestMatchers("/producent/**").hasAnyAuthority("PRODUCENT", "ADMIN")
                         .requestMatchers("/registration").permitAll()
                         .requestMatchers("/registration-producent").permitAll()
+                        .requestMatchers("/registration-wholesale").permitAll()
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/placowki").permitAll()
                         .requestMatchers("/oferta").permitAll()

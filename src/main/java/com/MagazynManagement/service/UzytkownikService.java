@@ -33,7 +33,7 @@ public class UzytkownikService {
                 passwordEncoder.encode(userDto.getHaslo()),
                 userDto.getTelefon(),
                 null,
-                null,
+                userDto.getNazwaFirmy(),
                 null,
                 true,
                 false,

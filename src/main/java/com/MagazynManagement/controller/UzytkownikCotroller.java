@@ -52,26 +52,33 @@ public class UzytkownikCotroller {
 
     @PostMapping("/registration")
     public String saveUser(@ModelAttribute("userDto") UserDto userDto, Model model){
-        if (!userDto.isCzyKlientDetaliczny() && !userDto.isCzyKlientHurtowy()) {
-            // Obsługa błędu - żaden checkbox nie został zaznaczony
-            model.addAttribute("error", "Musisz zaznaczyć przynajmniej jedną opcję");
-            return "register";
-        } else if (userDto.isCzyKlientDetaliczny() && userDto.isCzyKlientHurtowy()) {
-            // Obsługa błędu - nie można wybrać jednocześnie klienta detalicznego i hurtowego
-            model.addAttribute("error", "Nie można wybrać jednocześnie klienta detalicznego i hurtowego");
-            return "register";
-        }
 
-        // Ustawienie wartości logicznych w zależności od wyboru użytkownika
-        if (userDto.isCzyKlientDetaliczny()) {
-            userDto.setCzyKlientHurtowy(false);
-        } else if (userDto.isCzyKlientHurtowy()) {
-            userDto.setCzyKlientDetaliczny(false);
-        }
+        userDto.setCzyKlientDetaliczny(true);
+        userDto.setCzyKlientHurtowy(false);
+        userDto.setNazwaFirmy(null);
 
         Uzytkownik uzytkownik = uzytkownikService.saveUser(userDto);
         model.addAttribute("message", "Zostałeś zarejestrowany");
         return "register";
+    }
+
+    @GetMapping("/registration-wholesale")
+    public String getRegistrationWholesale(Model model){
+        model.addAttribute("userDto", new UserDto());
+        return "register-wholesale";
+    }
+
+    @PostMapping("/registration-wholesale")
+    public String saveUserWholesale(@ModelAttribute("userDto") UserDto userDto, Model model){
+
+        userDto.setCzyKlientDetaliczny(false);
+        userDto.setCzyKlientHurtowy(true);
+        userDto.setImie(null);
+        userDto.setNazwisko(null);
+
+        Uzytkownik uzytkownik = uzytkownikService.saveUser(userDto);
+        model.addAttribute("message", "Zostałeś zarejestrowany");
+        return "register-wholesale";
     }
 
     @GetMapping("/user")

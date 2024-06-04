@@ -10,6 +10,8 @@ public class UserDto {
 
     private String nazwisko;
 
+    private String nazwaFirmy;
+
     private String haslo;
 
     private String telefon;
@@ -26,6 +28,7 @@ public class UserDto {
                    String email,
                    String imie,
                    String nazwisko,
+                   String nazwaFirmy,
                    String haslo,
                    String telefon,
                    boolean czyKlientDetaliczny,
@@ -34,6 +37,7 @@ public class UserDto {
         this.email = email;
         this.imie = imie;
         this.nazwisko = nazwisko;
+        this.nazwaFirmy = nazwaFirmy;
         this.haslo = haslo;
         this.telefon = telefon;
         this.czyKlientDetaliczny = czyKlientDetaliczny;
@@ -95,5 +99,21 @@ public class UserDto {
 
     public void setCzyKlientHurtowy(boolean czyKlientHurtowy) {
         this.czyKlientHurtowy = czyKlientHurtowy;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNazwaFirmy() {
+        return nazwaFirmy;
+    }
+
+    public void setNazwaFirmy(String nazwaFirmy) {
+        this.nazwaFirmy = nazwaFirmy;
     }
 }
