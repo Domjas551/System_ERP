@@ -4,11 +4,125 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="Poprawniona rejestracja dla klienta hurtowego">
-      <change beforePath="$PROJECT_DIR$/target/MagazynManagement-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/MagazynManagement-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MagazynManagement-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/MagazynManagement-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.MagazynManagement.MagazynManagementApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.MagazynManagement.MagazynManagementApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.MagazynManagement.MagazynManagementApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.MagazynManagement.MagazynManagementApplicationTests.txt" afterDir="false" />
+    <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="las minute">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2024_14_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2024_14_41__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_06_2024_16_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_06_2024_16_05__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_18_05__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MagazynManagement.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/WysylkaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/WysylkaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/komunikaty.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/komunikaty.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/oferta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/placowki.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/MagazynManagementApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/MagazynManagementApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/configuration/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/AdministratorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ErrorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KierowcaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KierowcaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KlientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KlientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KontoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KontoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KoordynatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KoordynatorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KoszykController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KoszykController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/MagazynController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/MagazynController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/MagazynierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/MagazynierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/MaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/MaterialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/OfertaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/OfertaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/PracownikController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/PracownikController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ProducentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ProducentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/StanMagazynuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/StanMagazynuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/TowarMagazynController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/TowarMagazynController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/UzytkownikCotroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/UzytkownikCotroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/WysylkaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/WysylkaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ZadanieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ZadanieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ZamowienieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ZamowienieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ZaopatrzenieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/ZaopatrzenieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/DostawaDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/DostawaDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/KlientDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/KlientDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/MaterialDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/MaterialDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/PracownikDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/PracownikDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/ProducentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/ProducentDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/RozpiskaDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/RozpiskaDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/SektorDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/SektorDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/TowarDostawaDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/TowarDostawaDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/TowarDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/TowarDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/TowarMagazynDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/TowarMagazynDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/WysylkaDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/WysylkaDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/ZaopatrzenieDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/dto/ZaopatrzenieDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/AdresDostawy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/AdresDostawy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/CustomUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/CustomUserDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Dostawa.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Dostawa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Klient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Klient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Komunikat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Komunikat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Konto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Konto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Magazyn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Magazyn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Material.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Material.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/PozycjaKoszyka.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/PozycjaKoszyka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/PozycjaOferty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/PozycjaOferty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Pracownik.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Pracownik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Rozpiska.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Rozpiska.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/SamochodDostawczy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/SamochodDostawczy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Sektor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Sektor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/SkladZamowienia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/SkladZamowienia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/SkladZamowieniaId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/SkladZamowieniaId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/StanMagazynowSesja.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/StanMagazynowSesja.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/StanMagazynu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/StanMagazynu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/StanMagazynuId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/StanMagazynuId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Towar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Towar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/TowarMagazyn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/TowarMagazyn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/TowarWysylka.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/TowarWysylka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Uzytkownik.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Uzytkownik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Wysylka.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Wysylka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/WysylkaView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/WysylkaView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Zadanie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Zadanie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Zamowienie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Zamowienie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Zaopatrzenie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/entity/Zaopatrzenie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/DostawaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/DostawaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/KlientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/KlientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/KomunikatRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/KomunikatRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/KontoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/KontoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/MagazynRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/MagazynRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/MaterialRepozytory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/MaterialRepozytory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/PozycjaOfertyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/PozycjaOfertyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/PracownikRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/PracownikRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/RozpiskaRepozytory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/RozpiskaRepozytory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/SamochodDostawczyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/SamochodDostawczyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/SektorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/SektorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/SkladZamowieniaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/SkladZamowieniaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/StanMagazynuRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/StanMagazynuRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/TowarMagazynRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/TowarMagazynRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/TowarRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/TowarRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/TowarWysylkaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/TowarWysylkaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/UzytkownikRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/UzytkownikRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/WysylkaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/WysylkaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/ZadanieRepozytory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/ZadanieRepozytory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/ZamowienieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/ZamowienieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/ZaopatrzenieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/repository/ZaopatrzenieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/CustomSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/CustomSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/CustomUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/DostawaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/DostawaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/KlientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/KlientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/KomunikatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/KomunikatService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/KontoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/KontoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/MagazynService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/MagazynService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/MaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/MaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/PozycjaOfertyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/PozycjaOfertyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/PracownikService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/PracownikService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/RozpiskaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/RozpiskaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/SkladZamowieniaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/SkladZamowieniaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/StanMagazynuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/StanMagazynuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/TowarMagazynService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/TowarMagazynService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/TowarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/TowarService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/TowarWysylkaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/TowarWysylkaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/UzytkownikService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/UzytkownikService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/WysylkaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/WysylkaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/ZadanieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/ZadanieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/ZamowienieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/ZamowienieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/ZaopatrzenieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/service/ZaopatrzenieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/komunikaty.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/komunikaty.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/placowki.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/placowki.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +221,20 @@
       <recent name="C:\Users\kass\Desktop\MagazynManagementv6\src\main\java\com\MagazynManagement\dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MyTests">
+  <component name="RunManager" selected="Application.MagazynManagementApplication">
+    <configuration name="MagazynManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MagazynManagementApplication" />
+      <module name="MagazynManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.MagazynManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MagazynManagement" />
       <extension name="coverage">
@@ -134,22 +261,6 @@
       <option name="PACKAGE_NAME" value="com.MagazynManagement" />
       <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
       <option name="METHOD_NAME" value="testDodajWysylke" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyTests.testPobierzOferte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MagazynManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.MagazynManagement.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.MagazynManagement" />
-      <option name="MAIN_CLASS_NAME" value="com.MagazynManagement.MyTests" />
-      <option name="METHOD_NAME" value="testPobierzOferte" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +308,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MagazynManagementApplication" />
         <item itemvalue="JUnit.MyTests" />
         <item itemvalue="JUnit.MyTests.testUpdateZadanie" />
         <item itemvalue="JUnit.MyTests.testDodajWysylke" />
         <item itemvalue="JUnit.MyTests.testPobierzTowarMagazynDlaMagazynu" />
-        <item itemvalue="JUnit.MyTests.testPobierzOferte" />
       </list>
     </recent_temporary>
   </component>
@@ -415,7 +526,8 @@
     <MESSAGE value="Patch: Przy tworzeniu nowego towaru jest on dodawany do wszystkich magazynów z początkową max ilością równą 0" />
     <MESSAGE value="plik do egzekucji" />
     <MESSAGE value="Poprawniona rejestracja dla klienta hurtowego" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawniona rejestracja dla klienta hurtowego" />
+    <MESSAGE value="las minute" />
+    <option name="LAST_COMMIT_MESSAGE" value="las minute" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

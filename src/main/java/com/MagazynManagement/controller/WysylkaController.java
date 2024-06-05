@@ -82,7 +82,7 @@ public class WysylkaController {
         przypisano = 1;
         Wysylka w = wysylkaService.getById(wysylka.getId_wysylki());
         w.setId_kierowcy(wysylka.getId_kierowcy());
-        w.setStatus("niezrealizowana");
+        w.setStatus("oczekujaca");
         wysylkaService.update(w);
         return "redirect:/koordynator/wysylkaDetails/"+wysylka.getId_wysylki();
     }
