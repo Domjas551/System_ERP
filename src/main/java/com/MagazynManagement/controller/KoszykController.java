@@ -54,7 +54,14 @@ public class KoszykController {
         if(towar != null){
             PozycjaKoszyka istniejacaPozycja = znajdzPozycjeWKoszyku(towar, koszyk);
             if(istniejacaPozycja != null){
-                istniejacaPozycja.setIlosc(istniejacaPozycja.getIlosc() + ilosc); //Jeśli wybrany towar jest już w koszyku, zwiększamy jego ilość zamiast dodawać nową pozycję
+                if(istniejacaPozycja.getIlosc() + ilosc==0)
+                {
+                    koszyk.remove(istniejacaPozycja);
+                }
+                else
+                {
+                    istniejacaPozycja.setIlosc(istniejacaPozycja.getIlosc() + ilosc); //Jeśli wybrany towar jest już w koszyku, zwiększamy jego ilość zamiast dodawać nową pozycję
+                }
             } else {
                 PozycjaKoszyka nowaPozycja = new PozycjaKoszyka(towar, ilosc);
                 koszyk.add(nowaPozycja); //Jeśli wybranego towaru nie ma jeszcze w koszyku, dodajemy go jako nową pozycję
