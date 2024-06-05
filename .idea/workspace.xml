@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c2a5ec52-5389-4410-b47c-6388dacc8220" name="Changes" comment="las minute">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/MagazynManagement/controller/KoszykController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KoszykController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/MagazynManagement/controller/KoszykController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/oferta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hurtownia.sql" beforeDir="false" afterPath="$PROJECT_DIR$/hurtownia.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
