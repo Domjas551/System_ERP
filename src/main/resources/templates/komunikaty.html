@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Komunikaty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2 class="my-4">Wszystkie Komunikaty</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID Komunikatu</th>
+            <th>Email Nadawcy</th>
+            <th>Email Odbiorcy</th>
+            <th>Treść</th>
+            <th>Czy Odczytano</th>
+            <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="komunikat : ${komunikaty}">
+            <td th:text="${komunikat.idKomunikatu}"></td>
+            <td th:text="${userEmails[komunikat.idNadawcy]}"></td>
+            <td th:text="${userEmails[komunikat.idOdbiorcy]}"></td>
+            <td th:text="${komunikat.tresc}"></td>
+            <td th:text="${komunikat.czyOdczytano == 1 ? 'Tak' : 'Nie'}"></td>
+            <td th:text="${komunikat.data}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

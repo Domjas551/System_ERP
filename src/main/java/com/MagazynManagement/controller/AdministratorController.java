@@ -1,9 +1,12 @@
 package com.MagazynManagement.controller;
 
 import com.MagazynManagement.dto.PracownikDto;
+import com.MagazynManagement.entity.Komunikat;
 import com.MagazynManagement.entity.TowarWysylka;
 import com.MagazynManagement.entity.Uzytkownik;
 import com.MagazynManagement.entity.Wysylka;
+import com.MagazynManagement.repository.KomunikatRepository;
+import com.MagazynManagement.repository.UzytkownikRepository;
 import com.MagazynManagement.service.TowarWysylkaService;
 import com.MagazynManagement.service.UzytkownikService;
 import com.MagazynManagement.service.WysylkaService;
@@ -18,9 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,6 +35,10 @@ public class AdministratorController {
     private final WysylkaService wysylkaService;
 
     private final TowarWysylkaService towarWysylkaService;
+
+    private final KomunikatRepository komunikatRepository;
+
+    private final UzytkownikRepository uzytkownikRepository;
 
 
     @GetMapping("/admin")
@@ -189,5 +194,27 @@ public class AdministratorController {
         }
 
         return "redirect:/admin";
+    }
+
+
+    @GetMapping("/admin/komunikaty")
+    public String showAllKomunikaty(Model model){
+        List<Komunikat> komunikaty = komunikatRepository.findAll();
+
+        Map<Long, String> userEmails = new HashMap<>();
+        for (Komunikat komunikat : komunikaty) {
+            if (!userEmails.containsKey(komunikat.getIdNadawcy())) {
+                Uzytkownik nadawca = uzytkownikRepository.findById(komunikat.getIdNadawcy()).orElse(null);
+                userEmails.put(komunikat.getIdNadawcy(), nadawca != null ? nadawca.getEmail() : "Nieznany");
+            }
+            if (!userEmails.containsKey(komunikat.getIdOdbiorcy())) {
+                Uzytkownik odbiorca = uzytkownikRepository.findById(komunikat.getIdOdbiorcy()).orElse(null);
+                userEmails.put(komunikat.getIdOdbiorcy(), odbiorca != null ? odbiorca.getEmail() : "Nieznany");
+            }
+        }
+
+        model.addAttribute("komunikaty", komunikaty);
+        model.addAttribute("userEmails", userEmails);
+        return "komunikaty";
     }
 }
